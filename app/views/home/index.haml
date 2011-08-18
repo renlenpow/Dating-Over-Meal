@@ -1,0 +1,12 @@
+- @title_for_layout = "Home"
+- @body_id = "home"
+
+%header
+  = image_tag "home_header.png"
+
+#collage
+  #cta
+    = link_to "Sign up", new_user_registration_path, :id => :signup
+    = link_to "Take a tour", tour_path, :id => :take_a_tour
+
+%footer

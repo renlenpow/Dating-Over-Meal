@@ -1,9 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.1.0.rc5'
 
 gem 'mysql2'
 
@@ -13,6 +10,7 @@ gem 'coffee-script'
 gem 'uglifier'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
+gem 'haml', :git => 'git://github.com/nex3/haml.git'
 
 gem 'jquery-rails'
 
@@ -25,8 +23,12 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem 'execjs'
+gem 'therubyracer'
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'spork'
   gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
 end
