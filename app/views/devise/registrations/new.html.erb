@@ -1,18 +1,42 @@
-<h2>Sign up</h2>
+<%
+@title_for_layout = "Sign up"
+@body_id = "signup"
+%>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="devise_form">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <h2>Sign up for Dating Over Meal</h2>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    
+    <div class="form_row">
+      <%= f.text_field :firstname, :class => :textbox, :placeholder => "First name" %>
+    </div>
+    
+    <div class="form_row">
+      <%= f.text_field :lastname, :class => :textbox, :placeholder => "Last name" %>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div class="form_row">
+      <%= f.email_field :email, :class => :textbox, :placeholder => "Email address" %>
+    </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <div class="form_row">
+      <%= f.password_field :password, :class => :textbox, :placeholder => "Password" %>
+    </div>
 
-<%= render :partial => "devise/shared/links" %>
+    <div class="form_row">
+      <%= f.password_field :password_confirmation, :class => :textbox, :placeholder => "Password confirmation" %>
+    </div>
+
+    <div class="form_row">
+      <%= f.submit "Create account", :class => "button green" %>
+    </div>
+  <% end %>
+  
+  <footer>
+    Already have an account? <%= link_to "Sign in here", new_user_session_path %>
+  </footer>
+
+</div>
