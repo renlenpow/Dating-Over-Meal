@@ -6,6 +6,8 @@ DatingOverMeal::Application.routes.draw do
   
   match '/dashboard' => 'dashboard#index', :as => :dashboard
   
+  resources :profiles
+  
   root :to => "home#index"
 
 end

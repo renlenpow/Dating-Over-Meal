@@ -2,3 +2,24 @@
 - @body_id = "dashboard"
 
 = render :partial => "shared/header"
+
+%h1 Dashboard
+
+#stage
+  #left
+    #picture
+      #frame
+        = image_tag current_user.gravatar_url
+  
+  #right
+    .box#thoughts
+      %h2 What's on your mind?
+      %input{:type => :text, :class => :textbox, :id => :thoughts_box}
+      %input{:type => :button, :class => "button blue", :value => "Share"}
+    
+    .box#profile
+      %h2#profile_name #{@profile.firstname} #{@profile.lastname}
+    
+      = link_to "Edit profile", edit_profile_path(current_user), :id => :edit_profile
+    
+  .clearfloat

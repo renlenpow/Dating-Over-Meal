@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   
   after_create :create_user_profile
   
+  include Gravtastic
+  gravtastic
+  
   private
   
   def create_user_profile
