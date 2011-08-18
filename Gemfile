@@ -11,6 +11,8 @@ gem 'sqlite3'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
 
 gem 'jquery-rails'
 
@@ -26,4 +28,5 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
 end
