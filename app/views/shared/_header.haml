@@ -1,0 +1,17 @@
+- profile = current_user.profile
+
+%header#auth_header
+  - if user_signed_in?
+  
+    #logo
+      = link_to root_path do
+        = image_tag "logo.png"
+      
+    #nav
+      %ul
+        %li
+          Hi #{profile.firstname} #{profile.lastname}!
+        %li
+          = link_to "Dashboard", dashboard_path
+        %li
+          = link_to "Sign out", destroy_user_session_path

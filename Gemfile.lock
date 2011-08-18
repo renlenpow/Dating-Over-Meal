@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/chrislloyd/gravtastic.git
+  revision: 2b2252c0aee98854d94f040d88a9f70c1da3097d
+  specs:
+    gravtastic (3.2.6)
+
+GIT
   remote: git://github.com/nex3/haml.git
   revision: 8e77ab6ff6c14b793b2fd348c8a3211927428b14
   specs:
@@ -150,6 +156,7 @@ DEPENDENCIES
   coffee-script
   devise!
   execjs
+  gravtastic!
   haml!
   jquery-rails
   mysql2

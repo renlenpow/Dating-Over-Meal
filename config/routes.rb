@@ -4,6 +4,8 @@ DatingOverMeal::Application.routes.draw do
   
   match '/tour' => 'tour#index', :as => :tour
   
+  match '/dashboard' => 'dashboard#index', :as => :dashboard
+  
   root :to => "home#index"
 
 end

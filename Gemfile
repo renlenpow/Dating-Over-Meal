@@ -11,6 +11,7 @@ gem 'uglifier'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
 gem 'haml', :git => 'git://github.com/nex3/haml.git'
+gem 'gravtastic', :git => 'git://github.com/chrislloyd/gravtastic.git'
 
 gem 'jquery-rails'
 
