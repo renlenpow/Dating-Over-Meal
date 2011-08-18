@@ -12,6 +12,7 @@
         = image_tag current_user.gravatar_url
       %h3 #{@profile.firstname} #{@profile.lastname}
       = link_to "Edit profile", edit_profile_path(current_user)
+      = link_to "View profile", profile_path(current_user)
   
   #right
     .box#thoughts

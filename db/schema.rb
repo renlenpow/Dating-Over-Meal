@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,13 +17,19 @@ ActiveRecord::Schema.define(:version => 20110818165008) do
     t.integer  "user_id"
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "current_city"
+    t.string   "home_tow"
     t.string   "phone_number"
     t.text     "description"
     t.string   "gender"
     t.string   "birthday"
+    t.string   "occupation"
     t.string   "school"
     t.string   "company"
-    t.string   "location"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "flickr"
+    t.string   "linkedin"
     t.text     "languages"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,0 +1,50 @@
+- @title_for_layout = "Edit Profile"
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+#stage
+  #left
+    .box
+      Information
+      
+  #right
+    .box#profile_information
+      = form_for @profile, :remote => true do |f|
+        .form_row
+          = f.label :firstname
+          = f.text_field :firstname, :class => :textbox
+          
+        .form_row
+          = f.label :lastname
+          = f.text_field :lastname, :class => :textbox
+          
+        .form_row
+          = f.label :gender
+          = f.select :gender, options_for_select(["", "male", "female"], @profile.gender), :allow_blank => true
+          
+        .form_row
+          = f.label :birthday
+          = f.text_field :birthday, :class => :textbox
+        
+        .form_row
+          = f.label :description, "About me"
+          = f.text_area :description, :class => :textbox, :rows => 2
+          
+        .form_row
+          = f.label :occupation
+          = f.text_field :occupation, :class => :textbox
+          
+        .form_row
+          = f.label :school
+          = f.text_field :school, :class => :textbox
+          
+        .form_row
+          = f.label :company
+          = f.text_field :company, :class => :textbox
+                
+        .form_row
+          = f.submit :value => "Update", :class => "button green"
+  
+  .clearfloat

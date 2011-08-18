@@ -22,13 +22,14 @@ header {
   border: 1px solid #999999;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 0 3px 10px #333;
-  margin: 30px auto 50px;
+  margin: 160px auto 50px;
   padding: 30px;
   width: 540px;
   
   .textbox {
     width:522px;
     color:#888;
+    padding:9px;
   }
   
   .button {
@@ -38,7 +39,7 @@ header {
 }
 
 .form_row {
-  margin:20px 0;
+  margin:15px 0;
   label {
     display:block;
     margin-bottom:10px;
@@ -52,8 +53,9 @@ header {
   border-width: 1px;
   box-shadow: 0 1px 1px #ccc inset;
   color: #242424;
-  font-size: 16px;
-  padding: 10px 7px;
+  font-size: 14px;
+  padding:5px;
+  font-family:arial;
 }
 
 .button {
@@ -321,8 +323,8 @@ header {
   }
 }
 
-footer {
-  background:#222; color:#fff; text-align:center; padding:10px;
+#footer {
+  background:#222; color:#fff; text-align:center; padding:10px; margin-top:20px;
 }
 
 #signup, #login {
@@ -384,19 +386,28 @@ footer {
   #right {
     float:left;
     width:640px;
-    .box {
-      position:relative;
-      background:#fff;
-      border-radius:6px;
-      padding:15px;
-      box-shadow:0 1px 6px #bbb;
-      margin-bottom:20px;
-      h2 {
-        color:#74a106;
-        margin-bottom:10px;
-      }
-    }
+  }
+}
+
+.box {
+  position:relative;
+  background:#fff;
+  border-radius:6px;
+  padding:15px;
+  box-shadow:0 1px 6px #bbb;
+  margin-bottom:20px;
+  h2 {
+    color:#74a106;
+    margin-bottom:10px;
   }
 }
 
 #thoughts_box {width:590px}
+
+#profile_information {
+  padding:0;
+  .form_row {
+    margin:0; padding:15px; border-bottom:1px solid #ddd;
+    label {font-weight:bold}
+  }
+}
