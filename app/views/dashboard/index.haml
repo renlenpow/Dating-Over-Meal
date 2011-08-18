@@ -10,16 +10,22 @@
     #picture
       #frame
         = image_tag current_user.gravatar_url
+      %h3 #{@profile.firstname} #{@profile.lastname}
+      = link_to "Edit profile", edit_profile_path(current_user)
   
   #right
     .box#thoughts
       %h2 What's on your mind?
       %input{:type => :text, :class => :textbox, :id => :thoughts_box}
       %input{:type => :button, :class => "button blue", :value => "Share"}
-    
-    .box#profile
-      %h2#profile_name #{@profile.firstname} #{@profile.lastname}
-    
-      = link_to "Edit profile", edit_profile_path(current_user), :id => :edit_profile
+      
+    .box#dates
+      %h2 Your dates
+      
+    .box#messages
+      %h2 Messages (0)
+      
+    .box#account_settings
+      %h2 Account settings
     
   .clearfloat

@@ -319,10 +319,10 @@ header {
       color:#fff;
     }
   }
-  
-  footer {
-    background:#222; color:#fff; text-align:center; padding:10px;
-  }
+}
+
+footer {
+  background:#222; color:#fff; text-align:center; padding:10px;
 }
 
 #signup, #login {
@@ -359,10 +359,10 @@ header {
 }
 
 #stage {
-  border-radius:10px;
+  border-radius:6px;
   background:#fbfaf2;
   padding:20px;
-  margin-top:20px;
+  margin:20px 0;
   box-shadow:0 0px 5px #aaa inset;
   
   #left {
@@ -392,6 +392,7 @@ header {
       box-shadow:0 1px 6px #bbb;
       margin-bottom:20px;
       h2 {
+        color:#74a106;
         margin-bottom:10px;
       }
     }
@@ -399,9 +400,3 @@ header {
 }
 
 #thoughts_box {width:590px}
-
-#edit_profile {
-  position:absolute;
-  top:18px;
-  right:15px;
-}
