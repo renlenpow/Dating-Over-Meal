@@ -365,11 +365,11 @@ textarea {height:70px}
 }
 
 #stage {
-  border-radius:6px;
+  border-radius:4px;
   background:#fbfaf2;
   padding:20px;
   margin:20px 0;
-  box-shadow:0 0px 5px #aaa inset;
+  box-shadow:0 0px 3px #aaa inset;
   
   #left {
     float:left;
@@ -396,7 +396,7 @@ textarea {height:70px}
 .box {
   position:relative;
   background:#fff;
-  border-radius:6px;
+  border-radius:4px;
   padding:15px;
   box-shadow:0 1px 6px #bbb;
   margin-bottom:20px;
@@ -426,4 +426,10 @@ textarea {height:70px}
     list-style:none;
     li {margin:8px 0}
   }
+}
+
+#follow_user, #following_indicator {
+  display:block;
+  width:100px;
+  margin:10px auto 0;
 }

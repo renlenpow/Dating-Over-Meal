@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_one :profile, :dependent => :destroy
-  has_many :activities, :dependent => :destroy
-  has_many :thoughts, :dependent => :destroy
+  has_one   :profile, :dependent => :destroy
+  has_many  :activities, :dependent => :destroy
+  has_many  :thoughts, :dependent => :destroy
+  has_many  :relationships, :foreign_key => "follower_id", :dependent => :destroy
+  has_many  :following, :through => :relationships, :source => :followed
 
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
@@ -26,6 +28,14 @@ class User < ActiveRecord::Base
   
   def recent_thoughts
     self.thoughts.order("created_at DESC").limit(5)
+  end
+  
+  def following?(followed)
+    self.relationships.find_by_followed_id(followed)
+  end
+  
+  def follow!(followed)
+    self.relationships.create(:followed_id => followed.id)
   end
   
   private

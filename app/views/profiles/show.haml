@@ -9,9 +9,15 @@
   #left
     #picture
       #frame
-        = image_tag current_user.gravatar_url
+        = image_tag @user.gravatar_url
         
       Member since #{@profile.created_at.strftime("%b, %Y")}
+      
+    - unless current_user.id == @user.id
+      - unless current_user.following?(@user)
+        %span{:id => :follow_user, :class => "button white", :followed_id => @user.id} Follow this user
+      - else
+        %span{:id => :following_indicator, :class => "button green", :followed_id => @user.id} Following
         
   #right
     .box#profile_details
@@ -21,41 +27,39 @@
         - location << @profile.city unless @profile.city.blank?
         - location << @profile.state unless @profile.state.blank?
         - location << Carmen.country_name(@profile.country) unless @profile.country.blank?
+        - unless location.join(", ").blank?
+          %li 
+            %b Location: 
+            #{location.join(", ")}
         %li 
-          %strong Location: 
-          %p #{location.join(", ")}
-        %li 
-          %strong Phone Number: 
-          %p #{@profile.phone_number.blank? ? "N/A" : @profile.phone_number}
+          %b Phone Number: 
+          #{@profile.phone_number.blank? ? "N/A" : @profile.phone_number}
         
         - unless @profile.birth_day.blank? or @profile.birth_month.blank? or @profile.birth_year.blank?
           %li 
-            %strong Birthday: 
-            %p #{@profile.birth_month} #{@profile.birth_day}, #{@profile.birth_year}
+            %b Birthday: #{@profile.birth_month} #{@profile.birth_day}, #{@profile.birth_year}
             
         %li
-          %strong Occupation
-          %p #{@profile.occupation.blank? ? "N/A" : @profile.occupation}
+          %b Occupation: 
+          #{@profile.occupation.blank? ? "N/A" : @profile.occupation}
           
         - unless @profile.school.blank?
           %li
-            %strong School
-            %p #{@profile.school.blank? ? "N/A" : @profile.school}
+            %b School #{@profile.school.blank? ? "N/A" : @profile.school}
             
         - unless @profile.company.blank?
           %li
-            %strong Company
-            %p #{@profile.company.blank? ? "N/A" : @profile.company}
+            %b Company #{@profile.company.blank? ? "N/A" : @profile.company}
         
         %li 
-          %strong Languages: 
-          %p #{@profile.languages.blank? ? "N/A" : @profile.languages}
+          %b Languages: 
+          #{@profile.languages.blank? ? "N/A" : @profile.languages}
         %li 
-          %strong Hobbies: 
-          %p #{@profile.hobbies.blank? ? "N/A" : @profile.hobbies}
+          %b Hobbies: 
+          #{@profile.hobbies.blank? ? "N/A" : @profile.hobbies}
         %li 
-          %strong About me: 
-          %p #{@profile.description.blank? ? "N/A" : @profile.description}
+          %b About me: 
+          #{@profile.description.blank? ? "N/A" : @profile.description}
           
     .box#thoughts
       %h2 What's on #{@profile.firstname}'s mind
