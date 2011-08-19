@@ -59,6 +59,11 @@
           
     .box#profile_recent_activities
       %h2 Recent activity
+      
+      %ul
+        - @recent_activities.each do |activity|
+          %li #{activity.activity_description} - #{activity.created_at.strftime("%b %d, %Y")}
+      
   
   .clearfloat
     

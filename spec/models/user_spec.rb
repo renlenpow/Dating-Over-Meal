@@ -16,4 +16,15 @@ describe User do
     user.save!
   end
   
+  it "should have an initial join activity" do
+    user = User.new(:firstname => "First", :lastname => "Last", :email => "user@email.com", :password => "password")
+    user.save!
+    user.activities.size.should == 1
+  end
+  
+  it "should have many activities" do
+    u = User.reflect_on_association(:activities)
+    u.macro.should == :has_many
+  end
+  
 end

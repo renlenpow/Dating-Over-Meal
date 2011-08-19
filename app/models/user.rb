@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_one :profile, :dependent => :destroy
+  has_many :activities, :dependent => :destroy
 
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
@@ -13,14 +14,23 @@ class User < ActiveRecord::Base
   validates_presence_of :firstname, :lastname
   
   after_create :create_user_profile
+  after_create :log_registration_activity
   
   include Gravtastic
   gravtastic
+  
+  def recent_activities
+    self.activities.order("created_at DESC").limit(50)
+  end
   
   private
   
   def create_user_profile
     self.create_profile(:firstname => firstname, :lastname => lastname)
+  end
+  
+  def log_registration_activity
+    self.activities << Activity.create(:activity_name => "join", :activity_description => "#{self.firstname} joined Dating Over Meal")
   end
   
 end

@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_filter :load_profile
   
   def show
-    
+    @recent_activities = @profile.user.recent_activities
   end
   
   def edit
