@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   has_one :profile, :dependent => :destroy
   has_many :activities, :dependent => :destroy
+  has_many :thoughts, :dependent => :destroy
 
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
@@ -21,6 +22,10 @@ class User < ActiveRecord::Base
   
   def recent_activities
     self.activities.order("created_at DESC").limit(50)
+  end
+  
+  def recent_thoughts
+    self.thoughts.order("created_at DESC").limit(5)
   end
   
   private

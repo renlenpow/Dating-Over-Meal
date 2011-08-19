@@ -27,4 +27,9 @@ describe User do
     u.macro.should == :has_many
   end
   
+  it "should have many thoughts" do
+    u = User.reflect_on_association(:thoughts)
+    u.macro.should == :has_many
+  end
+  
 end

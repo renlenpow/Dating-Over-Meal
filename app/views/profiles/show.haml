@@ -57,6 +57,16 @@
           %strong About me: 
           %p #{@profile.description.blank? ? "N/A" : @profile.description}
           
+    .box#thoughts
+      %h2 What's on #{@profile.firstname}'s mind
+      
+      - if @recent_thoughts.size > 0
+        %ul
+          - @recent_thoughts.each do |thought|
+            %li= thought.description
+      - else
+        %p #{@profile.firstname} has not shared any thought yet
+          
     .box#profile_recent_activities
       %h2 Recent activity
       

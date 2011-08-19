@@ -17,8 +17,9 @@
   #right
     .box#thoughts
       %h2 What's on your mind?
-      %input{:type => :text, :class => :textbox, :id => :thoughts_box}
-      %input{:type => :button, :class => "button blue", :value => "Share"}
+      = form_for @thought, :remote => true do |f|
+        = f.text_area :description, :class => :textbox, :id => :thoughts_box
+        = f.submit :value => "Share", :class => "button blue", :id => "share_thought"
       
     .box#dates
       %h2 Your dates
