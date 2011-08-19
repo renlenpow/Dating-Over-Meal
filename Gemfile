@@ -34,3 +34,8 @@ group :test do
   gem 'spork'
   gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
 end
+
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this too
+  gem 'pg'
+end
