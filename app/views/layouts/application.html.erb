@@ -4,6 +4,7 @@
   <title><%= @title_for_layout %> - Dating Over Meal</title>
   <%= stylesheet_link_tag    "master" %>
   <%= javascript_include_tag "application" %>
+  <%= yield :head %>
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= @body_id %>">

@@ -1,4 +1,5 @@
 - @title_for_layout = "Edit Profile"
+- @body_id = "profile"
 
 = render :partial => "shared/header"
 
@@ -6,12 +7,15 @@
 
 #stage
   #left
-    .box
-      Information
+    #picture
+      #frame
+        = image_tag current_user.gravatar_url
+        
+    = link_to "View Profile", profile_path(current_user)
       
   #right
     .box#profile_information
-      = form_for @profile, :remote => true do |f|
+      = form_for @profile, :remote => true, :html => {:id => :profile_information_form} do |f|
         .form_row
           = f.label :firstname
           = f.text_field :firstname, :class => :textbox
@@ -22,15 +26,30 @@
           
         .form_row
           = f.label :gender
-          = f.select :gender, options_for_select(["", "male", "female"], @profile.gender), :allow_blank => true
+          = f.select :gender, options_for_select(["male", "female"], @profile.gender), :include_blank => true
           
         .form_row
-          = f.label :birthday
-          = f.text_field :birthday, :class => :textbox
+          %label Birthday
+          = f.select :birth_month, options_for_select(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], @profile.birth_month), :include_blank => true
+          = f.select :birth_day, options_for_select(1..31, @profile.birth_day.to_i), :include_blank => true
+          = f.select :birth_year, options_for_select(1993.downto(1905), @profile.birth_year.to_i), :include_blank => true
+          
+        
+        .form_row
+          = f.label :city
+          = f.text_field :city, :class => :textbox
+          
+        .form_row
+          = f.label :state
+          = f.text_field :state, :class => :textbox
+          
+        .form_row
+          = f.label :country
+          = f.select :country, options_for_select(Carmen.countries, @profile.country), :include_blank => true
         
         .form_row
           = f.label :description, "About me"
-          = f.text_area :description, :class => :textbox, :rows => 2
+          = f.text_area :description, :class => :textbox
           
         .form_row
           = f.label :occupation
@@ -43,8 +62,39 @@
         .form_row
           = f.label :company
           = f.text_field :company, :class => :textbox
+          
+        .form_row
+          = f.label :website
+          = f.text_field :website, :class => :textbox
+          
+        .form_row
+          = f.label :facebook
+          = f.text_field :facebook, :class => :textbox
+          
+        .form_row
+          = f.label :twitter
+          = f.text_field :twitter, :class => :textbox
+          
+        .form_row
+          = f.label :flickr
+          = f.text_field :flickr, :class => :textbox
+         
+        .form_row
+          = f.label :linkedin
+          = f.text_field :linkedin, :class => :textbox
+        
+        .form_row
+          = f.label :languages
+          = f.text_area :languages, :class => :textbox
+          
+        .form_row
+          = f.label :hobbies
+          = f.text_area :hobbies, :class => :textbox
                 
         .form_row
-          = f.submit :value => "Update", :class => "button green"
+          = f.submit :value => "Update", :class => "button green", :id => :update_profile
   
   .clearfloat
+  
+- content_for :head do
+  = javascript_include_tag :profiles

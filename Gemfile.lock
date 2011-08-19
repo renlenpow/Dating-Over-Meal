@@ -5,6 +5,12 @@ GIT
     gravtastic (3.2.6)
 
 GIT
+  remote: git://github.com/jim/carmen.git
+  revision: 9dfe06f87cba6905aaa6c5b3e4b75c00743ef92f
+  specs:
+    carmen (0.2.7)
+
+GIT
   remote: git://github.com/nex3/haml.git
   revision: 8e77ab6ff6c14b793b2fd348c8a3211927428b14
   specs:
@@ -152,6 +158,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  carmen!
   coffee-script
   devise!
   execjs

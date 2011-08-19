@@ -17,6 +17,8 @@ header {
   }
 }
 
+textarea {height:70px}
+
 .devise_form {
   background: #fbfbfb;
   border: 1px solid #999999;
@@ -48,13 +50,13 @@ header {
 
 .textbox {
   border-color: #ccc;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 3px;
   border-style: solid;
   border-width: 1px;
   box-shadow: 0 1px 1px #ccc inset;
   color: #242424;
   font-size: 14px;
-  padding:5px;
+  padding:6px;
   font-family:arial;
 }
 
@@ -409,5 +411,17 @@ header {
   .form_row {
     margin:0; padding:15px; border-bottom:1px solid #ddd;
     label {font-weight:bold}
+  }
+}
+
+#profile_information_form {
+  .textbox {width:594px}
+  select {padding:2px 4px; border:1px solid #aaa}
+}
+
+#profile_details {
+  ul {
+    list-style:none;
+    li {margin:8px 0}
   }
 }

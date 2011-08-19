@@ -1,0 +1,64 @@
+- @title_for_layout = "#{@profile.firstname} #{@profile.lastname}"
+- @body_id = "profile"
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+#stage
+  #left
+    #picture
+      #frame
+        = image_tag current_user.gravatar_url
+        
+      Member since #{@profile.created_at.strftime("%b, %Y")}
+        
+  #right
+    .box#profile_details
+      %h2 Profile
+      %ul
+        - location = []
+        - location << @profile.city unless @profile.city.blank?
+        - location << @profile.state unless @profile.state.blank?
+        - location << Carmen.country_name(@profile.country) unless @profile.country.blank?
+        %li 
+          %strong Location: 
+          %p #{location.join(", ")}
+        %li 
+          %strong Phone Number: 
+          %p #{@profile.phone_number.blank? ? "N/A" : @profile.phone_number}
+        
+        - unless @profile.birth_day.blank? or @profile.birth_month.blank? or @profile.birth_year.blank?
+          %li 
+            %strong Birthday: 
+            %p #{@profile.birth_month} #{@profile.birth_day}, #{@profile.birth_year}
+            
+        %li
+          %strong Occupation
+          %p #{@profile.occupation.blank? ? "N/A" : @profile.occupation}
+          
+        - unless @profile.school.blank?
+          %li
+            %strong School
+            %p #{@profile.school.blank? ? "N/A" : @profile.school}
+            
+        - unless @profile.company.blank?
+          %li
+            %strong Company
+            %p #{@profile.company.blank? ? "N/A" : @profile.company}
+        
+        %li 
+          %strong Languages: 
+          %p #{@profile.languages.blank? ? "N/A" : @profile.languages}
+        %li 
+          %strong Hobbies: 
+          %p #{@profile.hobbies.blank? ? "N/A" : @profile.hobbies}
+        %li 
+          %strong About me: 
+          %p #{@profile.description.blank? ? "N/A" : @profile.description}
+          
+    .box#profile_recent_activities
+      %h2 Recent activity
+  
+  .clearfloat
+    
