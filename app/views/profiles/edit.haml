@@ -33,7 +33,10 @@
           = f.select :birth_month, options_for_select(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], @profile.birth_month), :include_blank => true
           = f.select :birth_day, options_for_select(1..31, @profile.birth_day.to_i), :include_blank => true
           = f.select :birth_year, options_for_select(1993.downto(1905), @profile.birth_year.to_i), :include_blank => true
-          
+        
+        .form_row
+          = f.label :relationship_status
+          = f.select :relationship_status, options_for_select(["Single", "It's complicated", "In an open relationship", "Widowed", "Seperated", "Divorced", "Rather not say"], @profile.relationship_status), :include_blank => true
         
         .form_row
           = f.label :city

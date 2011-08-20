@@ -40,6 +40,10 @@
             %b Birthday: #{@profile.birth_month} #{@profile.birth_day}, #{@profile.birth_year}
             
         %li
+          %b Relationship status:
+          #{@profile.relationship_status.blank? ? "N/A" : @profile.relationship_status}
+            
+        %li
           %b Occupation: 
           #{@profile.occupation.blank? ? "N/A" : @profile.occupation}
           
