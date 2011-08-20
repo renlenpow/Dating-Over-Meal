@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
   has_one   :profile, :dependent => :destroy
   has_many  :activities, :dependent => :destroy
   has_many  :thoughts, :dependent => :destroy
-  has_many  :relationships, :foreign_key => "follower_id", :dependent => :destroy
+  has_many  :relationships, :foreign_key => :follower_id, :dependent => :destroy
   has_many  :following, :through => :relationships, :source => :followed
+  has_many  :messages, :foreign_key => :receiver_id, :dependent => :destroy
 
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname

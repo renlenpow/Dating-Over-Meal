@@ -15,9 +15,12 @@
       
     - unless current_user.id == @user.id
       - unless current_user.following?(@user)
-        %span{:id => :follow_user, :class => "button white", :followed_id => @user.id} Follow this user
+        %span{:id => :follow_user, :class => "button white social_option", :followed_id => @user.id} Follow this user
       - else
-        %span{:id => :following_indicator, :class => "button green", :followed_id => @user.id} Following
+        %span{:id => :following_indicator, :class => "button green social_option", :followed_id => @user.id} Following
+        
+    - unless current_user.id == @user.id
+      %span{:id => :direct_message, :class => "button white social_option", :receiver_id => @user.id} Message this user
         
   #right
     .box#profile_details
@@ -84,4 +87,23 @@
       
   
   .clearfloat
-    
+  
+- @message = Message.new
+#pop_dialog.pop_dialog{:style => "display:none"}
+  %h2.header 
+    New message
+  .content
+    = form_for @message, :remote => true do |f|
+      .form_row
+        = f.label :subject
+        = f.text_field :subject, :class => :textbox
+      .form_row
+        = f.label :content
+        = f.text_area :content, :class => :textbox
+      = f.hidden_field :receiver_id, :value => @user.id
+      = f.hidden_field :sender_id, :value => current_user.id
+      .button_container
+      
+        = f.submit :value => "Send", :class => "button green"
+        
+        %input{:type => :button, :class => "button red", :value => "Cancel", :id => "cancel_message"}

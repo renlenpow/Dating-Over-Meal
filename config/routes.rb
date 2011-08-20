@@ -12,6 +12,8 @@ DatingOverMeal::Application.routes.draw do
   
   resources :thoughts
   
+  resources :messages
+  
   root :to => "home#index"
 
 end

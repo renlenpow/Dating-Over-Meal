@@ -67,12 +67,10 @@ textarea {height:70px}
 	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
 	*display: inline;
 	vertical-align: baseline;
-	margin: 0 2px;
 	outline: none;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	font: 14px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: 4px;
@@ -81,7 +79,8 @@ textarea {height:70px}
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	margin-top:10px;
+	font-weight:bold;
+	font-size:13px;
 }
 .button:hover {
 	text-decoration: none;
@@ -428,8 +427,49 @@ textarea {height:70px}
   }
 }
 
-#follow_user, #following_indicator {
+.social_option {
   display:block;
-  width:100px;
   margin:10px auto 0;
+}
+
+.pop_dialog {
+  background:#fff;
+  width:460px;
+  border-radius:5px;
+  position:absolute;
+  top:160px;
+  left:50%;
+  margin-left:-230px;
+  box-shadow:0 4px 8px 2px #555;
+  z-index:100;
+  
+  .header {
+    border-radius:4px 4px 0 0;
+    background:-moz-linear-gradient(center top , #F12891, #C00D6A) repeat scroll 0 0 transparent;
+    color:#fff;
+    padding:7px 15px;
+  }
+  
+  .content {
+    .form_row {overflow:hidden}
+    label {font-weight:bold;float:left; margin-right:15px; margin-top:6px; width:50px}
+    padding:0 20px 20px;
+    .textbox {width:339px}
+    .button_container {text-align:right}
+  }
+}
+
+#share_thought {margin-top:10px}
+
+#overlay {
+  background:#000;
+  opacity:0.5;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  z-index:90;
 }

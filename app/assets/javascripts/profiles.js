@@ -18,4 +18,34 @@ $(function(){
       }
     })
   })
+  
+  $("#direct_message").click(function(){
+    $("#overlay").fadeIn(function(){
+      $("#pop_dialog").fadeIn()
+    })
+  })
+  
+  $("#cancel_message").click(function(){
+    $("#pop_dialog").fadeOut(function(){
+      $("#overlay").fadeOut()
+    })
+  })
+  
+  $("#new_message").bind("ajax:success", function(evt, data, status, xhr){
+    if (data.success == 1) {
+      alert("Your message has been sent")
+      $("#message_subject").val("")
+      $("#message_content").val("")
+      $("#cancel_message").trigger("click")
+    } else {
+      if (data.errors) {
+        var errors = ""
+        for (err in data.errors) {
+          errors += err + " " + data.errors[err]
+        }
+        alert(errors)
+      }
+    }
+  })
+  
 })
