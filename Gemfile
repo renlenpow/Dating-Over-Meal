@@ -35,6 +35,7 @@ group :test do
   gem 'turn', :require => false
   gem 'spork'
   gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
+  gem 'factory_girl_rails', :git => 'git://github.com/thoughtbot/factory_girl_rails.git'
 end
 
 group :production do

@@ -7,6 +7,10 @@ class Message < ActiveRecord::Base
   
   before_create :set_message_subject
   
+  scope :active, where(:spam => false, :archived => false)
+  scope :not_read, where(:read => false)
+  scope :most_recent, order("created_at DESC")
+  
   private
   
   def set_message_subject

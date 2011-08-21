@@ -4,7 +4,7 @@ header, footer {display:block}
 
 body {font-family:arial; font-size:12px; color:#444}
 
-a {text-decoration:none; outline-style:none; color:#ea0a89}
+a {text-decoration:none; outline-style:none; color:#ea0a89; cursor:pointer}
 
 ul {list-style:none}
 
@@ -326,6 +326,37 @@ div.alert-message {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+}
+
+.messages_list {
+  margin-bottom:10px;
+  li {
+    background:#E7E7DE;
+    overflow:hidden;
+    padding:12px;
+    margin:5px 0;
+    box-shadow:0 1px 3px 1px #ccc inset;
+    border-radius:4px;
+    .content {display:block; float:left; width:510px}
+    .show_message_details {display:block}
+    .profile_photo {
+      float:left;
+      width:50px;
+      margin-right:12px;
+      background:#fff;
+      padding:4px;
+      box-shadow:0 1px 4px 1px #aaa;
+    }
+    .author {
+      display:block;
+      margin:5px 0;
+      color:#EA0A89;
+    }
+    a {color:inherit}
+  }
+  li:hover {
+    background:#dadacc;
+  }
 }
 
 #home {

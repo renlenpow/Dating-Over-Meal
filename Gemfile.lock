@@ -43,6 +43,14 @@ GIT
       rspec (~> 2.6.0)
 
 GIT
+  remote: git://github.com/thoughtbot/factory_girl_rails.git
+  revision: cec108dbeb94ce38d712183a95e0c6bbaa84747b
+  specs:
+    factory_girl_rails (1.1.0)
+      factory_girl (~> 2.0.0)
+      railties (>= 3.0.0)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: f71ebb444d7986795a55ed1cd32b703f571f130e
   specs:
@@ -97,6 +105,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.4)
       multi_json (~> 1.0)
+    factory_girl (2.0.4)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.13)
@@ -183,6 +192,7 @@ DEPENDENCIES
   devise!
   dynamic_form!
   execjs
+  factory_girl_rails!
   gravtastic!
   haml!
   jquery-rails

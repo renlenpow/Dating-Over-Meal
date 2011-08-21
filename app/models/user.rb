@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_attached_file :avatar, 
-    :styles => { :medium => "300x300>", :thumb => "200x200>" },
+    :styles => { :medium => "300x300>", :thumb => "200x200#" },
     :url => "/uploads/avatar/:id/:basename.:extension"
   
   has_one   :profile, :dependent => :destroy
