@@ -5,8 +5,9 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :sender_id
       t.string  :subject
       t.text    :content
-      t.boolean :archived
-      t.boolean :spam
+      t.boolean :read, :default => false
+      t.boolean :archived, :default => false
+      t.boolean :spam, :default => false
       t.timestamps
     end
   end

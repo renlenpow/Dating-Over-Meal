@@ -7,11 +7,7 @@
 
 #stage
   #left
-    #picture
-      #frame
-        = image_tag @user.gravatar_url
-        
-      Member since #{@profile.created_at.strftime("%b, %Y")}
+    = render :partial => "shared/profile_picture"
       
     - unless current_user.id == @user.id
       - unless current_user.following?(@user)

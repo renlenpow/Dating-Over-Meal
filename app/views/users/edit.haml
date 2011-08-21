@@ -1,0 +1,27 @@
+- @title_for_layout = "Upload picture"
+- @body_id = "user"
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+= render :partial => "shared/flash_notice"
+
+#stage
+  #left
+    = render :partial => "shared/profile_picture"
+        
+  #right
+    #upload_picture.box
+      = form_for @user, :multipart => true do |f|
+      
+        = render :partial => "shared/form_errors", :locals => {:target => @user, :f => f}
+      
+        .form_row
+          = f.label :avatar
+          = f.file_field :avatar
+          
+        .form_row
+          = f.submit :value => "Upload", :class => "button green"
+  
+  .clearfloat

@@ -7,12 +7,10 @@
 
 #stage
   #left
-    #picture
-      #frame
-        = image_tag current_user.gravatar_url
-      %h3 #{@profile.firstname} #{@profile.lastname}
-      = link_to "Edit profile", edit_profile_path(current_user)
-      = link_to "View profile", profile_path(current_user)
+    = render :partial => "shared/profile_picture"
+  
+    = link_to "Edit profile", edit_profile_path(current_user), :class => "button white social_option"
+    = link_to "View profile", profile_path(current_user), :class => "button white social_option"
   
   #right
     .box#thoughts
@@ -26,6 +24,12 @@
       
     .box#messages
       %h2 Messages (0)
+      
+    .box#followers
+      %h2 Your followers
+      
+    .box#followed
+      %h2 People you follow
       
     .box#account_settings
       %h2 Account settings

@@ -13,6 +13,8 @@ gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
 gem 'haml', :git => 'git://github.com/nex3/haml.git'
 gem 'gravtastic', :git => 'git://github.com/chrislloyd/gravtastic.git'
 gem 'carmen', :git => 'git://github.com/jim/carmen.git'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+gem 'dynamic_form', :git => 'git://github.com/rails/dynamic_form.git'
 
 gem 'jquery-rails'
 

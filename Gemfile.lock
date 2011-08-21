@@ -26,6 +26,13 @@ GIT
       warden (~> 1.0.3)
 
 GIT
+  remote: git://github.com/rails/dynamic_form.git
+  revision: ebb03213ef8268e24c60e5e162b811d199777227
+  specs:
+    dynamic_form (1.0.0)
+      rails (>= 3.0.0)
+
+GIT
   remote: git://github.com/rspec/rspec-rails.git
   revision: 58e89df6504ec6bdf23ed700a79375e37202198d
   specs:
@@ -34,6 +41,16 @@ GIT
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
+
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: f71ebb444d7986795a55ed1cd32b703f571f130e
+  specs:
+    paperclip (2.3.16)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
 
 GEM
   remote: http://rubygems.org/
@@ -71,6 +88,7 @@ GEM
     arel (2.2.1)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
+    cocaine (0.2.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -163,11 +181,13 @@ DEPENDENCIES
   carmen!
   coffee-script
   devise!
+  dynamic_form!
   execjs
   gravtastic!
   haml!
   jquery-rails
   mysql2
+  paperclip!
   pg
   rails (= 3.1.0.rc6)
   rspec-rails!

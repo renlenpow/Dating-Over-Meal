@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  has_attached_file :avatar, 
+    :styles => { :medium => "300x300>", :thumb => "200x200>" },
+    :url => "/uploads/avatar/:id/:basename.:extension"
   
   has_one   :profile, :dependent => :destroy
   has_many  :activities, :dependent => :destroy
@@ -10,12 +14,12 @@ class User < ActiveRecord::Base
   has_many  :relationships, :foreign_key => :follower_id, :dependent => :destroy
   has_many  :following, :through => :relationships, :source => :followed
   has_many  :messages, :foreign_key => :receiver_id, :dependent => :destroy
-
+  
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
-  attr_accessible :firstname, :lastname, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :firstname, :lastname, :email, :password, :password_confirmation, :remember_me, :avatar
   
-  validates_presence_of :firstname, :lastname
+  validates_presence_of :firstname, :lastname, :on => :create
   
   after_create :create_user_profile
   after_create :log_registration_activity
