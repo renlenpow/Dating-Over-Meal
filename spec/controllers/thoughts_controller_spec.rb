@@ -9,8 +9,7 @@ describe ThoughtsController do
   end
   
   it "should be success" do
-    user = User.new(:firstname => "First", :lastname => "Last", :email => "e@mail.com", :password => "password")
-    user.save!
+    user = Factory(:user)
     
     sign_in user
     do_create

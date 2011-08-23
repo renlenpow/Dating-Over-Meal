@@ -35,11 +35,6 @@ textarea {height:70px}
   .textbox {
     width:522px; color:#888; padding:9px;
   }
-  
-  .button {
-    font-size:20px; padding:5px 20px;
-  }
-  
 }
 
 .form_row {
@@ -342,6 +337,7 @@ div.alert-message {
       background:#fff;
       padding:4px;
       box-shadow:0 1px 4px 1px #aaa;
+      border-radius:4px;
     }
     .author {
       display:block;

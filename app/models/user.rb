@@ -17,9 +17,10 @@ class User < ActiveRecord::Base
   
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
-  attr_accessible :firstname, :lastname, :email, :password, :password_confirmation, :remember_me, :avatar
+  attr_accessible :firstname, :lastname, :email, :username, :password, :password_confirmation, :remember_me, :avatar
   
-  validates_presence_of :firstname, :lastname, :on => :create
+  validates_presence_of :firstname, :lastname, :username, :on => :create
+  validates_uniqueness_of :username, :on => :create
   
   after_create :create_user_profile
   after_create :log_registration_activity
