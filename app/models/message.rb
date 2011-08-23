@@ -9,7 +9,12 @@ class Message < ActiveRecord::Base
   
   scope :active, where(:spam => false, :archived => false)
   scope :not_read, where(:read => false)
+  scope :thread_head, where(:parent_id => nil)
   scope :most_recent, order("created_at DESC")
+  
+  def child_messages
+    Message.where(:parent_id => self.id).all
+  end
   
   private
   

@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   
   def index
     @thought = Thought.new
-    @messages = current_user.messages.active.not_read.most_recent.limit(3)
+    @messages = current_user.inbox_messages.active.not_read.most_recent.limit(3)
   end
   
 end

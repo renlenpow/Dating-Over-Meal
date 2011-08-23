@@ -1,0 +1,12 @@
+- @title_for_layout = "Messages"
+- @body_id = "messages"
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+#stage
+  %ul.messages_list
+    = render :partial => "messages_list"
+        
+  = will_paginate @messages

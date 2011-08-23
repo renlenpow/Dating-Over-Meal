@@ -7,7 +7,9 @@
 
 #stage
   #left
-    = render :partial => "shared/profile_picture"
+    #picture
+      #frame
+        = image_tag @user.avatar.url
       
     - unless current_user.id == @user.id
       - unless current_user.following?(@user)

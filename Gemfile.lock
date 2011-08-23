@@ -11,6 +11,13 @@ GIT
     carmen (0.2.7)
 
 GIT
+  remote: git://github.com/mislav/will_paginate.git
+  revision: a2648e77294806e0e46395e0d3076adf9bee00a0
+  branch: rails3
+  specs:
+    will_paginate (3.0.pre4)
+
+GIT
   remote: git://github.com/nex3/haml.git
   revision: 8e77ab6ff6c14b793b2fd348c8a3211927428b14
   specs:
@@ -207,3 +214,4 @@ DEPENDENCIES
   therubyracer-heroku (= 0.8.1.pre3)
   turn
   uglifier
+  will_paginate!

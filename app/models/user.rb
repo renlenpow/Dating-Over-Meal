@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
     self.relationships.create(:followed_id => followed.id)
   end
   
+  def inbox_messages
+    Message.where("parent_id IS NULL AND (sender_id = #{self.id} OR receiver_id = #{self.id})")
+  end
+  
   private
   
   def create_user_profile

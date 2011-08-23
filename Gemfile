@@ -15,6 +15,7 @@ gem 'gravtastic', :git => 'git://github.com/chrislloyd/gravtastic.git'
 gem 'carmen', :git => 'git://github.com/jim/carmen.git'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'dynamic_form', :git => 'git://github.com/rails/dynamic_form.git'
+gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 
 gem 'jquery-rails'
 

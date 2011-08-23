@@ -1,0 +1,17 @@
+- @title_for_layout = "Messages"
+- @body_id = "messages"
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+#stage
+  %ul.messages_list
+    = render :partial => "messages_list"
+    
+    = form_for @message, :remote => true do |f|
+      = f.text_field :content, :class => :textbox
+      = f.hidden_field :sender_id, :value => current_user.id
+      = f.hidden_field :receiver_id, :value => @messages.last.sender_id
+      = f.hidden_field :parent_id, :value => @messages.first.id
+      = f.submit :value => "Reply", :class => "button blue"

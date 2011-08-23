@@ -15,7 +15,7 @@ ul {list-style:none}
 header {  
   margin:20px 0;
   #login {
-    background:#111; padding:5px 8px; color:#fff; position:absolute; top:0; right:20px; text-transform:uppercase;
+    background:#111; padding:5px 8px; color:#fff; position:absolute; top:0; right:20px; text-transform:uppercase; border-radius:0 0 4px 4px;
   }
 }
 
@@ -33,9 +33,7 @@ textarea {height:70px}
   width: 540px;
   
   .textbox {
-    width:522px;
-    color:#888;
-    padding:9px;
+    width:522px; color:#888; padding:9px;
   }
   
   .button {
@@ -47,8 +45,7 @@ textarea {height:70px}
 .form_row {
   margin:15px 0;
   label {
-    display:block;
-    margin-bottom:10px;
+    display:block; margin-bottom:10px;
   }
 }
 
@@ -73,7 +70,7 @@ textarea {height:70px}
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	padding: .5em 2em .55em;
+	padding: .4em 1.4em .4em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -88,8 +85,7 @@ textarea {height:70px}
 	text-decoration: none;
 }
 .button:active {
-	position: relative;
-	top: 1px;
+	position: relative;	top: 1px;
 }
 
 /* color styles 
@@ -354,8 +350,22 @@ div.alert-message {
     }
     a {color:inherit}
   }
+  li.unread {
+    background:#cecec0;
+  }
   li:hover {
-    background:#dadacc;
+    background:#dadacc; box-shadow:0 1px 3px 1px #aaa inset;
+  }
+  .delete {
+    float:right;
+    display:block;
+    width:16px;
+    height:16px;
+    background:url(/assets/trash_16.png);
+    text-indent:-9999px;
+  }
+  .textbox {
+    width:720px;
   }
 }
 
@@ -379,13 +389,11 @@ div.alert-message {
     }
     
     #signup {
-      background:#fff000;
-      color:#000
+      background:#fff000; color:#000
     }
     
     #take_a_tour {
-      background:#009cff;
-      color:#fff;
+      background:#009cff; color:#fff;
     }
   }
 }
@@ -405,8 +413,7 @@ div.alert-message {
 }
 
 #content {
-  width:900px;
-  margin:0 auto;
+  width:900px; margin:0 auto;
 }
 
 #home {

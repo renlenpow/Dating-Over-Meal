@@ -39,4 +39,16 @@ describe Message do
     Message.most_recent.first.should == second_message
   end
   
+  it "should have child messages when applicable" do
+    parent_message = Factory(:message, :content => "parent message")
+    
+    first_child_message   = Factory(:message, :content => "first child message", :parent_id => parent_message.id)
+    second_child_message  = Factory(:message, :content => "second child message", :parent_id => parent_message.id)
+    third_message = Factory(:message, :content => "third message")
+    
+    parent_message.child_messages.should include(first_child_message)
+    parent_message.child_messages.should include(second_child_message)
+    parent_message.child_messages.should_not include(third_message)
+  end
+  
 end
