@@ -6,7 +6,15 @@ class User < ActiveRecord::Base
          
   has_attached_file :avatar, 
     :styles => { :medium => "300x300>", :thumb => "200x200#" },
-    :url => "/uploads/avatar/:id/:basename.:extension"
+    :storage => :aws,
+    :s3_credentials => {
+      :access_key_id => 'AKIAIGHKJHBKXPQHPWIQ',
+      :secret_access_key => '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'
+    },
+    :s3_acl => :public_read,
+    :s3_protocol => 'http',
+    :s3_bucket => :dom305,
+    :path => "avatars/:id/:style/:filename"
   
   has_one   :profile, :dependent => :destroy
   has_many  :activities, :dependent => :destroy

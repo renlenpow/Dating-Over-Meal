@@ -18,6 +18,8 @@ gem 'dynamic_form', :git => 'git://github.com/rails/dynamic_form.git'
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 
 gem 'jquery-rails'
+gem 'aws-sdk'
+gem 'paperclip-aws', :git => 'git://github.com/igor-alexandrov/paperclip-aws.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
