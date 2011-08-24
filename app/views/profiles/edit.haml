@@ -11,7 +11,7 @@
     
     = link_to "Change picture", edit_user_path(current_user), :class => "button white social_option"
         
-    = link_to "View Profile", profile_path(current_user), :class => "button white social_option"
+    = link_to "View Profile", profile_path(current_user.username), :class => "button white social_option"
       
   #right
     .box#profile_information

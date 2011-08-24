@@ -339,11 +339,7 @@ div.alert-message {
       box-shadow:0 1px 4px 1px #aaa;
       border-radius:4px;
     }
-    .author {
-      display:block;
-      margin:5px 0;
-      color:#EA0A89;
-    }
+    .author { display:block; margin:5px 0; color:#EA0A89; }
     a {color:inherit}
   }
   li.unread {
@@ -359,9 +355,6 @@ div.alert-message {
     height:16px;
     background:url(/assets/trash_16.png);
     text-indent:-9999px;
-  }
-  .textbox {
-    width:720px;
   }
 }
 
@@ -443,8 +436,7 @@ div.alert-message {
   margin:20px 0;
   
   #left {
-    float:left;
-    width:200px; margin-right:20px;
+    float:left; width:200px; margin-right:20px;
     
     #picture {
       background:#fff;
@@ -452,16 +444,12 @@ div.alert-message {
       box-shadow:0 2px 3px 2px #ddd;
       border-radius:4px;
       #frame {
-        img {width:100%}
-        
+        img { width:100% } 
       }
     }
   }
   
-  #right {
-    float:left;
-    width:636px;
-  }
+  #right { float:left; width:636px; }
 }
 
 .box {
@@ -500,8 +488,7 @@ div.alert-message {
 }
 
 .social_option {
-  display:block;
-  margin:10px auto 0;
+  display:block; margin:10px auto 0;
 }
 
 .pop_dialog {
@@ -516,10 +503,7 @@ div.alert-message {
   z-index:100;
   
   .header {
-    border-radius:4px 4px 0 0;
-    background:-moz-linear-gradient(center top , #F12891, #C00D6A) repeat scroll 0 0 transparent;
-    color:#fff;
-    padding:7px 15px;
+    border-radius:4px 4px 0 0; background:-moz-linear-gradient(center top , #F12891, #C00D6A) repeat scroll 0 0 transparent; color:#fff; padding:7px 15px;
   }
   
   .content {
@@ -534,14 +518,15 @@ div.alert-message {
 #share_thought {margin-top:10px}
 
 #overlay {
-  background:#000;
-  opacity:0.5;
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:100%;
-  z-index:90;
+  background:#000; opacity:0.5; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%; z-index:90;
+}
+
+#message_content {width:720px;}
+
+#messages {
+  .messages_list {
+    .content {
+      width:730px;
+    }
+  }
 }

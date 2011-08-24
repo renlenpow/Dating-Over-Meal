@@ -9,7 +9,7 @@
   #left
     #picture
       #frame
-        = image_tag @user.avatar.url
+        = image_tag @user.avatar.url(:thumb)
       
     - unless current_user.id == @user.id
       - unless current_user.following?(@user)

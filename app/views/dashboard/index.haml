@@ -22,21 +22,12 @@
     .box#dates
       %h2 Your dates
       
-    .box#messages
+    .box#inbox_messages
       %h2 Messages (#{@messages.count})
       - if @messages.count == 0
         You have no new messages
       - else
-        %ul.messages_list
-          - @messages.each do |message|
-            - sender = message.sender
-            - profile = sender.profile
-            %li
-              = link_to message_path(message), :class => :show_message_details do
-                = image_tag sender.avatar.url, :class => :profile_photo
-                %span.content
-                  %b.author #{profile.firstname} #{profile.lastname}
-                  %span= message.content
+        = render :partial => "shared/messages_list"
               
         = link_to "View All Messages", messages_path
       
