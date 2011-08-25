@@ -8,6 +8,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :country
+      t.string :zipcode
       t.string :phone_number
       t.string :website
       t.text   :description

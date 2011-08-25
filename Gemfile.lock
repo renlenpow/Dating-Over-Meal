@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/apneadiving/Google-Maps-for-Rails.git
+  revision: ea899c54ec69cb909369d622e7b41e3d5b1ea8c9
+  specs:
+    gmaps4rails (0.11.1)
+      crack
+
+GIT
   remote: git://github.com/chrislloyd/gravtastic.git
   revision: 2b2252c0aee98854d94f040d88a9f70c1da3097d
   specs:
@@ -30,6 +37,12 @@ GIT
   revision: 8e77ab6ff6c14b793b2fd348c8a3211927428b14
   specs:
     haml (3.2.0.alpha.0)
+
+GIT
+  remote: git://github.com/norman/friendly_id.git
+  revision: 5d6cd94cbba0582a0c14973f5907614d3aa3e1c5
+  specs:
+    friendly_id (4.0.0.beta9)
 
 GIT
   remote: git://github.com/plataformatec/devise.git
@@ -220,6 +233,8 @@ DEPENDENCIES
   dynamic_form!
   execjs
   factory_girl_rails!
+  friendly_id!
+  gmaps4rails!
   gravtastic!
   haml!
   jquery-rails

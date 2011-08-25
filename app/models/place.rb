@@ -9,6 +9,12 @@ class Place < ActiveRecord::Base
   
   validates_presence_of :name, :description, :street_address, :city
   
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
   
+  acts_as_gmappable
+  
+  def gmaps4rails_address
+  end
   
 end

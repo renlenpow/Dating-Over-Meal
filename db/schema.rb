@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110825045337) do
+ActiveRecord::Schema.define(:version => 20110825205957) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -74,17 +74,26 @@ ActiveRecord::Schema.define(:version => 20110825045337) do
   create_table "places", :force => true do |t|
     t.string   "sharer_id"
     t.string   "name"
+    t.string   "slug"
     t.string   "price_range"
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
     t.string   "country"
+    t.string   "zipcode"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "hours"
+    t.text     "parking"
+    t.text     "payment"
     t.string   "phone_number"
     t.string   "website"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "places", ["slug"], :name => "index_places_on_slug", :unique => true
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"

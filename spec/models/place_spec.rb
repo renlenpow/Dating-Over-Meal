@@ -10,6 +10,11 @@ describe Place do
     place.should be_valid
   end
   
+  it "should have a slug when created" do
+    place = Factory(:place)
+    place.slug.should_not be_nil
+  end
+  
   it "should have and belong to many cuisines" do
     p = Place.reflect_on_association(:cuisines)
     p.macro.should == :has_and_belongs_to_many

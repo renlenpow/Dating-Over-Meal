@@ -1,0 +1,45 @@
+- @title_for_layout = "#{@place.name}"
+- @body_id = "places"
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+#stage
+  #left
+    #picture
+      #frame
+        - images = @place.images
+        - if images
+          = image_tag images.first.picture.url(:thumb)
+  
+  #right
+  
+    .box
+      %h2 Location
+      = gmaps("markers" => { "data" => @place.to_gmaps4rails })
+  
+    .box
+      %h2 General info
+      %ul
+        %li 
+          %b Cuisine: 
+          = @place.cuisines.all.map(&:name).join(", ")
+          
+        %li
+          %b Price:
+          = "$" * @place.price_range.to_i
+          
+        %li= @place.description
+        
+        - unless @place.phone_number.blank?
+          %li
+            %b Phone:
+            = @place.phone_number
+            
+        - unless @place.website.blank?
+          %li
+            %b Website
+            = @place.website
+  
+  .clearfloat

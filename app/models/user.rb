@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many  :relationships, :foreign_key => :follower_id, :dependent => :destroy
   has_many  :following, :through => :relationships, :source => :followed
   has_many  :messages, :foreign_key => :receiver_id, :dependent => :destroy
+  has_many  :places, :foreign_key => :sharer_id, :dependent => :destroy
   
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
