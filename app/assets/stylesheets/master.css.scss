@@ -388,7 +388,7 @@ div.alert-message {
 }
 
 #footer {
-  text-align:center; padding:10px; margin-top:20px;
+  text-align:center; padding:10px; margin:20px 0;
 }
 
 #signup, #login {
@@ -428,8 +428,7 @@ div.alert-message {
 
 #stage {
   border-radius:4px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
-	background: -moz-linear-gradient(top,  #fff,  #ededed);
+  background: #ededed;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border:1px solid #ccc;
   padding:20px;
@@ -529,4 +528,14 @@ div.alert-message {
       width:730px;
     }
   }
+}
+
+.selection_list {
+  overflow:hidden;
+  li {float:left; width:200px; margin-bottom:12px}
+  label { display:inline-block; margin-left:4px; margin-right:20px; margin-bottom:0 }
+}
+
+#place_pricings {
+  label {margin-right:15px;}
 }

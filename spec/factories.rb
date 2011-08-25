@@ -12,4 +12,15 @@ FactoryGirl.define do
     content 'message content'
   end
   
+  factory :cuisine do
+    name 'Cuisine'
+  end
+  
+  factory :place do
+    name            'Place'
+    description     'place description'
+    street_address  'place street address'
+    city            'place city'
+  end
+  
 end

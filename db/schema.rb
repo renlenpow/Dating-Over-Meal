@@ -11,12 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823221821) do
+ActiveRecord::Schema.define(:version => 20110825045337) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
     t.string   "activity_name"
     t.string   "activity_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cuisines", :force => true do |t|
+    t.integer  "place_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cuisines_places", :id => false, :force => true do |t|
+    t.integer "cuisine_id"
+    t.integer "place_id"
+  end
+
+  create_table "images", :force => true do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +53,35 @@ ActiveRecord::Schema.define(:version => 20110823221821) do
     t.boolean  "read",        :default => false
     t.boolean  "archived",    :default => false
     t.boolean  "spam",        :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moods", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moods_places", :id => false, :force => true do |t|
+    t.integer "mood_id"
+    t.integer "place_id"
+  end
+
+  add_index "moods_places", ["mood_id"], :name => "index_moods_places_on_mood_id"
+  add_index "moods_places", ["place_id"], :name => "index_moods_places_on_place_id"
+
+  create_table "places", :force => true do |t|
+    t.string   "sharer_id"
+    t.string   "name"
+    t.string   "price_range"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "phone_number"
+    t.string   "website"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

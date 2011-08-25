@@ -18,6 +18,12 @@
       = form_for @thought, :remote => true do |f|
         = f.text_area :description, :class => :textbox, :id => :thoughts_box
         = f.submit :value => "Share", :class => "button blue", :id => "share_thought"
+          
+    .box#places_list
+      %h2 Places
+      .form_row
+        %b Places you shared
+      = link_to "Share A Place", new_place_path, :class => "button blue"
       
     .box#dates
       %h2 Your dates

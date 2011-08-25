@@ -1,0 +1,89 @@
+- @title_for_layout = "Share A Place"
+- @body_id = "places"
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+#stage
+  = form_for @place, :html => {:multipart => true} do |f|
+  
+    = render :partial => "shared/form_errors", :locals => {:target => @place, :f => f}
+  
+    .box
+      %h2 Name
+      = f.text_field :name, :class => :textbox
+      
+    .box
+      %h2 Image
+      = f.fields_for :images, @image do |image|
+        = image.file_field :picture
+      
+    .box
+      %h2 Location
+      
+      .form_row
+        = f.label :street_address
+        = f.text_field :street_address, :class => :textbox
+      
+      .form_row
+        = f.label :city
+        = f.text_field :city, :class => :textbox
+        
+      .form_row
+        = f.label :state
+        = f.select :state, Carmen.states('US') + Carmen.states('CA'), :include_blank => true
+        
+      .form_row
+        = f.label :country
+        = f.select :country, Carmen.countries
+    
+    .box
+      %h2 Cuisines
+      %ul.selection_list
+        - place_cuisines = @place.cuisines.map(&:id)
+        - Cuisine.all.each do |cuisine|
+          %li
+            = check_box_tag "place[cuisine_ids][]", cuisine.id, place_cuisines.include?(cuisine.id), :id => cuisine.name
+            = label_tag cuisine.name, cuisine.name
+        
+    .box
+      %h2 Mood
+      %ul.selection_list
+        - place_moods = @place.moods.map(&:id)
+        - Mood.all.each do |mood|
+          %li
+            = check_box_tag "place[mood_ids][]", mood.id, place_moods.include?(mood.id), :id => mood.name
+            = label_tag mood.name, mood.name
+            
+    .box#place_pricings
+      %h2 Pricings
+      = f.radio_button :price_range, "1"
+      = label_tag :price_range, "$"
+      = f.radio_button :price_range, "2"
+      = label_tag :price_range, "$$"
+      = f.radio_button :price_range, "3"
+      = label_tag :price_range, "$$$"
+      = f.radio_button :price_range, "4"
+      = label_tag :price_range, "$$$$"
+      
+    .box
+      %h2 Description
+      .form_row
+        = f.text_area :description, :class => :textbox
+        
+    .box
+      %h2 Contact
+      .form_row
+        = f.label :website
+        = f.text_field :website, :class => :textbox
+        
+      .form_row
+        = f.label :phone_number
+        = f.text_field :phone_number, :class => :textbox
+        
+    = f.hidden_field :sharer_id, :value => current_user.id
+      
+      
+    = f.submit :value => "Share", :class => "button green"
+  
