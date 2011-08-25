@@ -5,6 +5,36 @@
 
 %h1= @title_for_layout
 
+:javascript
+  var geocoder, map
+  
+  var address = "#{@place.street_address}, #{@place.city}, #{Carmen.country_name @place.country}";
+  
+  function load(){
+    map = new GMap2(document.getElementById("map"));
+    
+    map.addControl(new GSmallMapControl());
+    
+    geocoder = new GClientGeocoder();
+    
+    geocoder.getLocations(address, addAddressToMap);
+  }
+  
+  function addAddressToMap(response){
+    place = response.Placemark[0];
+    
+    point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
+    
+    map.setCenter(point, 15);
+    
+    marker = new GMarker(point);
+    
+    map.addOverlay(marker);
+    
+    marker.openInfoWindowHtml(place.address);
+  }
+  
+
 #stage
   #left
     #picture
@@ -12,15 +42,38 @@
         - images = @place.images
         - if images
           = image_tag images.first.picture.url(:thumb)
+          
+      %ul
+        %li
+          %b Phone:
+          = @place.phone_number.blank? ? "N/A" : @place.phone_number
+
+        %li
+          %b Website:
+          = @place.website.blank? ? "N/A" : @place.website
   
   #right
   
     .box
-      %h2 Location
-      = gmaps("markers" => { "data" => @place.to_gmaps4rails })
+      %h2{:style => "float:left"} Location
+      #place_social_share
+        .spread 
+          .fshare.left{:style => 'padding-left: 0px; margin-left: 10px;'} 
+            %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"} 
+            %fb:like{:layout => "button_count", :show_faces => "false", :width => "450"}
+            
+          .twshare.left 
+            %a.twitter-share-button.left{"data-count" => "horizontal", "data-via" => "fuonrails", :href => "http://twitter.com/share"} Tweet 
+            %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"} 
+          
+      .clearfloat
+      
+      #map{:style => "height:400px"}
+        :javascript
+          load();
   
     .box
-      %h2 General info
+      %h2 Description
       %ul
         %li 
           %b Cuisine: 
@@ -31,15 +84,17 @@
           = "$" * @place.price_range.to_i
           
         %li= @place.description
-        
-        - unless @place.phone_number.blank?
-          %li
-            %b Phone:
-            = @place.phone_number
             
-        - unless @place.website.blank?
-          %li
-            %b Website
-            = @place.website
+    .box
+      %h2 Hours
+      %p= @place.hours.blank? ? "Not specified" : @place.hours
+      
+    .box
+      %h2 Parking
+      %p= @place.parking.blank? ? "Not specified" : @place.parking
+      
+    .box
+      %h2 Payment
+      %p= @place.payment.blank? ? "Not specified" : @place.payment
   
   .clearfloat

@@ -564,3 +564,23 @@ div.alert-message {
 #places {
   .textbox {width:812px}
 }
+
+#map {
+  border:1px solid #bbb; border-radius:4px;
+}
+
+#place_social_share {
+  float:right;
+  width:400px;
+  
+  .twshare {
+    float:right;
+    margin-left:5px;
+  }
+  .fshare {
+    float:right;
+    width:51px;
+    margin-left:5px;
+    overflow:hidden;
+  }
+}
