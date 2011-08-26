@@ -3,7 +3,8 @@
 
 = render :partial => "shared/header"
 
-%h1= @title_for_layout
+%h1{:style => "margin-bottom:5px"}= @title_for_layout
+%span #{@place.city}, #{@place.state}
 
 :javascript
   var geocoder, map
@@ -39,18 +40,32 @@
   #left
     #picture
       #frame
-        - images = @place.images
-        - if images
-          = image_tag images.first.picture.url(:thumb)
-          
-      %ul
-        %li
-          %b Phone:
-          = @place.phone_number.blank? ? "N/A" : @place.phone_number
+        - primary_image = @place.primary_image
+        - if primary_image
+          = image_tag primary_image.picture.url(:thumb)
+        - elsif @place.images.size > 0
+          = image_tag @place.images.first.picture.url(:thumb)
+        - else
+          = image_tag "restaurant_silhouette.png"
+    
+    %br
+    
+    %ul.box#place_general_info
+      %li 
+        %b Cuisine: 
+        = @place.cuisines.all.map(&:name).join(", ")
+        
+      %li
+        %b Price:
+        = "$" * @place.price_range.to_i
+        
+      %li
+        %b Phone:
+        = @place.phone_number.blank? ? "N/A" : @place.phone_number
 
-        %li
-          %b Website:
-          = @place.website.blank? ? "N/A" : @place.website
+      %li
+        %b Website:
+        = @place.website.blank? ? "N/A" : @place.website
   
   #right
   
@@ -74,16 +89,7 @@
   
     .box
       %h2 Description
-      %ul
-        %li 
-          %b Cuisine: 
-          = @place.cuisines.all.map(&:name).join(", ")
-          
-        %li
-          %b Price:
-          = "$" * @place.price_range.to_i
-          
-        %li= @place.description
+      %p= @place.description
             
     .box
       %h2 Hours

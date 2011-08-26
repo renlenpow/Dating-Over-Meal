@@ -16,4 +16,13 @@ class Image < ActiveRecord::Base
     
   validates_attachment_content_type :picture, :content_type => ["image/png", "image/jpeg", "image/gif"]
   
+  def make_primary
+    Image.update_all("is_primary = 0", :imageable_id => self.imageable_id)
+    self.update_attributes(:is_primary => true)
+  end
+  
+  def is_primary?
+    self.is_primary
+  end
+  
 end

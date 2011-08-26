@@ -571,7 +571,7 @@ div.alert-message {
     margin-bottom: 8px; }
   .places_list .button {
     border-radius: 20px;
-    padding: 5px 13px;
+    padding: 3px 11px;
     font-size: 11px; }
 
 #places .textbox {
@@ -592,3 +592,19 @@ div.alert-message {
     width: 51px;
     margin-left: 5px;
     overflow: hidden; }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0; }
+
+#place_images_list li {
+  float: left;
+  width: 260px;
+  margin: 4px 0; }
+
+#place_general_info li {
+  margin: 4px 0; }

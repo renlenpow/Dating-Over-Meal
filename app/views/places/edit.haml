@@ -18,8 +18,21 @@
       
     .box
       %h2 Image
-      = f.fields_for :images, Image.new do |image|
-        = image.file_field :picture
+      
+      .form_row
+        %b Uploaded images
+        %ul.places_list#place_images_list.clearfix
+          - @place.images.each do |image|
+            %li{:id => "place_image_#{image.id}"}
+              = image_tag image.picture.url(:thumb), :class => :place
+              %br
+              %span{:class => "button red delete_place_image", :image_id => image.id} Delete
+              %span{:class => "button green make_image_primary", :image_id => image.id} Make primary
+      
+      .form_row
+        %b Upload new image &nbsp;&nbsp;
+        = f.fields_for :images, Image.new do |image|
+          = image.file_field :picture
       
     .box
       %h2 Location

@@ -23,4 +23,11 @@ FactoryGirl.define do
     city            'place city'
   end
   
+  factory :image do
+    picture_file_name     'image.jpg'
+    picture_content_type  'image/jpeg'
+    picture_file_size     6531
+    picture_updated_at    Time.now
+  end
+  
 end

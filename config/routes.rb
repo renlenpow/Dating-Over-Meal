@@ -18,6 +18,14 @@ DatingOverMeal::Application.routes.draw do
   
   resources :places
   
+  resources :images do
+    
+    member do
+      post :make_primary
+    end
+    
+  end
+  
   root :to => "home#index"
 
 end

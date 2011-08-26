@@ -11,10 +11,14 @@ class Place < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :name, :use => :slugged
-  
-  acts_as_gmappable
-  
-  def gmaps4rails_address
+    # 
+    # acts_as_gmappable
+    # 
+    # def gmaps4rails_address
+    # end
+    
+  def primary_image
+    self.images.where(:is_primary => true).first
   end
   
 end

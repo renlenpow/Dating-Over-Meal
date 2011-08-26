@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110825205957) do
+ActiveRecord::Schema.define(:version => 20110826044815) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20110825205957) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.boolean  "is_primary",           :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
