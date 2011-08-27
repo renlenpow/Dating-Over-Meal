@@ -616,3 +616,16 @@ div.alert-message {
   padding: 12px;
   box-shadow: 0 1px 3px 1px #ccc inset;
   margin: 15px 0; }
+
+#follows_count li {
+  float: left;
+  width: 85px;
+  text-align: center; }
+  #follows_count li span {
+    font-size: 11px;
+    display: block;
+    margin-bottom: 4px; }
+  #follows_count li .count {
+    font-weight: bold;
+    font-size: 20px;
+    color: #EA0A89; }

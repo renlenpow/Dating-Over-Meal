@@ -10,6 +10,18 @@
     #picture
       #frame
         = image_tag @user.avatar.url(:thumb)
+    
+    %br
+    
+    .box
+      %ul#follows_count.clearfix
+        %li
+          %span Following
+          %p.count= current_user.following.count
+        
+        %li 
+          %span Followers
+          %p.count= current_user.followers.count
       
     - unless current_user.id == @user.id
       - unless current_user.following?(@user)

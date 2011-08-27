@@ -600,3 +600,15 @@ div.alert-message {
 .follow_list {
   background:#E7E7DE; border-radius:4px; padding:12px; box-shadow:0 1px 3px 1px #ccc inset; margin:15px 0;
 }
+
+#follows_count {
+  li {
+    float:left; width:85px; text-align:center;
+    span {
+      font-size:11px; display:block; margin-bottom:4px;
+    }
+    .count {
+      font-weight:bold; font-size:20px; color:#EA0A89;
+    }
+  }
+}
