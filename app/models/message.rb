@@ -16,6 +16,12 @@ class Message < ActiveRecord::Base
     Message.where(:parent_id => self.id).all
   end
   
+  def mark_as_read
+    unless self.read
+      self.update_attributes(:read => true)
+    end
+  end
+  
   private
   
   def set_message_subject

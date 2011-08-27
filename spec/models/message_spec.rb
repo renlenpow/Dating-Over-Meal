@@ -51,4 +51,14 @@ describe Message do
     parent_message.child_messages.should_not include(third_message)
   end
   
+  it "should mark a message as read properly" do
+    m = Factory(:message)
+    
+    m.read.should == false
+    
+    m.mark_as_read
+    
+    m.read.should == true
+  end
+  
 end

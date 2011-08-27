@@ -38,9 +38,6 @@
         
       = link_to "Share A Place", new_place_path, :class => "button blue"
       
-    .box#dates
-      %h2 Your dates
-      
     .box#inbox_messages
       %h2 Messages (#{@messages.count})
       - if @messages.count == 0
@@ -49,14 +46,19 @@
         = render :partial => "shared/messages_list"
               
         = link_to "View All Messages", messages_path
+        
+    .box#followed
+      %h2 Following
+      %ul.follow_list.clearfix
+        - @following.each do |user|
+          = link_to profile_path(user.username) do
+            = image_tag user.avatar.url(:thumb), :class => :profile_photo
       
     .box#followers
-      %h2 Your followers
+      %h2 Followers
+      %ul.follow_list.clearfix
+        - @followers.each do |user|
+          = link_to profile_path(user.username) do
+            = image_tag user.avatar.url(:thumb), :class => :profile_photo
       
-    .box#followed
-      %h2 People you follow
-      
-    .box#account_settings
-      %h2 Account settings
-    
   .clearfloat

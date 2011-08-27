@@ -322,6 +322,15 @@ div.alert-message {
   -moz-border-radius: 4px;
   border-radius: 4px; }
 
+.profile_photo {
+  float: left;
+  width: 50px;
+  margin-right: 12px;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 1px 4px 1px #aaa;
+  border-radius: 4px; }
+
 .messages_list {
   margin-bottom: 10px; }
   .messages_list li {
@@ -337,14 +346,6 @@ div.alert-message {
       width: 510px; }
     .messages_list li .show_message_details {
       display: block; }
-    .messages_list li .profile_photo {
-      float: left;
-      width: 50px;
-      margin-right: 12px;
-      background: #fff;
-      padding: 4px;
-      box-shadow: 0 1px 4px 1px #aaa;
-      border-radius: 4px; }
     .messages_list li .author {
       display: block;
       margin: 5px 0;
@@ -608,3 +609,10 @@ div.alert-message {
 
 #place_general_info li {
   margin: 4px 0; }
+
+.follow_list {
+  background: #E7E7DE;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 1px 3px 1px #ccc inset;
+  margin: 15px 0; }
