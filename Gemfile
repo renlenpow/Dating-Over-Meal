@@ -44,6 +44,7 @@ group :test, :development do
   gem 'factory_girl_rails', :git => 'git://github.com/thoughtbot/factory_girl_rails.git'
   gem 'nokogiri'
   gem 'image_downloader'
+  gem 'activerecord-import'
 end
 
 group :production do

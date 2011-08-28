@@ -14,18 +14,20 @@ task :scrape_restaurants => :environment do
   puts "Scraping restaurants"
   
   cities = [
-    'atlanta-georgia-restaurant-listings'
-    # 'baltimore-maryland-restaurant-listings',
-    #     'new-england-restaurant-listings',
-    #     'houston-texas-restaurant-listings',
-    #     'chicago-illinois-restaurant-listings',
-    #     'los-angeles-restaurant-listings',
-    #     'miami-restaurant-listings',
-    #     'new-york-restaurant-listings',
-    #     'philadelphia-pennsylvania-restaurant-listings',
-    #     'washington-dc-restaurant-listings',
-    #     'hawaii-restaurant-listings'
+    'atlanta-georgia-restaurant-listings',
+    'baltimore-maryland-restaurant-listings',
+    'new-england-restaurant-listings',
+    'houston-texas-restaurant-listings',
+    'chicago-illinois-restaurant-listings',
+    'los-angeles-restaurant-listings',
+    'miami-restaurant-listings',
+    'new-york-restaurant-listings',
+    'philadelphia-pennsylvania-restaurant-listings',
+    'washington-dc-restaurant-listings',
+    'hawaii-restaurant-listings'
   ]
+  
+  places = []
   
   cities.each do |city|
     doc = Nokogiri::HTML(open("http://www.opentable.com/#{city}"))
@@ -37,9 +39,9 @@ task :scrape_restaurants => :environment do
       restaurant_doc = Nokogiri::HTML(open("http://www.opentable.com/#{restaurant_href}"))
       
       name = restaurant_doc.css("div#tab_wrapper h1.RestProfileTitle").text.strip
-      street_address = restaurant_doc.css("div#tab_wrapper div.RestProfileAddress").text.strip
+      street_address = restaurant_doc.css("div#tab_wrapper div.RestProfileAddress").inner_html
       
-      address = street_address.split("<br>").first.split(",").first
+      address = street_address.split("<br>").first.split(",").first.strip
       city_state = street_address.split("<br>").last.split(", ")
       
       city = city_state.first
@@ -76,25 +78,39 @@ task :scrape_restaurants => :environment do
       restaurant_image = restaurant_doc.css("a#RestaurantProfile_linkRestarantImage img").first
       
       unless restaurant_image.nil?
-        # Net::HTTP.start("opentable.com") { |http|
-        #           resp = http.get(restaurant_image['src'])
-        #           open("/Users/trivuong/Projects/Dating-Over-Meal/restaurants/#{restaurant_image['src'].split("/").last}", "wb") { |file|
-        #             file.write(resp.body)
-        #           }
-        #         
-          place.scrape_image_url = restaurant_image['src'].split("/").last
+        # writeOut = open("/Users/trivuong/Projects/Dating-Over-Meal/restaurants/#{restaurant_image['src'].split("/").last}", "wb")
+        #         writeOut.write(open("http://www.opentable.com/#{restaurant_image['src']}").read)
+        #         writeOut.close
         
-        #}
+        place.scrape_image_url = restaurant_image['src'].split("/").last
       end
       
-      place.save
+      places << place
       
+      if (places.count % 100) == 0
+        Place.import places
+        places = []
+      end
       
     end
   end
   
-  downloader = ImageDownloader::Process.new('www.openplace.com','img/restimages/')
-  downloader.parse(:any_looks_like_image => true)
-  downloader.download()
+  if places.count > 0
+    Place.import places
+  end
   
+end
+
+task :set_place_slug => :environment do
+  Place.all.map(&:save)
+end
+
+task :upload_place_images => :environment do
+  Place.where("scrape_image_url IS NOT NULL").each do |place|
+    image = Image.new
+    image.picture = File.open("/Users/trivuong/Projects/Dating-Over-Meal/restaurants/#{place.scrape_image_url}")
+    image.save!
+    place.images << image
+    place.save
+  end
 end
