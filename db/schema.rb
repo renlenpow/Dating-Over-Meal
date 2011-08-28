@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110826044815) do
+ActiveRecord::Schema.define(:version => 20110827213954) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20110826044815) do
     t.string   "phone_number"
     t.string   "website"
     t.text     "description"
+    t.string   "scrape_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

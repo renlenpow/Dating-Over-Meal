@@ -21,12 +21,24 @@
           
     .box#places_list
       %h2 Places
+      
+      .form_row
+        %b Random places
+        %ul.places_list
+          - @random_places.each do |place|
+            %li
+              = link_to place_path(place) do
+                - if place.primary_image.nil?  
+                  = image_tag "restaurant_silhouette.png", :class => :place
+                - else
+                  = image_tag place.primary_image, :class => :place
+      
       .form_row
         %b Places you shared
         
-        - if @places.size > 0
+        - if @shared_places.size > 0
           %ul.places_list
-            - @places.each do |place|
+            - @shared_places.each do |place|
               %li
                 = image_tag place.images.first.picture.url(:thumb), :class => :place
                 %b.place_name= place.name

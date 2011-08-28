@@ -19,6 +19,7 @@ gem 'will_paginate',  :git => 'git://github.com/mislav/will_paginate.git', :bran
 gem 'friendly_id',    :git => 'git://github.com/norman/friendly_id.git'
 gem 'gmaps4rails',    :git => 'git://github.com/apneadiving/Google-Maps-for-Rails.git'
 gem 'paperclip-aws',  :git => 'git://github.com/igor-alexandrov/paperclip-aws.git'
+gem 'randumb',        :git => 'git://github.com/spilliton/randumb.git'
 gem 'jquery-rails'
 gem 'aws-sdk'
 
@@ -35,12 +36,14 @@ gem 'aws-sdk'
 gem 'execjs'
 gem 'therubyracer'
 
-group :test do
+group :test, :development do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'spork'
   gem 'rspec-rails',        :git => 'git://github.com/rspec/rspec-rails.git'
   gem 'factory_girl_rails', :git => 'git://github.com/thoughtbot/factory_girl_rails.git'
+  gem 'nokogiri'
+  gem 'image_downloader'
 end
 
 group :production do

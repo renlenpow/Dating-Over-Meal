@@ -40,13 +40,10 @@
   #left
     #picture
       #frame
-        - primary_image = @place.primary_image
-        - if primary_image
-          = image_tag primary_image.picture.url(:thumb)
-        - elsif @place.images.size > 0
-          = image_tag @place.images.first.picture.url(:thumb)
-        - else
+        - if @place.primary_image.nil?  
           = image_tag "restaurant_silhouette.png"
+        - else
+          = image_tag @place.primary_image
     
     %br
     

@@ -71,6 +71,12 @@ GIT
       rspec (~> 2.6.0)
 
 GIT
+  remote: git://github.com/spilliton/randumb.git
+  revision: 5c018bb7b61c777348b357a5e0371049cf898a52
+  specs:
+    randumb (0.1.2)
+
+GIT
   remote: git://github.com/thoughtbot/factory_girl_rails.git
   revision: cec108dbeb94ce38d712183a95e0c6bbaa84747b
   specs:
@@ -144,6 +150,8 @@ GEM
     httparty (0.7.8)
       crack (= 0.1.8)
     i18n (0.6.0)
+    image_downloader (0.2.4)
+      nokogiri (>= 1.4.4)
     jquery-rails (1.0.13)
       railties (~> 3.0)
       thor (~> 0.14)
@@ -237,12 +245,15 @@ DEPENDENCIES
   gmaps4rails!
   gravtastic!
   haml!
+  image_downloader
   jquery-rails
   mysql2
+  nokogiri
   paperclip!
   paperclip-aws!
   pg
   rails (= 3.1.0.rc6)
+  randumb!
   rspec-rails!
   sass-rails (~> 3.1.0.rc)
   spork
