@@ -22,6 +22,7 @@ gem 'paperclip-aws',  :git => 'git://github.com/igor-alexandrov/paperclip-aws.gi
 gem 'randumb',        :git => 'git://github.com/spilliton/randumb.git'
 gem 'jquery-rails'
 gem 'aws-sdk'
+gem 'taps'
 
 
 # Use unicorn as the web server

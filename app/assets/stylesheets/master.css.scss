@@ -522,6 +522,11 @@ div.alert-message {
 }
 
 #message_content {width:720px;}
+#profile {
+  #message_content {
+    width:405px;
+  }
+}
 
 #messages {
   .messages_list {
@@ -545,7 +550,7 @@ div.alert-message {
   margin:15px 0; overflow:hidden; background:#E7E7DE; padding:12px; box-shadow:0 1px 3px 1px #ccc inset; border-radius:4px;
   .place {
     float:left;
-    margin-right:10px;
+    margin-right:13px;
     display:block;
     width:50px;
     height:50px;

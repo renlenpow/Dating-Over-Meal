@@ -6,6 +6,7 @@
 %h1= @title_for_layout
 
 #stage
-  = render :partial => "shared/messages_list"
+  .box
+    = render :partial => "shared/messages_list"
         
   = will_paginate @messages

@@ -29,27 +29,10 @@
             %li
               = link_to place_path(place) do
                 - if place.primary_image.nil?  
-                  = image_tag "restaurant_silhouette.png", :class => :place
+                  = image_tag "restaurant_silhouette.png", :class => :place, :title => place.name
                 - else
-                  = image_tag place.primary_image, :class => :place
-      
-      .form_row
-        %b Places you shared
-        
-        - if @shared_places.size > 0
-          %ul.places_list
-            - @shared_places.each do |place|
-              %li
-                = image_tag place.images.first.picture.url(:thumb), :class => :place
-                %b.place_name= place.name
-                = link_to "Edit", edit_place_path(place), :class => "button rosy"
-                = link_to "Show", place_path(place), :class => "button orange"
-        - else
-          %p You have not shared any places yet
-            
-        
-      = link_to "Share A Place", new_place_path, :class => "button blue"
-      
+                  = image_tag place.primary_image, :class => :place, :title => place.name
+                  
     .box#inbox_messages
       %h2 Messages (#{@messages.count})
       - if @messages.count == 0

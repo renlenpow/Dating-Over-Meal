@@ -18,8 +18,8 @@ class Place < ActiveRecord::Base
     else
       all_images = self.images
       primary_image = all_images.where(:is_primary => true).first
-      return all_images.first.picture.url(:thumb) if primary_image.nil?
-      primary_image.picture.url(:thumb)
+      return all_images.first.picture.url if primary_image.nil?
+      primary_image.picture.url
     end
   end
   

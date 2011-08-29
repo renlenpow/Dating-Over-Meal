@@ -24,7 +24,21 @@ task :scrape_restaurants => :environment do
     'new-york-restaurant-listings',
     'philadelphia-pennsylvania-restaurant-listings',
     'washington-dc-restaurant-listings',
-    'hawaii-restaurant-listings'
+    'hawaii-restaurant-listings',
+    
+    'columbus-ohio-restaurant-listings',
+    'houston-texas-restaurant-listings',
+    'phoenix-restaurant-listings',
+    'new-orleans-louisiana-restaurant-listings',
+    'jacksonville-florida-restaurant-listings',
+    'san-francisco-bay-area-restaurant-listings',
+    'minneapolis-minnesota-restaurant-listings',
+    'las-vegas-restaurant-listings',
+    'oklahoma-restaurant-listings',
+    'wisconsin-restaurant-listings',
+    'kansas-city-kansas-restaurant-listings',
+    'michigan-restaurant-listings',
+    'denver-colorado-restaurant-listings'
   ]
   
   places = []
@@ -106,7 +120,7 @@ task :set_place_slug => :environment do
 end
 
 task :upload_place_images => :environment do
-  Place.where("scrape_image_url IS NOT NULL").each do |place|
+  Place.where("id > 7299 and scrape_image_url IS NOT NULL").each do |place|
     image = Image.new
     image.picture = File.open("/Users/trivuong/Projects/Dating-Over-Meal/restaurants/#{place.scrape_image_url}")
     image.save!

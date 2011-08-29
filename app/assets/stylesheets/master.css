@@ -528,6 +528,9 @@ div.alert-message {
 #message_content {
   width: 720px; }
 
+#profile #message_content {
+  width: 405px; }
+
 #messages .messages_list .content {
   width: 730px; }
 
@@ -555,7 +558,7 @@ div.alert-message {
   border-radius: 4px; }
   .places_list .place {
     float: left;
-    margin-right: 10px;
+    margin-right: 13px;
     display: block;
     width: 50px;
     height: 50px;
