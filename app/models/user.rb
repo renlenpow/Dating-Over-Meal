@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
          
   has_attached_file :avatar, 
     :styles => { :medium => "300x300>", :thumb => "200x200#" },
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
-  attr_accessible :firstname, :lastname, :email, :username, :password, :password_confirmation, :remember_me, :avatar
+  attr_accessible :firstname, :lastname, :email, :username, :password, :password_confirmation, :remember_me, :avatar, :facebook_token
   
   validates_presence_of :firstname, :lastname, :username, :on => :create
   validates_uniqueness_of :username, :on => :create
@@ -56,6 +56,21 @@ class User < ActiveRecord::Base
   
   def inbox_messages
     Message.where("parent_id IS NULL AND (sender_id = #{self.id} OR receiver_id = #{self.id})")
+  end
+  
+  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+    data = access_token['extra']['user_hash']
+    logger.info "Dumping access token"
+    logger.info access_token
+    logger.info "Dumping facebook data"
+    logger.info data
+    if user = User.find_by_email(data["email"])
+      user
+    else # Create a user with a stub password. 
+      User.create(:email => data['email'], :username => Time.now.to_i, :password => Devise.friendly_token[0,20], :firstname => data['first_name'], 
+      :lastname => data['last_name'], :facebook_token => access_token['credentials']['token']
+      )
+    end
   end
   
   private

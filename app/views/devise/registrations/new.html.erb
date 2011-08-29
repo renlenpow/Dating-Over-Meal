@@ -37,6 +37,16 @@
     <div class="form_row">
       <%= f.submit "Create account", :class => "button green" %>
     </div>
+    
+    <div class="form_row">
+      <h2>or</h2>
+    </div>
+    
+    <div class="form_row">
+      <%= link_to user_omniauth_authorize_path(:facebook) do %>
+        <%= image_tag "facebook-connect-button.png", :alt => "Login with Facebook" %>
+      <% end %>
+    </div>
   <% end %>
   
   <footer>

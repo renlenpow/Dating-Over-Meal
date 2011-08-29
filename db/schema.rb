@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110827213954) do
+ActiveRecord::Schema.define(:version => 20110829045005) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -136,6 +136,14 @@ ActiveRecord::Schema.define(:version => 20110827213954) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
+  create_table "ssos", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "thoughts", :force => true do |t|
     t.integer  "user_id"
     t.text     "description"
@@ -161,6 +169,9 @@ ActiveRecord::Schema.define(:version => 20110827213954) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "auth_provider"
+    t.string   "facebook_token"
+    t.string   "facebook_secret"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
