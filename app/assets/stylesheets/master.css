@@ -637,14 +637,14 @@ div.alert-message {
   padding: 15px; }
 .places_listing .place_photo {
   float: left;
-  width: 100px;
+  width: 115px;
   background: #fff;
   padding: 5px;
   box-shadow: 0 1px 4px 1px #aaa;
   border-radius: 4px; }
 .places_listing .place_overview {
   float: left;
-  width: 550px;
+  width: 530px;
   margin-left: 20px; }
 .places_listing .place_name {
   font-size: 21px;
@@ -683,8 +683,22 @@ div.alert-message {
     margin: 0 auto; }
   .places_listing .place_other_info .caption {
     font-size: 10px; }
+.places_listing .white {
+  border-top: 1px solid #B7B7B7;
+  border-right: 1px solid #B7B7B7;
+  border-left: 1px solid #B7B7B7; }
 
 .pagination {
   text-align: right; }
   .pagination * {
     margin: 0 3px; }
+
+#search_place {
+  margin-bottom: 15px; }
+
+#place_search_box {
+  width: 729px !important;
+  font-size: 20px; }
+
+#start_search {
+  font-size: 17px; }

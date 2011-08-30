@@ -593,8 +593,8 @@ div.alert-message {
 
 .places_listing {
   .place { padding:15px }
-  .place_photo { float:left; width:100px; background:#fff; padding:5px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px }
-  .place_overview { float:left; width:550px; margin-left:20px }
+  .place_photo { float:left; width:115px; background:#fff; padding:5px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px }
+  .place_overview { float:left; width:530px; margin-left:20px }
   .place_name { font-size:21px; font-weight:bold; display:block; margin:5px 0 }
   .place_location { margin:10px 0 0; font-weight:bold; }
   .place_other_info {
@@ -606,9 +606,15 @@ div.alert-message {
     .visits {padding:1px; background:#cee8a8; border:1px solid #5f8d1d; width:60px; margin:0 auto }
     .caption {font-size:10px}
   }
+  .white {border-top:1px solid #B7B7B7; border-right:1px solid #B7B7B7; border-left:1px solid #B7B7B7}
 }
 
 .pagination { 
   text-align: right;
   * {margin:0 3px}
 }
+
+#search_place {margin-bottom:15px}
+#place_search_box {width:729px !important; font-size:20px}
+
+#start_search {font-size:17px}

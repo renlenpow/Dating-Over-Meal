@@ -7,6 +7,10 @@
 
 #stage
   .box
+    #search_place
+      %input{:type => :text, :class => :textbox, :id => :place_search_box, :placeholder => "Search place by name, city, state"}
+      %input{:type => :button, :class => "button green", :value => "Go", :id => :start_search}
+      
     %ul.places_listing
       - @places.each do |place|
         %li.clearfix.white.place
