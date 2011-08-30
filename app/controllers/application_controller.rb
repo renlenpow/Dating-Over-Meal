@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def load_page
+    @page = params[:page] ? params[:page].to_i : 1
+  end
+  
 end

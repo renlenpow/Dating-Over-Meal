@@ -549,19 +549,8 @@ div.alert-message {
 .places_list {
   margin:15px 0; overflow:hidden; background:#E7E7DE; padding:12px; box-shadow:0 1px 3px 1px #ccc inset; border-radius:4px;
   .place {
-    float:left;
-    margin-right:13px;
-    display:block;
-    width:50px;
-    height:50px;
-    background:#fff;
-    padding:4px;
-    box-shadow:0 1px 4px 1px #aaa;
-    border-radius:4px;
-    img {
-      width:100%;
-      height:100%;
-    }
+    float:left; margin-right:13px; display:block; width:50px; height:50px; background:#fff; padding:4px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px;
+    img { width:100%; height:100% }
   }
   .place_name {display:block; font-size:14px; margin-bottom:8px}
   .button {border-radius:20px; padding:3px 11px; font-size:11px}
@@ -571,19 +560,13 @@ div.alert-message {
   .textbox {width:812px}
 }
 
-#map {
-  border:1px solid #bbb; border-radius:4px;
-}
+#map { border:1px solid #bbb; border-radius:4px; }
 
 #place_social_share {
   float:right; width:400px;
   
-  .twshare {
-    float:right; margin-left:5px;
-  }
-  .fshare {
-    float:right; width:51px; margin-left:5px; overflow:hidden;
-  }
+  .twshare { float:right; margin-left:5px }
+  .fshare { float:right; width:51px; margin-left:5px; overflow:hidden }
 }
 
 .clearfix:after {
@@ -591,29 +574,35 @@ div.alert-message {
 }
 
 #place_images_list {
-  li {
-    float:left; width:260px; margin:4px 0;
-  }
+  li { float:left; width:260px; margin:4px 0; }
 }
 
 #place_general_info {
-  li {
-    margin:4px 0;
-  }
+  li { margin:4px 0 }
 }
 
-.follow_list {
-  background:#E7E7DE; border-radius:4px; padding:12px; box-shadow:0 1px 3px 1px #ccc inset; margin:15px 0;
-}
+.follow_list { background:#E7E7DE; border-radius:4px; padding:12px; box-shadow:0 1px 3px 1px #ccc inset; margin:15px 0 }
 
 #follows_count {
   li {
     float:left; width:85px; text-align:center;
-    span {
-      font-size:11px; display:block; margin-bottom:4px;
-    }
-    .count {
-      font-weight:bold; font-size:20px; color:#EA0A89;
-    }
+    span { font-size:11px; display:block; margin-bottom:4px }
+    .count { font-weight:bold; font-size:20px; color:#EA0A89 }
+  }
+}
+
+.places_listing {
+  .place { padding:15px }
+  .place_photo { float:left; width:100px; background:#fff; padding:5px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px }
+  .place_overview { float:left; width:540px; margin-left:20px }
+  .place_name { font-size:21px; font-weight:bold; display:block; margin:5px 0 }
+  .place_location { margin:10px 0 0; font-weight:bold; }
+  .place_other_info {
+    float:left; width:90px; margin-left:15px; font-weight:bold;
+    li {margin:5px 0; text-align:center}
+    span {display:block}
+    .pricing { font-size:30px; font-weight:bold }
+    .comments { padding:3px; background:#fffdd2; border:1px solid #d6a224; text-align:center }
+    .visits {padding:3px; background:#cee8a8; border:1px solid #5f8d1d; }
   }
 }

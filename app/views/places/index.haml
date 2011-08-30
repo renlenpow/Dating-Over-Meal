@@ -1,0 +1,29 @@
+- @title_for_layout = 'Places'
+- @body_id = 'places'
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+#stage
+  .box
+    %ul.places_listing
+      - @places.each do |place|
+        %li.clearfix.white.place
+          = link_to place_path(place) do
+            = image_tag place.primary_image, :class => :place_photo
+          .place_overview
+            = link_to place.name, place_path(place), :class => :place_name
+            .place_short_description= truncate(place.description, :length => 300)
+            .place_location #{place.city}, #{place.state}
+          .place_other_info
+            %ul
+              %li
+                %span.pricing= "$" * place.price_range.to_i
+              %li
+                %span.comments 0 comments
+              %li
+                %span.visits 2 visits
+            
+  
+  = will_paginate @places

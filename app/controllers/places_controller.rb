@@ -1,6 +1,11 @@
 class PlacesController < ApplicationController
   
   before_filter :load_place, :only => [:edit, :update, :show, :destroy]
+  before_filter :load_page, :only => [:index]
+  
+  def index
+    @places = Place.paginate(:page => @page, :per_page => 20)
+  end
   
   def new
     @place = Place.new
