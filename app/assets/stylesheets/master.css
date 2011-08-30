@@ -683,3 +683,8 @@ div.alert-message {
     margin: 0 auto; }
   .places_listing .place_other_info .caption {
     font-size: 10px; }
+
+.pagination {
+  text-align: right; }
+  .pagination * {
+    margin: 0 3px; }

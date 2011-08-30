@@ -14,31 +14,35 @@ task :scrape_restaurants => :environment do
   puts "Scraping restaurants"
   
   cities = [
-    'atlanta-georgia-restaurant-listings',
-    'baltimore-maryland-restaurant-listings',
-    'new-england-restaurant-listings',
-    'houston-texas-restaurant-listings',
-    'chicago-illinois-restaurant-listings',
-    'los-angeles-restaurant-listings',
-    'miami-restaurant-listings',
-    'new-york-restaurant-listings',
-    'philadelphia-pennsylvania-restaurant-listings',
-    'washington-dc-restaurant-listings',
-    'hawaii-restaurant-listings',
+    # 'atlanta-georgia-restaurant-listings',
+    # 'baltimore-maryland-restaurant-listings',
+    # 'new-england-restaurant-listings',
+    # 'houston-texas-restaurant-listings',
+    # 'chicago-illinois-restaurant-listings',
+    # 'los-angeles-restaurant-listings',
+    # 'miami-restaurant-listings',
+    # 'new-york-restaurant-listings',
+    # 'philadelphia-pennsylvania-restaurant-listings',
+    # 'washington-dc-restaurant-listings',
+    # 'hawaii-restaurant-listings',
+    # 
+    # 'columbus-ohio-restaurant-listings',
+    # 'houston-texas-restaurant-listings',
+    # 'phoenix-restaurant-listings',
+    # 'new-orleans-louisiana-restaurant-listings',
+    # 'jacksonville-florida-restaurant-listings',
+    # 'san-francisco-bay-area-restaurant-listings',
+    # 'minneapolis-minnesota-restaurant-listings',
+    # 'las-vegas-restaurant-listings',
+    # 'oklahoma-restaurant-listings',
+    # 'wisconsin-restaurant-listings',
+    # 'kansas-city-kansas-restaurant-listings',
+    # 'michigan-restaurant-listings',
+    # 'denver-colorado-restaurant-listings'
     
-    'columbus-ohio-restaurant-listings',
-    'houston-texas-restaurant-listings',
-    'phoenix-restaurant-listings',
-    'new-orleans-louisiana-restaurant-listings',
-    'jacksonville-florida-restaurant-listings',
-    'san-francisco-bay-area-restaurant-listings',
-    'minneapolis-minnesota-restaurant-listings',
-    'las-vegas-restaurant-listings',
-    'oklahoma-restaurant-listings',
-    'wisconsin-restaurant-listings',
-    'kansas-city-kansas-restaurant-listings',
-    'michigan-restaurant-listings',
-    'denver-colorado-restaurant-listings'
+    'toronto-ontario-restaurant-listings',
+    'montreal-quebec-restaurant-listings',
+    'vancouver-british-columbia-restaurant-listings'
   ]
   
   places = []
@@ -63,7 +67,7 @@ task :scrape_restaurants => :environment do
       state_zip = city_state.last.split(" ")
       
       state = state_zip.first
-      zipcode = state_zip.last
+      zipcode = state_zip[1] + " " + state_zip.last
       
       hours = restaurant_doc.css("span#RestaurantProfile_RestaurantProfileInfo_lblHoursOfOperation").text.gsub("Hours of Operation: ", "")
       parking = restaurant_doc.css("span#RestaurantProfile_RestaurantProfileInfo_lblParkingDetails").text.gsub("Parking Details: ", "")
@@ -78,7 +82,7 @@ task :scrape_restaurants => :environment do
         :street_address   => address,
         :city             => city,
         :state            => state,
-        :country          => "US",
+        :country          => "CA",
         :zipcode          => zipcode,
         :hours            => hours,
         :parking          => parking,
@@ -92,9 +96,9 @@ task :scrape_restaurants => :environment do
       restaurant_image = restaurant_doc.css("a#RestaurantProfile_linkRestarantImage img").first
       
       unless restaurant_image.nil?
-        # writeOut = open("/Users/trivuong/Projects/Dating-Over-Meal/restaurants/#{restaurant_image['src'].split("/").last}", "wb")
-        #         writeOut.write(open("http://www.opentable.com/#{restaurant_image['src']}").read)
-        #         writeOut.close
+        writeOut = open("/Users/trivuong/Projects/Dating-Over-Meal/restaurants/#{restaurant_image['src'].split("/").last}", "wb")
+        writeOut.write(open("http://www.opentable.com/#{restaurant_image['src']}").read)
+        writeOut.close
         
         place.scrape_image_url = restaurant_image['src'].split("/").last
       end
@@ -120,11 +124,20 @@ task :set_place_slug => :environment do
 end
 
 task :upload_place_images => :environment do
-  Place.where("id > 7299 and scrape_image_url IS NOT NULL").each do |place|
+  Place.where("country = 'CA' and scrape_image_url IS NOT NULL").each do |place|
     image = Image.new
     image.picture = File.open("/Users/trivuong/Projects/Dating-Over-Meal/restaurants/#{place.scrape_image_url}")
     image.save!
     place.images << image
     place.save
+  end
+end
+
+task :fix_zipcode => :environment do
+  Place.where(:country => "CA").each do |place|
+    if place.zipcode.size > 7
+      place.zipcode = place.zipcode[0,7]
+      place.save
+    end
   end
 end

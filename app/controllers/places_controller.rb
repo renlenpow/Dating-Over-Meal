@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   before_filter :load_page, :only => [:index]
   
   def index
-    @places = Place.paginate(:page => @page, :per_page => 20)
+    @places = Place.paginate(:page => @page, :per_page => 25)
   end
   
   def new

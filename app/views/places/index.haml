@@ -14,7 +14,9 @@
             = image_tag place.primary_image, :class => :place_photo
           .place_overview
             = link_to place.name, place_path(place), :class => :place_name
-            .place_short_description= truncate(place.description, :length => 350)
+            .place_short_description
+              = truncate(place.description, :length => 350)
+              = link_to "more", place_path(place)
             .place_location #{place.city}, #{place.state}
           .place_other_info
             %ul
