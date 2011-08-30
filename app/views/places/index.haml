@@ -14,16 +14,20 @@
             = image_tag place.primary_image, :class => :place_photo
           .place_overview
             = link_to place.name, place_path(place), :class => :place_name
-            .place_short_description= truncate(place.description, :length => 300)
+            .place_short_description= truncate(place.description, :length => 350)
             .place_location #{place.city}, #{place.state}
           .place_other_info
             %ul
               %li
                 %span.pricing= "$" * place.price_range.to_i
               %li
-                %span.comments 0 comments
+                .comments
+                  %span 0 
+                  %span.caption comments
               %li
-                %span.visits 2 visits
+                .visits
+                  %span 2 
+                  %span.caption visits
             
   
   = will_paginate @places

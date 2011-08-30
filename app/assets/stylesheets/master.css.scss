@@ -594,15 +594,16 @@ div.alert-message {
 .places_listing {
   .place { padding:15px }
   .place_photo { float:left; width:100px; background:#fff; padding:5px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px }
-  .place_overview { float:left; width:540px; margin-left:20px }
+  .place_overview { float:left; width:550px; margin-left:20px }
   .place_name { font-size:21px; font-weight:bold; display:block; margin:5px 0 }
   .place_location { margin:10px 0 0; font-weight:bold; }
   .place_other_info {
-    float:left; width:90px; margin-left:15px; font-weight:bold;
+    float:left; width:100px; margin-left:15px; font-weight:bold;
     li {margin:5px 0; text-align:center}
-    span {display:block}
+    span {display:block; font-size:16px}
     .pricing { font-size:30px; font-weight:bold }
-    .comments { padding:3px; background:#fffdd2; border:1px solid #d6a224; text-align:center }
-    .visits {padding:3px; background:#cee8a8; border:1px solid #5f8d1d; }
+    .comments { padding:1px; background:#fffdd2; border:1px solid #d6a224; text-align:center; width:60px; margin:0 auto }
+    .visits {padding:1px; background:#cee8a8; border:1px solid #5f8d1d; width:60px; margin:0 auto }
+    .caption {font-size:10px}
   }
 }
