@@ -4,7 +4,7 @@
 = render :partial => "shared/header"
 
 %h1{:style => "margin-bottom:5px"}= @title_for_layout
-%span #{@place.city}, #{@place.state}
+%span #{@place.street_address}, #{@place.city}, #{@place.state}
 
 :javascript
   var geocoder, map
@@ -48,10 +48,6 @@
     %br
     
     %ul.box#place_general_info
-      %li 
-        %b Cuisine: 
-        = @place.cuisines.all.map(&:name).join(", ")
-        
       %li
         %b Price:
         = "$" * @place.price_range.to_i
@@ -62,7 +58,14 @@
 
       %li
         %b Website:
-        = @place.website.blank? ? "N/A" : @place.website
+        - if @place.website.blank?
+          N/A 
+        - else
+          %a{:href => @place.website, :target => "_blank"}= @place.website
+        
+    .box
+      %h2 Ratings
+      = ratings_for @place
   
   #right
   

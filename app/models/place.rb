@@ -11,6 +11,8 @@ class Place < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :name, :use => :slugged
+  
+  ajaxful_rateable :stars => 5
     
   def primary_image
     if self.images.size == 0

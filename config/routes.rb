@@ -18,7 +18,13 @@ DatingOverMeal::Application.routes.draw do
   
   resources :users
   
-  resources :places
+  resources :places do
+    
+    member do
+      post :rate
+    end
+    
+  end
   
   resources :images do
     

@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   
   before_filter :load_user_profile
   
+  helper_method :singular_class_name
+  
   protected
   
   def load_user_profile

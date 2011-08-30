@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many  :reverse_relationships, :foreign_key => :followed_id, :class_name => "Relationship", :dependent => :destroy
   has_many  :followers, :through => :reverse_relationships, :source => :follower
   has_many  :messages, :foreign_key => :receiver_id, :dependent => :destroy
+  has_many  :rates
   
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
@@ -37,6 +38,8 @@ class User < ActiveRecord::Base
   
   include Gravtastic
   gravtastic
+  
+  ajaxful_rater
   
   def recent_activities
     self.activities.order("created_at DESC").limit(50)

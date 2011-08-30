@@ -23,17 +23,14 @@
               = link_to "more", place_path(place)
             .place_location #{place.city}, #{place.state}
           .place_other_info
-            %ul
-              %li
-                %span.pricing= "$" * place.price_range.to_i
-              %li
-                .comments
-                  %span 0 
-                  %span.caption comments
-              %li
-                .visits
-                  %span 2 
-                  %span.caption visits
+            .clearfix.ratings= place.rating_average
+            .comments
+              %span 0 
+              %span.caption comments
+            
+            .visits
+              %span 2 
+              %span.caption visits
             
   
   = will_paginate @places

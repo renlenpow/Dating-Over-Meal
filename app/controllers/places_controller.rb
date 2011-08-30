@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   
-  before_filter :load_place, :only => [:edit, :update, :show, :destroy]
+  before_filter :load_place, :only => [:edit, :update, :show, :destroy, :rate]
   before_filter :load_page, :only => [:index]
   
   def index
@@ -38,6 +38,13 @@ class PlacesController < ApplicationController
   end
   
   def show
+  end
+  
+  def rate
+    @place.rate(params[:stars], current_user)
+    average = @place.rate_average(true)
+    width = (average / @place.class.max_stars.to_f) * 100
+    render :json => {:id => @place.wrapper_dom_id(params), :average => average, :width => width}
   end
   
   private

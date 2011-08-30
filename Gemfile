@@ -22,6 +22,7 @@ gem 'paperclip-aws',  :git => 'git://github.com/igor-alexandrov/paperclip-aws.gi
 gem 'randumb',        :git => 'git://github.com/spilliton/randumb.git'
 gem 'omniauth',       :git => 'git://github.com/intridea/omniauth.git'
 gem 'koala',          :git => 'git://github.com/arsduo/koala.git'
+gem 'ajaxful_rating_jquery', :git => 'git://github.com/baxang/ajaxful_rating_jquery.git', :branch => 'rails3'
 gem 'jquery-rails'
 gem 'aws-sdk'
 gem 'taps'
