@@ -4,7 +4,11 @@ class PlacesController < ApplicationController
   before_filter :load_page, :only => [:index]
   
   def index
-    @places = Place.paginate(:page => @page, :per_page => 25)
+    if params[:name].present? and !params[:name].blank?
+      @places = Place.search_place(:name => params[:name], :city => params[:city], :state => params[:state], :zipcode => params[:zipcode])
+    else
+      @places = Place.paginate(:page => @page, :per_page => 25)
+    end
   end
   
   def new

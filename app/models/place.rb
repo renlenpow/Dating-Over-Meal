@@ -25,4 +25,24 @@ class Place < ActiveRecord::Base
     end
   end
   
+  def self.search_place(hash)
+    if hash[:name].present?
+      conditions = {}
+      conditions[:street_address] = hash[:street_address] if hash[:street_address].present?
+      conditions[:city] = hash[:city] if hash[:city].present?
+      conditions[:state] = hash[:state] if hash[:state].present?
+      conditions[:zipcode] = hash[:zipcode] if hash[:zipcode].present?
+      self.search hash[:name], :conditions => conditions
+    else
+      self.all
+    end
+  end
+  
+  define_index do
+    indexes :name, :sortable => true
+    indexes street_address
+    indexes city
+    indexes zipcode
+  end
+  
 end

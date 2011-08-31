@@ -412,7 +412,7 @@ div.alert-message {
   }
 }
 
-.last {border:0 !important; margin:0}
+.last {border:0 !important; margin:0 !important}
 
 #auth_header {
   overflow:hidden;
@@ -548,10 +548,6 @@ div.alert-message {
   .button {border-radius:20px; padding:3px 11px; font-size:11px}
 }
 
-#places {
-  .textbox {width:812px}
-}
-
 #map { border:1px solid #bbb; border-radius:4px; }
 
 #place_social_share {
@@ -607,6 +603,17 @@ div.alert-message {
 }
 
 #search_place {margin-bottom:15px}
+#search_criteria {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFE75F), to(#ffce26));
+	background: -moz-linear-gradient(top,  #FFE75F,  #ffce26);
+	box-shadow:0 1px 1px 0px #fff inset;
+  padding:8px; border:1px solid #999; border-radius:4px; margin-top:8px;
+  label {font-weight:bold; font-size:15px; margin-right:5px }
+  .textbox {width:182px; border:1px solid #999}
+  li {
+    float:left; margin-right:8px;
+  }
+}
 #place_search_box {width:729px !important; font-size:20px}
 
 #start_search {font-size:17px}

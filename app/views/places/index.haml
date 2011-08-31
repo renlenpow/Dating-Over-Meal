@@ -8,8 +8,19 @@
 #stage
   .box
     #search_place
-      %input{:type => :text, :class => :textbox, :id => :place_search_box, :placeholder => "Search place by name, city, state"}
-      %input{:type => :button, :class => "button green", :value => "Go", :id => :start_search}
+      = form_for places_path, :method => :get do |f|
+        = text_field_tag :name, nil, :class => :textbox, :id => :place_search_box, :placeholder => "Search a restaurant...", :value => params[:name]
+        = submit_tag "Go", :class => "button green", :id => :start_search, :name => nil
+        
+        %ul#search_criteria.clearfix
+          %li
+            = text_field_tag :street_address, nil, :class => :textbox, :placeholder => "Street name..."
+          %li
+            = text_field_tag :city, nil, :class => :textbox, :placeholder => "City..."
+          %li
+            = text_field_tag :state, nil, :class => :textbox, :placeholder => "State..."
+          %li.last
+            = text_field_tag :zipcode, nil, :class => :textbox, :placeholder => "Zip code..."
       
     %ul.places_listing
       - @places.each do |place|
