@@ -717,3 +717,21 @@ div.alert-message {
 
 #start_search {
   font-size: 17px; }
+
+.map_nav {
+  margin-bottom: 5px; }
+  .map_nav li {
+    float: left;
+    margin-right: 10px; }
+    .map_nav li a {
+      font-size: 18px;
+      font-weight: bold;
+      color: #55a1d5;
+      padding: 6px 15px;
+      display: block; }
+    .map_nav li a.current {
+      background: #ccc;
+      color: #fff;
+      text-shadow: 0 1px 2px #999;
+      border-radius: 20px;
+      box-shadow: 0 1px 3px 2px #aaa inset; }

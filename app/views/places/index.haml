@@ -14,13 +14,13 @@
         
         %ul#search_criteria.clearfix
           %li
-            = text_field_tag :street_address, nil, :class => :textbox, :placeholder => "Street name..."
+            = text_field_tag :street_address, nil, :class => :textbox, :placeholder => "Street name...", :value => params[:street_address]
           %li
-            = text_field_tag :city, nil, :class => :textbox, :placeholder => "City..."
+            = text_field_tag :city, nil, :class => :textbox, :placeholder => "City...", :value => params[:city]
           %li
-            = text_field_tag :state, nil, :class => :textbox, :placeholder => "State..."
+            = text_field_tag :state, nil, :class => :textbox, :placeholder => "State...", :value => params[:state]
           %li.last
-            = text_field_tag :zipcode, nil, :class => :textbox, :placeholder => "Zip code..."
+            = text_field_tag :zipcode, nil, :class => :textbox, :placeholder => "Zip code...", :value => params[:zipcode]
       
     %ul.places_listing
       - @places.each do |place|

@@ -617,3 +617,12 @@ div.alert-message {
 #place_search_box {width:729px !important; font-size:20px}
 
 #start_search {font-size:17px}
+
+.map_nav {
+  margin-bottom:5px;
+  li {
+    float:left; margin-right:10px;
+    a { font-size:18px; font-weight:bold; color:#55a1d5; padding:6px 15px; display:block }
+    a.current {background:#ccc; color:#fff; text-shadow:0 1px 2px #999; border-radius:20px; box-shadow:0 1px 3px 2px #aaa inset}
+  }
+}

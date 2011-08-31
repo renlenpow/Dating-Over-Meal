@@ -7,33 +7,55 @@
 %span #{@place.street_address}, #{@place.city}, #{@place.state}
 
 :javascript
-  var geocoder, map
+  var geocoder, map, street_view, panorama
   
   var address = "#{@place.street_address}, #{@place.city}, #{Carmen.country_name @place.country}";
   
-  function load(){
-    map = new GMap2(document.getElementById("map"));
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
     
-    map.addControl(new GSmallMapControl());
+    geocoder.geocode({'address': address}, function(results, status){
     
-    geocoder = new GClientGeocoder();
+      if (status == google.maps.GeocoderStatus.OK) {
+      
+        var myOptions = {
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+      
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+      
+        map.setCenter(results[0].geometry.location);
+        
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        })
+        
+        var panoramaOptions = {
+          position: results[0].geometry.location,
+          pov: {
+            heading: 34,
+            pitch: 10,
+            zoom: 1
+          }
+        }
+        
+        panorama = new google.maps.StreetViewPanorama(document.getElementById("street_view"), panoramaOptions)
+        
+        street_view = new google.maps.Map(document.getElementById("street_view"))
+
+        street_view.setStreetView(panorama)
+        
+      } else {
+        //TO BE IMPLEMENTED
+        alert('geocoding failed')
+      }
+    })
     
-    geocoder.getLocations(address, addAddressToMap);
   }
   
-  function addAddressToMap(response){
-    place = response.Placemark[0];
-    
-    point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
-    
-    map.setCenter(point, 15);
-    
-    marker = new GMarker(point);
-    
-    map.addOverlay(marker);
-    
-    marker.openInfoWindowHtml(place.address);
-  }
+  google.maps.event.addDomListener(window, 'load', initialize)
   
 
 #stage
@@ -69,23 +91,16 @@
   
   #right
   
-    .box
-      %h2{:style => "float:left"} Location
-      #place_social_share
-        .spread 
-          .fshare.left{:style => 'padding-left: 0px; margin-left: 10px;'} 
-            %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"} 
-            %fb:like{:layout => "button_count", :show_faces => "false", :width => "450"}
-            
-          .twshare.left 
-            %a.twitter-share-button.left{"data-count" => "horizontal", "data-via" => "fuonrails", :href => "http://twitter.com/share"} Tweet 
-            %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"} 
-          
-      .clearfloat
+    .box#map_container
       
-      #map{:style => "height:400px"}
-        :javascript
-          load();
+      %ul.map_nav.clearfix
+        %li
+          %a Map
+        %li
+          %a.current Street View
+      
+      #map{:style => "height:400px; display:none"}
+      #street_view{:style => "height:400px"}
   
     .box
       %h2 Description
@@ -106,4 +121,4 @@
   .clearfloat
   
 = content_for :head do
-  = javascript_include_tag "http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAe8AMMLbf_YgTzCyCZhEOWxRmpRpQoT6Xl_oDg7acg3z6MPu_xhRRBLGRpc3b2H3m676V5KsMa7woDg"
+  = javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false"
