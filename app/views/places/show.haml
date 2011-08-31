@@ -6,58 +6,6 @@
 %h1{:style => "margin-bottom:5px"}= @title_for_layout
 %span #{@place.street_address}, #{@place.city}, #{@place.state}
 
-:javascript
-  var geocoder, map, street_view, panorama
-  
-  var address = "#{@place.street_address}, #{@place.city}, #{Carmen.country_name @place.country}";
-  
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
-    
-    geocoder.geocode({'address': address}, function(results, status){
-    
-      if (status == google.maps.GeocoderStatus.OK) {
-      
-        var myOptions = {
-          zoom: 15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-      
-        map = new google.maps.Map(document.getElementById("map"), myOptions);
-      
-        map.setCenter(results[0].geometry.location);
-        
-        var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-        })
-        
-        var panoramaOptions = {
-          position: results[0].geometry.location,
-          pov: {
-            heading: 34,
-            pitch: 10,
-            zoom: 1
-          }
-        }
-        
-        panorama = new google.maps.StreetViewPanorama(document.getElementById("street_view"), panoramaOptions)
-        
-        street_view = new google.maps.Map(document.getElementById("street_view"))
-
-        street_view.setStreetView(panorama)
-        
-      } else {
-        //TO BE IMPLEMENTED
-        alert('geocoding failed')
-      }
-    })
-    
-  }
-  
-  google.maps.event.addDomListener(window, 'load', initialize)
-  
-
 #stage
   #left
     #picture
@@ -93,14 +41,14 @@
   
     .box#map_container
       
-      %ul.map_nav.clearfix
-        %li
-          %a Map
-        %li
-          %a.current Street View
+      %ul.map_nav.clearfix.tabs
+        %li.current{:tab => :map}
+          Map
+        %li{:tab => :street_view}
+          Street View
       
-      #map{:style => "height:400px; display:none"}
-      #street_view{:style => "height:400px"}
+      #map.tab_content
+      #street_view.tab_content{:style => "display:none"}
   
     .box
       %h2 Description
@@ -122,3 +70,54 @@
   
 = content_for :head do
   = javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false"
+  
+:javascript
+  var geocoder, map, street_view, panorama
+
+  var address = "#{@place.street_address}, #{@place.city}, #{Carmen.country_name @place.country}";
+
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({'address': address}, function(results, status){
+
+      if (status == google.maps.GeocoderStatus.OK) {
+
+        var myOptions = {
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+        map.setCenter(results[0].geometry.location);
+
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        })
+
+        var panoramaOptions = {
+          position: results[0].geometry.location,
+          pov: {
+            heading: 34,
+            pitch: 10,
+            zoom: 1
+          }
+        }
+
+        panorama = new google.maps.StreetViewPanorama(document.getElementById("street_view"), panoramaOptions)
+
+        street_view = new google.maps.Map(document.getElementById("street_view"))
+
+        street_view.setStreetView(panorama)
+
+      } else {
+        //TO BE IMPLEMENTED
+        alert('geocoding failed')
+      }
+    })
+
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize)
