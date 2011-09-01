@@ -55,4 +55,80 @@ describe User do
     receiver.messages.active.should include(message)
   end
   
+  it "should have many interactions" do
+    u = User.reflect_on_association(:interactions)
+    u.macro.should == :has_many
+  end
+  
+  it "should have like_place and like_place? methods" do
+    user = Factory(:user)
+    user.should respond_to(:like_place)
+    user.should respond_to(:like_place?)
+  end
+  
+  it "should have has_visited_place and has_visited_place? methods" do
+    user = Factory(:user)
+    user.should respond_to(:has_visited_place)
+    user.should respond_to(:has_visited_place?)
+  end
+  
+  it "should include visited places if applicable" do
+    user = Factory(:user)
+    
+    place_1 = Factory(:place)
+    place_2 = Factory(:place)
+    place_3 = Factory(:place)
+    
+    user.has_visited_place(place_1)
+    user.visited_places.should include(place_1)
+  end
+  
+  it "should not be able visit a place more than once" do
+    user = Factory(:user)
+    
+    place_1 = Factory(:place)
+    
+    user.has_visited_place(place_1).should == true
+    user.has_visited_place(place_1).should == false
+  end
+  
+  it "should indicate whether they have visited a place properly" do
+    user = Factory(:user)
+    
+    place_1 = Factory(:place)
+    place_2 = Factory(:place)
+    place_3 = Factory(:place)
+    
+    user.has_visited_place(place_1)
+    user.has_visited_place?(place_1).should == true
+    user.has_visited_place?(place_2).should == false
+    user.has_visited_place?(place_3).should == false
+    
+    user.has_visited_place(place_2)
+    user.has_visited_place?(place_2).should == true
+  end
+  
+  it "should include liked places if applicable" do
+    user = Factory(:user)
+    
+    place_1 = Factory(:place)
+    place_2 = Factory(:place)
+    place_3 = Factory(:place)
+    
+    user.like_place(place_1)
+    user.liked_places.should include(place_1)
+  end
+  
+  it "should not be able to like a place more than once" do
+    user = Factory(:user)
+    
+    place_1 = Factory(:place)
+    place_2 = Factory(:place)
+    
+    user.like_place(place_1).should == true
+    user.like_place(place_1).should == false
+    user.like_place(place_2).should == true
+    user.like_place(place_2).should == false
+  end
+  
 end

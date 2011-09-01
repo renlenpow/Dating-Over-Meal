@@ -10,6 +10,13 @@ $(document).ready(function(){
   })
   
   $(".interaction").click(function(){
-    
+    $.ajax({
+      url: "/places/" + $(this).attr("place_id") + "/" + $(this).attr("kind"),
+      type: "POST",
+      data: {},
+      success: function(response) {
+        
+      }
+    })
   })
 })

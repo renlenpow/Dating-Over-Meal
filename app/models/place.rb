@@ -4,6 +4,7 @@ class Place < ActiveRecord::Base
   has_and_belongs_to_many :cuisines
   has_and_belongs_to_many :moods
   has_many :images, :as => :imageable, :dependent => :destroy
+  has_many :interactions, :dependent => :destroy
   
   accepts_nested_attributes_for :images
   

@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(:version => 20110901175134) do
     t.datetime "updated_at"
   end
 
+  add_index "interactions", ["place_id"], :name => "index_interactions_on_place_id"
+  add_index "interactions", ["user_id"], :name => "index_interactions_on_user_id"
+
   create_table "messages", :force => true do |t|
     t.integer  "parent_id"
     t.integer  "receiver_id"

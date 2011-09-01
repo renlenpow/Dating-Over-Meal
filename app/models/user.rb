@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many  :followers, :through => :reverse_relationships, :source => :follower
   has_many  :messages, :foreign_key => :receiver_id, :dependent => :destroy
   has_many  :rates
+  has_many  :interactions, :dependent => :destroy
   
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname
@@ -74,6 +75,45 @@ class User < ActiveRecord::Base
       :lastname => data['last_name'], :facebook_token => access_token['credentials']['token']
       )
     end
+  end
+  
+  def like_place(place)
+    c = {:user_id => self.id, :place_id => place.id, :kind => :like}
+    l = Interaction.new(c)
+    
+    if l.valid?
+      self.interactions << Interaction.create(c)
+      true
+    else
+      false
+    end
+  end
+  
+  def like_place?(place)
+    !self.interactions.where(:place_id => place.id, :kind => :like).first.nil?
+  end
+  
+  def liked_places
+    Place.where(:id => self.interactions.where(:kind => :like).map(&:place_id))
+  end
+  
+  def has_visited_place(place)
+    c = {:user_id => self.id, :place_id => place.id, :kind => :visit}
+    i = Interaction.new(c)
+    if i.valid?
+      self.interactions << Interaction.create(c)
+      true
+    else
+      false
+    end
+  end
+  
+  def has_visited_place?(place)
+    !self.interactions.where(:place_id => place.id, :kind => :visit).first.nil?
+  end
+  
+  def visited_places
+    Place.where(:id => self.interactions.where(:kind => :visit).map(&:place_id))
   end
   
   private

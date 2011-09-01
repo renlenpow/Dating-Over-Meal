@@ -6,6 +6,9 @@ class CreateInteractions < ActiveRecord::Migration
       t.string  :kind
       t.timestamps
     end
+    
+    add_index :interactions, :user_id
+    add_index :interactions, :place_id
   end
   
   def down

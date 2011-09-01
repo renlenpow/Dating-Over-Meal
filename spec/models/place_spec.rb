@@ -54,4 +54,9 @@ describe Place do
     p.macro.should == :has_and_belongs_to_many
   end
   
+  it "should have many interactions" do
+    p = Place.reflect_on_association(:interactions)
+    p.macro.should == :has_many
+  end
+  
 end

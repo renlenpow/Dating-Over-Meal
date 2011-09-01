@@ -22,6 +22,8 @@ DatingOverMeal::Application.routes.draw do
     
     member do
       post :rate
+      post :like
+      post :visit
     end
     
   end

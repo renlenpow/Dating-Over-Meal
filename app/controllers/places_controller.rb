@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   
-  before_filter :load_place, :only => [:edit, :update, :show, :destroy, :rate]
+  before_filter :load_place, :only => [:edit, :update, :show, :destroy, :rate, :visit, :like]
   before_filter :load_page, :only => [:index]
   
   def index
@@ -49,6 +49,22 @@ class PlacesController < ApplicationController
     average = @place.rate_average(true)
     width = (average / @place.class.max_stars.to_f) * 100
     render :json => {:id => @place.wrapper_dom_id(params), :average => average, :width => width}
+  end
+  
+  def like
+    if current_user.like_place(@place)
+      render :json => {:success => 1, :message => "Thank you for liking #{@place.name}"}
+    else
+      render :json => {:success => -1, :message => "You have already liked this place"}
+    end
+  end
+  
+  def visit
+    if current_user.has_visited_place(@place)
+      render :json => {:success => 1, :message => "Thank you for visiting #{@place.name}"}
+    else
+      render :json => {:success => -1, :message => "You have already visited this place"}
+    end
   end
   
   private
