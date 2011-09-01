@@ -8,4 +8,8 @@ $(document).ready(function(){
     $(".tab_content").hide()
     $("#" + $(this).attr("tab")).show()
   })
+  
+  $(".interaction").click(function(){
+    
+  })
 })

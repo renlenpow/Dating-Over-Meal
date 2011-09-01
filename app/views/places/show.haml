@@ -41,11 +41,18 @@
   
     .box#map_container
       
-      %ul.map_nav.clearfix.tabs
-        %li.current{:tab => :map}
-          Map
-        %li{:tab => :street_view}
-          Street View
+      .interaction_wrapper.clearfix
+        %ul.map_nav.tabs
+          %li.current{:tab => :map}
+            Map
+          %li{:tab => :street_view}
+            Street View
+      
+        #interaction_like.interaction.button.white{:place_id => @place.id, :kind => "Like"}
+          %span I like this place
+      
+        #interaction_visit.interaction.button.white{:place_id => @place.id, :kind => "Visit"}
+          %span I've been here
       
       #map.tab_content
       #street_view.tab_content{:style => "display:none"}

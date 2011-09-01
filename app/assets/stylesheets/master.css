@@ -580,8 +580,7 @@ div.alert-message {
     font-size: 11px; }
 
 #map {
-  border: 1px solid #bbb;
-  border-radius: 4px; }
+  border: 1px solid #bbb; }
 
 #place_social_share {
   float: right;
@@ -718,22 +717,46 @@ div.alert-message {
 #start_search {
   font-size: 17px; }
 
-.map_nav {
-  margin-bottom: 10px; }
-  .map_nav li {
+#map_container .map_nav {
+  float: left; }
+  #map_container .map_nav li {
     float: left;
-    margin-right: 10px;
-    font-size: 18px;
+    margin-right: 5px;
+    font-size: 15px;
     font-weight: bold;
     color: #55a1d5;
     padding: 6px 15px;
     cursor: pointer; }
-  .map_nav li.current {
+  #map_container .map_nav li.current {
     background: #ccc;
     color: #fff;
     text-shadow: 0 1px 2px #999;
     border-radius: 20px;
     box-shadow: 0 1px 3px 2px #aaa inset; }
+#map_container .interaction_wrapper {
+  margin-bottom: 10px; }
 
 #map, #street_view {
   height: 400px; }
+
+.interaction {
+  float: right;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px; }
+  .interaction span {
+    display: block;
+    padding: 6px 8px 6px 29px;
+    font-weight: normal;
+    text-shadow: 0 0 0; }
+
+#interaction_like {
+  width: 134px; }
+  #interaction_like span {
+    background: url(/assets/thumbs_up.png) no-repeat 4px 1px; }
+
+#interaction_visit {
+  width: 134px; }
+  #interaction_visit span {
+    background: url(/assets/pin.png) no-repeat 7px 2px;
+    padding: 6px 2px 6px 29px; }
