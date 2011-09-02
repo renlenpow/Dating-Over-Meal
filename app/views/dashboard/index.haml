@@ -20,17 +20,8 @@
         = f.submit :value => "Share", :class => "button blue", :id => "share_thought"
           
     .box#places_list
-      %h2 Places
-      
-      %b Random places
-      %ul.places_list
-        - @random_places.each do |place|
-          %li
-            = link_to place_path(place) do
-              - if place.primary_image.nil?  
-                = image_tag "restaurant_silhouette.png", :class => :place, :title => place.name
-              - else
-                = image_tag place.primary_image, :class => :place, :title => place.name
+      %h2 Places you might like
+      = render :partial => "shared/places_list", :locals => {:places => @random_places}
       = link_to "View all places", places_path
                   
     .box#inbox_messages
@@ -64,8 +55,18 @@
         
     .box#places_you_been
       %h2 Places you've been to
+      - if @visited_places.size > 0
+        = render :partial => "shared/places_list", :locals => {:places => @visited_places}
+      - else
+        %p You haven't been to any places yet
+      = link_to "Checkout other places", places_path
         
     .box#places_you_like
       %h2 Places you like
+      - if @liked_places.size > 0
+        = render :partial => "shared/places_list", :locals => {:places => @liked_places}
+      - else
+        %p You don't have any favorite places yet
+      = link_to "Checkout other places", places_path
       
   .clearfloat

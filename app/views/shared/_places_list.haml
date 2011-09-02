@@ -1,0 +1,8 @@
+%ul.places_list
+  - places.each do |place|
+    %li
+      = link_to place_path(place) do
+        - if place.primary_image.nil?  
+          = image_tag "restaurant_silhouette.png", :class => :place, :title => place.name
+        - else
+          = image_tag place.primary_image, :class => :place, :title => place.name

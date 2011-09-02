@@ -5,6 +5,8 @@ class ProfilesController < ApplicationController
     @profile = @user.profile
     @recent_activities = @user.recent_activities
     @recent_thoughts = @user.recent_thoughts
+    @visited_places = current_user.visited_places
+    @liked_places = current_user.liked_places
   end
   
   def edit

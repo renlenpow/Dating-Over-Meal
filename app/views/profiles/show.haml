@@ -17,11 +17,11 @@
       %ul#follows_count.clearfix
         %li
           %span Following
-          %p.count= current_user.following.count
+          %p.count= @user.following.count
         
         %li 
           %span Followers
-          %p.count= current_user.followers.count
+          %p.count= @user.followers.count
       
     - unless current_user.id == @user.id
       - unless current_user.following?(@user)
@@ -79,7 +79,7 @@
           #{@profile.description.blank? ? "N/A" : @profile.description}
           
     .box#thoughts
-      %h2 What's on #{@profile.firstname}'s mind
+      %h2 What's on my mind
       
       - if @recent_thoughts.size > 0
         %ul
@@ -94,6 +94,13 @@
       %ul
         - @recent_activities.each do |activity|
           %li #{activity.activity_description} - #{activity.created_at.strftime("%b %d, %Y")}
+          
+    .box
+      %h2 Places #{@profile.firstname}'s visited
+      - if @visited_places.size > 0
+        = render :partial => "shared/places_list", :locals => {:places => @visited_places}
+      - else
+        %p #{@profile.firstname} has not visited any places yet
       
   
   .clearfloat
