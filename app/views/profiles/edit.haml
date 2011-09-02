@@ -1,5 +1,5 @@
 - @title_for_layout = "Edit Profile"
-- @body_id = "profile"
+- @body_id = "edit_profile"
 
 = render :partial => "shared/header"
 
@@ -14,29 +14,31 @@
     = link_to "View Profile", profile_path(current_user.username), :class => "button white social_option"
       
   #right
-    .box#profile_information
-      = form_for @profile, :remote => true, :html => {:id => :profile_information_form} do |f|
+    = form_for @profile, :remote => true, :html => {:id => :profile_information_form} do |f|
+      .box#profile_information
+        %h2 Basic Personal Information
+        
         .form_row
-          = f.label :firstname
+          = f.label :firstname, "First name"
           = f.text_field :firstname, :class => :textbox
           
         .form_row
-          = f.label :lastname
+          = f.label :lastname, "Last name"
           = f.text_field :lastname, :class => :textbox
           
         .form_row
           = f.label :gender
-          = f.select :gender, options_for_select(["male", "female"], @profile.gender), :include_blank => true
+          = f.select :gender, options_for_select(["male", "female", "Rather not say"], @profile.gender), :include_blank => "-- no answer --"
           
         .form_row
           %label Birthday
-          = f.select :birth_month, options_for_select(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], @profile.birth_month), :include_blank => true
-          = f.select :birth_day, options_for_select(1..31, @profile.birth_day.to_i), :include_blank => true
-          = f.select :birth_year, options_for_select(1993.downto(1905), @profile.birth_year.to_i), :include_blank => true
+          = f.select :birth_month, options_for_select(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], @profile.birth_month), :include_blank => "-- no answer --"
+          = f.select :birth_day, options_for_select(1..31, @profile.birth_day.to_i), :include_blank => "-- no answer --"
+          = f.select :birth_year, options_for_select(1993.downto(1905), @profile.birth_year.to_i), :include_blank => "-- no answer --"
         
         .form_row
           = f.label :relationship_status
-          = f.select :relationship_status, options_for_select(["Single", "It's complicated", "In an open relationship", "Widowed", "Seperated", "Divorced", "Rather not say"], @profile.relationship_status), :include_blank => true
+          = f.select :relationship_status, options_for_select(["Single", "It's complicated", "In an open relationship", "Widowed", "Seperated", "Divorced", "Rather not say"], @profile.relationship_status), :include_blank => "-- no answer --"
         
         .form_row
           = f.label :city
@@ -48,11 +50,7 @@
           
         .form_row
           = f.label :country
-          = f.select :country, options_for_select(Carmen.countries, @profile.country), :include_blank => true
-        
-        .form_row
-          = f.label :description, "About me"
-          = f.text_area :description, :class => :textbox
+          = f.select :country, options_for_select(Carmen.countries, @profile.country), :include_blank => "-- no answer --"
           
         .form_row
           = f.label :occupation
@@ -82,20 +80,113 @@
           = f.label :flickr
           = f.text_field :flickr, :class => :textbox
          
-        .form_row
+        .form_row.last
           = f.label :linkedin
           = f.text_field :linkedin, :class => :textbox
+        
+      #about_you.box
+        %h2 About you
+      
+        .form_row
+          = f.label :description, "About me"
+          = f.text_area :description, :class => :textbox
         
         .form_row
           = f.label :languages
           = f.text_area :languages, :class => :textbox
-          
+        
         .form_row
           = f.label :hobbies
           = f.text_area :hobbies, :class => :textbox
-                
+          
         .form_row
-          = f.submit :value => "Update", :class => "button green", :id => :update_profile
+          = f.label :most_attractive_feature
+          = f.select :most_attractive_feature, options_for_select(["Eyes", "Face", "Smile", "Breast", "Hands", "Legs", "Shoulder", "Hair", "Abs", "Rather not say"], @profile.most_attractive_feature), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :ethnicity
+          = f.select :ethnicity, options_for_select(["Asian", "Black", "Hispanic/Latin", "White", "Middle Eastern", "Native American", "Mixed", "Rather not say"], @profile.ethnicity), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :height
+          = f.select :height, options_for_select(@heights, @profile.height), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :body_type
+          = f.select :body_type, options_for_select(["Large", "Slim/Slender", "Muscular", "Curvy", "Athletic", "Rather not say"], @profile.body_type), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :hair_color
+          = f.select :hair_color, options_for_select(["Black", "Blone", "Brown", "Red", "Salt and Pepper", "White", "Grey", "Rather not say"], @profile.hair_color), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :eye_color
+          = f.select :eye_color, options_for_select(["Black", "Blue", "Green", "Hazel", "Rather not say"], @profile.eye_color), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :tattoos
+          = f.select :tattoos, options_for_select(["None, absolutely not", "None, but I might get one", "Many tattoos", "Rather not say"], @profile.tattoos), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :piercings
+          = f.select :piercings, options_for_select(["None, absolutely not", "None, but I might get one", "Many piercings", "Rather not say"], @profile.piercings), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :zodiac_sign
+          = f.select :zodiac_sign, options_for_select(["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Rather not say"], @profile.zodiac_sign), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :religion
+          = f.select :religion, options_for_select(["Atheist", "Buddhist / Taoist", "Christian", "Hindu", "Jewish", "Mormon", "Muslim / Islam", "Scientology", "Rather not say"], @profile.religion), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :exercise
+          = f.select :exercise, options_for_select(["Never", "1-2 times per week", "3-4 times per week", "5 or more times per week", "Rather not say"], @profile.exercise), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :smoking
+          = f.select :smoking, options_for_select(["Never", "Sometimes", "Occasionally", "Everyday", "Rather not say"], @profile.smoking), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :kids
+          = f.select :kids, options_for_select(["Has 1 child", "Has children", "Like kids", "Don't like kids", "Doesn't want kids", "Rather not say"], @profile.kids), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :pets
+          = f.select :pets, options_for_select(["Has pet(s)", "No pets", "Like pets", "Don't like pets", "Rather not say"], @profile.pets), :include_blank => "- no answer -"
+          
+      .box#what_you_looking_for
+        %h2 What you're looking for
+        
+        .form_row
+          = f.label :looking_for_gender, "Gender"
+          = f.select :looking_for_gender, options_for_select(["Man", "Woman", "Rather not say"], @profile.looking_for_gender), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :looking_for_age_min, "No younger than"
+          = f.select :looking_for_age_min, options_for_select((18..70).to_a, @profile.looking_for_age_min), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :looking_for_age_max, "No older than"
+          = f.select :looking_for_age_max, options_for_select((18..70).to_a, @profile.looking_for_age_max), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :looking_for_ethnicity, "Ethnicity"
+          = f.select :looking_for_ethnicity, options_for_select(["Asian", "Black", "Hispanic/Latin", "White", "Middle Eastern", "Native American", "Mixed", "Rather not say"], @profile.looking_for_ethnicity), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :looking_for_body_type, "Body type"
+          = f.select :looking_for_body_type, options_for_select(["Large", "Slim/Slender", "Muscular", "Curvy", "Athletic", "Rather not say"], @profile.looking_for_body_type), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :looking_for_location, "Location"
+          = f.select :looking_for_location, options_for_select(["Near me", "Anywhere"], @profile.looking_for_location), :include_blank => "- no answer -"
+          
+        .form_row
+          = f.label :partner_expectation, "What are you looking for in a partner"
+          = f.text_area :partner_expectation, :class => :textbox
+          
+        = f.submit :value => "Update", :class => "button green", :id => :update_profile
   
   .clearfloat
   

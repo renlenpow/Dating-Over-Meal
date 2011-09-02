@@ -23,6 +23,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string  :linkedin
       t.text    :languages
       t.text    :hobbies
+      
       t.timestamps
     end
   end

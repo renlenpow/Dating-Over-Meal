@@ -411,16 +411,16 @@ div.alert-message {
 #thoughts_box {width:590px; height:19px}
 
 #profile_information {
-  padding:0;
+  h2 {margin-bottom:0}
   .form_row {
-    margin:0; padding:15px; border-bottom:1px solid #ddd;
-    label {font-weight:bold}
+    margin:0; padding:15px 0; border-bottom:1px dotted #ccc;
   }
 }
 
 #profile_information_form {
+  label {font-weight:bold}
   .textbox {width:594px}
-  select {padding:2px 4px; border:1px solid #aaa}
+  select {padding:4px; border:1px solid #aaa; width:180px}
 }
 
 #profile_details {
@@ -585,7 +585,7 @@ div.alert-message {
 }
 
 #alert {
-  background:#111; font-size:15px;  position:absolute;  top:0;  left:0;  width:100%; border:0 !important; color:#fff;
+  background:#111; font-size:15px;  position:fixed;  top:0;  left:0;  width:100%; border:0 !important; color:#fff;
   .content {
     padding:15px;
   }

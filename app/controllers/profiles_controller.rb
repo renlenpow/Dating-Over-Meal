@@ -10,6 +10,13 @@ class ProfilesController < ApplicationController
   end
   
   def edit
+    @heights = []
+    (4..6).each do |f|
+      (0..11).each do |r|
+        @heights << "#{f}' #{r}\""
+      end
+    end
+    @heights << "Rather not say"
     @profile = Profile.find(params[:id])
   end
   

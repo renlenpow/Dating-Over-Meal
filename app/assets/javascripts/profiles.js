@@ -2,7 +2,9 @@
 // All this logic will automatically be available in application.js.
 $(function(){
   $("#profile_information_form").bind("ajax:success", function(evt, data, status, xhr){
-    //alert(xhr.responseText)
+    $("#alert_content").html("Your profile has been updated");
+    $("#alert").slideDown()
+    setTimeout(function(){ $("#alert").slideUp() }, 4000)
   })
   
   $("#follow_user").click(function(){

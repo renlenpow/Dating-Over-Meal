@@ -457,20 +457,21 @@ div.alert-message {
   width: 590px;
   height: 19px; }
 
-#profile_information {
-  padding: 0; }
-  #profile_information .form_row {
-    margin: 0;
-    padding: 15px;
-    border-bottom: 1px solid #ddd; }
-    #profile_information .form_row label {
-      font-weight: bold; }
+#profile_information h2 {
+  margin-bottom: 0; }
+#profile_information .form_row {
+  margin: 0;
+  padding: 15px 0;
+  border-bottom: 1px dotted #ccc; }
 
+#profile_information_form label {
+  font-weight: bold; }
 #profile_information_form .textbox {
   width: 594px; }
 #profile_information_form select {
-  padding: 2px 4px;
-  border: 1px solid #aaa; }
+  padding: 4px;
+  border: 1px solid #aaa;
+  width: 180px; }
 
 #profile_details ul {
   list-style: none; }
@@ -770,7 +771,7 @@ div.alert-message {
 #alert {
   background: #111;
   font-size: 15px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
