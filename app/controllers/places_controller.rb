@@ -7,7 +7,7 @@ class PlacesController < ApplicationController
     if params[:name].present? and !params[:name].blank?
       @places = Place.search_place(:name => params[:name], :city => params[:city], :state => params[:state], :zipcode => params[:zipcode])
     else
-      @places = Place.paginate(:page => @page, :per_page => 25)
+      @places = Place.most_recent.paginate(:page => @page, :per_page => 25)
     end
   end
   

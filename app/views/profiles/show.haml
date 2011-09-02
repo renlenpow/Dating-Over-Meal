@@ -13,6 +13,24 @@
     
     %br
     
+    - unless @profile.facebook.blank? and @profile.twitter.blank? and @profile.flickr.blank? and @profile.linkedin.blank?
+      .box#profile_social_networks
+        - unless @profile.facebook.blank?
+          %a{:href => @profile.facebook, :target => "_blank"}
+            = image_tag "facebook_16.png", :alt => :Facebook
+        
+        - unless @profile.twitter.blank?
+          %a{:href => @profile.facebook, :target => "_blank"}
+            = image_tag "twitter_16.png", :alt => :Twitter
+        
+        - unless @profile.flickr.blank?
+          %a{:href => @profile.flickr, :target => "_blank"}
+            = image_tag "flickr_16.png", :alt => :Flickr
+        
+        - unless @profile.linkedin.blank?
+          %a{:href => @profile.linkedin, :target => "_blank"}
+            = image_tag "linkedin_16.png", :alt => :Linkedin
+    
     .box
       %ul#follows_count.clearfix
         %li
@@ -96,7 +114,7 @@
           %li #{activity.activity_description} - #{activity.created_at.strftime("%b %d, %Y")}
           
     .box
-      %h2 Places #{@profile.firstname}'s visited
+      %h2 Places I've visited
       - if @visited_places.size > 0
         = render :partial => "shared/places_list", :locals => {:places => @visited_places}
       - else

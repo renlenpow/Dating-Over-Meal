@@ -6,6 +6,8 @@ class Place < ActiveRecord::Base
   has_many :images, :as => :imageable, :dependent => :destroy
   has_many :interactions, :dependent => :destroy
   
+  scope :most_recent, order("created_at DESC")
+  
   accepts_nested_attributes_for :images
   
   validates_presence_of :name, :description, :street_address, :city
