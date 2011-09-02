@@ -643,3 +643,10 @@ div.alert-message {
   width:134px;
   span { background:url(/assets/pin.png) no-repeat 7px 2px; padding:6px 2px 6px 29px }
 }
+
+#alert {
+  background:#111; font-size:15px;  position:absolute;  top:0;  left:0;  width:100%; border:0 !important; color:#fff;
+  .content {
+    padding:15px;
+  }
+}

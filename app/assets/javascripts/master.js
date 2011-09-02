@@ -10,12 +10,16 @@ $(document).ready(function(){
   })
   
   $(".interaction").click(function(){
+    var that = $(this)
     $.ajax({
       url: "/places/" + $(this).attr("place_id") + "/" + $(this).attr("kind"),
       type: "POST",
       data: {},
       success: function(response) {
-        
+        $("#alert_content").html(response.message)
+        $("#alert").slideDown()
+        setTimeout(function(){ $("#alert").slideUp() }, 4000)
+        that.removeClass("white").addClass("green")
       }
     })
   })

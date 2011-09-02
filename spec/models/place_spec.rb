@@ -59,4 +59,38 @@ describe Place do
     p.macro.should == :has_many
   end
   
+  it "should have a count_visits method" do
+    p = Factory(:place)
+    p.should respond_to(:count_visits)
+  end
+  
+  it "should return the accurate count of visits" do
+    p = Factory(:place)
+    p.count_visits.should == 0
+    
+    user_1 = Factory(:user, :username => 'user_1', :email => 'user_1@email.com')
+    user_1.has_visited_place(p)
+    user_2 = Factory(:user, :username => 'user_2', :email => 'user_2@email.com')
+    user_2.has_visited_place(p)
+    
+    p.count_visits.should == 2
+  end
+  
+  it "should have a count_likes method" do
+    p = Factory(:place)
+    p.should respond_to(:count_likes)
+  end
+  
+  it "should return the accurate count of likes" do
+    p = Factory(:place)
+    p.count_likes.should == 0
+    
+    user_1 = Factory(:user, :username => 'user_1', :email => 'user_1@email.com')
+    user_1.like_place(p)
+    user_2 = Factory(:user, :username => 'user_2', :email => 'user_2@email.com')
+    user_2.like_place(p)
+    
+    p.count_likes.should == 2
+  end
+  
 end

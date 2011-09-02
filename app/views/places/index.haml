@@ -36,11 +36,11 @@
           .place_other_info
             .clearfix.ratings= place.rating_average
             .comments
-              %span 0 
-              %span.caption comments
+              %span= place.count_likes 
+              %span.caption likes this
             
             .visits
-              %span 2 
+              %span= place.count_visits
               %span.caption visits
             
   

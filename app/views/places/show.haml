@@ -48,10 +48,10 @@
           %li{:tab => :street_view}
             Street View
       
-        #interaction_like.interaction.button.white{:user_id => current_user.id, :place_id => @place.id, :kind => :like}
+        #interaction_like.interaction{:user_id => current_user.id, :place_id => @place.id, :kind => :like, :class => current_user.like_place?(@place) ? "green button" : "white button"}
           %span I like this place
       
-        #interaction_visit.interaction.button.white{:user_id => current_user.id, :place_id => @place.id, :kind => :visit}
+        #interaction_visit.interaction{:user_id => current_user.id, :place_id => @place.id, :kind => :visit, :class => current_user.has_visited_place?(@place) ? "green button" : "white button"}
           %span I've been here
       
       #map.tab_content

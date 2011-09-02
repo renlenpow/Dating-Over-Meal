@@ -39,11 +39,20 @@ class Place < ActiveRecord::Base
     end
   end
   
+  # Sphinx searching
   define_index do
     indexes :name, :sortable => true
     indexes street_address
     indexes city
     indexes zipcode
+  end
+  
+  def count_visits
+    self.interactions.where(:kind => :visit).count
+  end
+  
+  def count_likes
+    self.interactions.where(:kind => :like).count
   end
   
 end
