@@ -1,12 +1,15 @@
-%ul.messages_list
-  - @messages.each do |message|
-    - sender = message.sender
-    - profile = sender.profile
-    %li
-      = link_to message_path(message), :class => :show_message_details do
-        = image_tag sender.avatar.url(:thumb), :class => :profile_photo, :alt => sender.username
-        %span.content
-          %b.author #{profile.firstname} #{profile.lastname}
-          %span= message.content
+- if @messages.size > 0
+  %ul.messages_list
+    - @messages.each do |message|
+      - sender = message.sender
+      - profile = sender.profile
+      %li
+        = link_to message_path(message), :class => :show_message_details do
+          = image_tag sender.avatar.url(:thumb), :class => :profile_photo, :alt => sender.username
+          %span.content
+            %b.author #{profile.firstname} #{profile.lastname}
+            %span= message.content
     
-      = link_to "x", message_path(message), :method => :delete, :class => :delete, :confirm => "Are you sure?"
+        = link_to "x", message_path(message), :method => :delete, :class => :delete, :confirm => "Are you sure?"
+- else
+  %p You don't have any messages yet

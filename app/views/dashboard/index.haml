@@ -59,7 +59,7 @@
         = render :partial => "shared/places_list", :locals => {:places => @visited_places}
       - else
         %p You haven't been to any places yet
-      = link_to "Checkout other places", places_path
+      = link_to "Check out other places", places_path
         
     .box#places_you_like
       %h2 Places you like
@@ -67,6 +67,6 @@
         = render :partial => "shared/places_list", :locals => {:places => @liked_places}
       - else
         %p You don't have any favorite places yet
-      = link_to "Checkout other places", places_path
+      = link_to "Check out other places", places_path
       
   .clearfloat

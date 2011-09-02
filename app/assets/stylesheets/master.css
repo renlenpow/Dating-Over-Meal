@@ -43,9 +43,9 @@ textarea {
   height: 50px; }
 
 .devise_form {
-  background: #fbfbfb;
+  background: #fff;
   border: 1px solid #999999;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
   box-shadow: 0 3px 10px #333;
   margin: 90px auto 50px;
   padding: 30px;
@@ -684,9 +684,15 @@ div.alert-message {
   border-left: 1px solid #B7B7B7; }
 
 .pagination {
-  text-align: right; }
+  text-align: center; }
   .pagination * {
     margin: 0 3px; }
+  .pagination em {
+    padding: 1px 4px;
+    background: #EA0A89;
+    border-radius: 3px;
+    color: #fff;
+    font-style: normal; }
 
 #search_place {
   margin-bottom: 15px; }
