@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   
   validates_presence_of :firstname, :lastname, :username, :on => :create
   validates_uniqueness_of :username, :on => :create
+  validates :username, :format => {:with => /\A[a-zA-Z0-9_]+\z/, :message => "Only letters, numbers and underscores are allowed"}
   
   after_create :create_user_profile
   after_create :log_registration_activity

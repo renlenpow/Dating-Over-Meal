@@ -471,6 +471,19 @@ div.alert-message {
   width: 590px;
   height: 19px; }
 
+#profile_top_wash h1 {
+  margin-bottom: 6px; }
+
+#profile_header_left {
+  float: left;
+  width: 400px; }
+
+#profile_header_right {
+  float: right; }
+  #profile_header_right .button {
+    padding: 1px 4px;
+    font-size: 10px; }
+
 #profile_information h2 {
   margin-bottom: 0; }
 #profile_information .form_row {

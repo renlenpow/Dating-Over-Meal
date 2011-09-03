@@ -17,6 +17,14 @@ describe User do
     second_user.should_not be_valid
   end
   
+  it "should have a username consisted of only letters, numbers, and underscores" do
+    user = User.new(:firstname => "First", :lastname => "Last", :username => "first.last", :email => "first.last@email.com", :password => "password")
+    user.should_not be_valid
+    
+    user.username = "first_last"
+    user.should be_valid
+  end
+  
   it "should have a unique username" do
     first_user = Factory(:user)
     second_user = User.new(:firstname => "First", :lastname => "Last", :username => "username", :email => "first.last111@email.com", :password => "password")
@@ -48,8 +56,8 @@ describe User do
   end
   
   it "should only have access to messages sent to them" do
-    sender    = Factory(:user, :username => "john.doe", :firstname => 'John', :lastname => 'Doe', :email => 'john.doe@email.com')
-    receiver  = Factory(:user, :username => "john.smith",  :firstname => 'John', :lastname => 'Smith', :email => 'john.smith@email.com')
+    sender    = Factory(:user, :username => "john_doe", :firstname => 'John', :lastname => 'Doe', :email => 'john.doe@email.com')
+    receiver  = Factory(:user, :username => "john_smith",  :firstname => 'John', :lastname => 'Smith', :email => 'john.smith@email.com')
     message   = Factory(:message, :sender_id => sender.id, :receiver_id => receiver.id)
     
     receiver.messages.active.should include(message)

@@ -3,7 +3,22 @@
 
 = render :partial => "shared/header"
 
-%h1= @title_for_layout
+#profile_top_wash.clearfix
+  #profile_header_left
+    %h1#profile_name_header= @title_for_layout
+  
+    - hours_passed_since_last_logged_in = hours_passed(@user.last_sign_in_at)
+
+    %p
+      %b Last login:
+      - if hours_passed_since_last_logged_in == 0
+        just a little while ago
+      - else
+        #{hours_passed_since_last_logged_in} hours ago
+  
+  - unless current_user.id == @user.id
+    #profile_header_right
+      %span{:class => "button red"} report
 
 #stage
   #left

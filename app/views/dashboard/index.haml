@@ -37,9 +37,10 @@
       %h2 Following
       - if @following.size > 0
         %ul.follow_list.clearfix
-        - @following.each do |user|
-          = link_to profile_path(user.username) do
-            = image_tag user.avatar.url(:thumb), :class => :profile_photo
+          - @following.each do |user|
+            %li
+              = link_to profile_path(user.username) do
+                = image_tag user.avatar.url(:thumb), :class => :profile_photo
       - else
         %p You're not following anybody
       
@@ -48,8 +49,9 @@
       - if @followers.size > 0
         %ul.follow_list.clearfix
           - @followers.each do |user|
-            = link_to profile_path(user.username) do
-              = image_tag user.avatar.url(:thumb), :class => :profile_photo
+            %li
+              = link_to profile_path(user.username) do
+                = image_tag user.avatar.url(:thumb), :class => :profile_photo
       - else
         %p You don't have any followers
         
