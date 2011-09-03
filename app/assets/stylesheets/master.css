@@ -19,6 +19,10 @@ a {
 ul {
   list-style: none; }
 
+pre {
+  font-size: 12px;
+  font-family: arial; }
+
 #collage {
   width: 100%;
   height: 400px;
@@ -455,7 +459,7 @@ div.alert-message {
     color: #74a106;
     margin-bottom: 10px; }
   .box p {
-    line-height: 19px; }
+    line-height: 17px; }
   .box .content {
     padding: 15px;
     background: #EDEDED;
@@ -493,7 +497,7 @@ div.alert-message {
 
 .profile_illustration {
   float: left;
-  margin-right: 13px; }
+  margin-right: 8px; }
 
 .social_option {
   display: block;

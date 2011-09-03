@@ -30,8 +30,9 @@
           .place_overview
             = link_to place.name, place_path(place), :class => :place_name
             .place_short_description
-              = truncate(place.description, :length => 350)
-              = link_to "more", place_path(place)
+              %p
+                = truncate(place.description, :length => 350)
+                = link_to "more", place_path(place)
             .place_location #{place.city}, #{place.state}
           .place_other_info
             .clearfix.ratings= place.rating_average

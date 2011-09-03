@@ -148,6 +148,10 @@
           = f.select :smoking, options_for_select(["Never", "Sometimes", "Occasionally", "Everyday", "Rather not say"], @profile.smoking), :include_blank => "- no answer -"
           
         .form_row
+          = f.label :drinking
+          = f.select :drinking, options_for_select(["Never", "Sometimes", "Occasionally", "I'm a lush", "Rather not say"], @profile.drinking), :include_blank => "-- no answer --"
+          
+        .form_row
           = f.label :kids
           = f.select :kids, options_for_select(["No kids", "Has 1 child", "Has children", "Like kids", "Don't like kids", "Doesn't want kids", "Rather not say"], @profile.kids), :include_blank => "- no answer -"
           

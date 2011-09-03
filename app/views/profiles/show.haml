@@ -191,9 +191,10 @@
               
         - unless @profile.partner_expectation.blank?
           .content
-            %p
+            %p 
               = image_tag "star_16.png", :class => :profile_illustration
-              = @profile.partner_expectation
+              In my ideal world, a great partner is one that
+            %pre.form_row= @profile.partner_expectation
               
           
     .box#thoughts
