@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110902034003) do
+ActiveRecord::Schema.define(:version => 20110903170556) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -119,9 +119,9 @@ ActiveRecord::Schema.define(:version => 20110902034003) do
     t.string   "phone_number"
     t.text     "description"
     t.string   "gender"
-    t.string   "birth_day"
+    t.integer  "birth_day"
     t.string   "birth_month"
-    t.string   "birth_year"
+    t.integer  "birth_year"
     t.string   "relationship_status"
     t.string   "occupation"
     t.string   "school"

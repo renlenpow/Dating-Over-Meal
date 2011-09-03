@@ -17,5 +17,6 @@
             = link_to profile_path(user.username) do
               #{profile.firstname} #{profile.lastname}
           %p #{profile.city}, #{profile.state}
+          %p= profile.brief
           
   = will_paginate(@users)
