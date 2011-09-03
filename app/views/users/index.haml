@@ -1,0 +1,21 @@
+- @title_for_layout = "Members"
+- @body_id = "users"
+
+= render :partial => "shared/header"
+
+%h1= @title_for_layout
+
+#stage
+  .box
+    %ul.users_listing
+      - @users.each do |user|
+        - profile = user.profile
+        %li.white.clearfix.user
+          = link_to profile_path(user.username) do
+            = image_tag user.avatar.url(:thumb), :class => :profile_photo
+          %h3
+            = link_to profile_path(user.username) do
+              #{profile.firstname} #{profile.lastname}
+          %p #{profile.city}, #{profile.state}
+          
+  = will_paginate(@users)

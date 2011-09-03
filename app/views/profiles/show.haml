@@ -56,15 +56,16 @@
     .box#profile_details
       .tabs_wrapper
         %ul.tabs.clearfix
-          %li.current{:tab => :about} About me
+          %li.current{:tab => :overview} Overview
+          %li{:tab => :about} About me
           %li{:tab => :looking_for} What I'm looking for
           
-      #about.tab_content
+      #overview.tab_content
       
         - unless @profile.description.blank?
           .content
             %p
-              = image_tag "quote_16.png", :id => :quote
+              = image_tag "quote_16.png", :class => :profile_illustration
               = @profile.description
         
         .content
@@ -72,7 +73,6 @@
             - location = []
             - location << @profile.city unless @profile.city.blank?
             - location << @profile.state unless @profile.state.blank?
-            - location << Carmen.country_name(@profile.country) unless @profile.country.blank?
             - unless location.join(", ").blank?
               %li
                 = image_tag "location_16.png", :class => :profile_illustration
@@ -117,6 +117,55 @@
               = image_tag "basketball_16.png", :class => :profile_illustration
               %b Hobbies: 
               #{@profile.hobbies.blank? ? "N/A" : @profile.hobbies}
+              
+      #about.tab_content{:style => "display:none"}
+        .content
+          %ul.profile_details
+            %li
+              %b Most attractive feature:
+              = @profile.most_attractive_feature
+            %li
+              %b Ethnicity:
+              = @profile.ethnicity
+            %li
+              %b Height:
+              = @profile.height
+            %li
+              %b Body type:
+              = @profile.body_type
+            %li
+              %b Hair color:
+              = @profile.hair_color
+            %li
+              %b Eye color:
+              = @profile.eye_color
+            %li
+              %b Tattoos:
+              = @profile.tattoos
+            %li
+              %b Piercings:
+              = @profile.piercings
+            %li
+              %b Zodiac sign:
+              = @profile.zodiac_sign
+            %li
+              %b Religion:
+              = @profile.religion
+            %li
+              %b Exercise:
+              = @profile.exercise
+            %li
+              %b Smoking:
+              = @profile.smoking
+            %li
+              %b Drinking:
+              = @profile.drinking
+            %li
+              %b Kids:
+              = @profile.kids
+            %li.last
+              %b Pets:
+              = @profile.pets
               
       #looking_for.tab_content{:style => "display:none"}
         .content

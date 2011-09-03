@@ -16,8 +16,10 @@
         %li
           = link_to "Places", places_path
         %li
+          = link_to "Members", users_path
+        %li
           = link_to "Messages", messages_path
         %li
           = link_to "Sign out", destroy_user_session_path, :method => :delete
-        %li.last
+        %li
           %a{:href => "/help"} Help

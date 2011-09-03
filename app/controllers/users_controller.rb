@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_user, :only => [:edit, :update]
   
+  def index
+    @users = User.paginate(:page => @page, :per_page => 100)
+  end
+  
   def follow
     begin
       user_followed = User.find(params[:followed_id])

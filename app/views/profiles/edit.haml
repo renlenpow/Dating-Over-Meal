@@ -113,7 +113,7 @@
           
         .form_row
           = f.label :body_type
-          = f.select :body_type, options_for_select(["Large", "Slim/Slender", "Muscular", "Curvy", "Athletic", "Rather not say"], @profile.body_type), :include_blank => "- no answer -"
+          = f.select :body_type, options_for_select(["Large", "Slim/Slender", "Muscular", "Curvy", "Athletic", "A few extra pounds", "Rather not say"], @profile.body_type), :include_blank => "- no answer -"
           
         .form_row
           = f.label :hair_color
@@ -121,7 +121,7 @@
           
         .form_row
           = f.label :eye_color
-          = f.select :eye_color, options_for_select(["Black", "Blue", "Green", "Hazel", "Rather not say"], @profile.eye_color), :include_blank => "- no answer -"
+          = f.select :eye_color, options_for_select(["Black", "Blue", "Green", "Hazel", "Brown", "Rather not say"], @profile.eye_color), :include_blank => "- no answer -"
           
         .form_row
           = f.label :tattoos
@@ -149,7 +149,7 @@
           
         .form_row
           = f.label :kids
-          = f.select :kids, options_for_select(["Has 1 child", "Has children", "Like kids", "Don't like kids", "Doesn't want kids", "Rather not say"], @profile.kids), :include_blank => "- no answer -"
+          = f.select :kids, options_for_select(["No kids", "Has 1 child", "Has children", "Like kids", "Don't like kids", "Doesn't want kids", "Rather not say"], @profile.kids), :include_blank => "- no answer -"
           
         .form_row
           = f.label :pets
