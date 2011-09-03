@@ -368,7 +368,7 @@ div.alert-message {
   }
 }
 
-.last {border:0 !important; margin:0 !important}
+.last {border:0 !important; margin:0 !important; padding:0 !important}
 
 #auth_header {
   overflow:hidden;
@@ -384,8 +384,7 @@ div.alert-message {
 }
 
 #stage {
-  border-radius:4px; background: #ededed; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); border:1px solid #ccc; padding:20px; margin:20px 0;
-  
+  border-radius:4px; background: #ededed; border:1px solid #ccc; padding:20px; margin:20px 0;
   #left {
     float:left; width:200px; margin-right:20px;
     
@@ -402,10 +401,9 @@ div.alert-message {
 
 .box {
   position:relative; background:#fff; border-radius:4px; padding:15px; box-shadow:0 2px 3px 2px #ddd; margin-bottom:20px;
-  h2 {
-    color:#74a106;
-    margin-bottom:10px;
-  }
+  h2 { color:#74a106; margin-bottom:10px }
+  p { line-height:19px }
+  .content {padding:15px; background:#EDEDED; border-radius:4px; box-shadow:0 0 10px 1px #ccc inset; margin:15px 0}
 }
 
 #thoughts_box {width:590px; height:19px}
@@ -423,15 +421,16 @@ div.alert-message {
   select {padding:4px; border:1px solid #aaa; width:180px}
 }
 
-#profile_details {
-  ul {
-    list-style:none;
-    li {margin:8px 0}
-  }
+.profile_details {
+  li {margin-bottom:10px; padding:0 0 10px; border-bottom:1px dotted #bbb}
 }
 
 #profile_social_networks {
   img {margin-right:10px}
+}
+
+.profile_illustration {
+  float:left; margin-right:16px;
 }
 
 .social_option {
@@ -511,7 +510,7 @@ div.alert-message {
 }
 
 #place_general_info {
-  li { margin:4px 0 }
+  li { margin:4px 0; word-wrap:break-word }
 }
 
 .follow_list { background:#E7E7DE; border-radius:4px; padding:12px; box-shadow:0 1px 3px 1px #ccc inset; margin:15px 0 }
@@ -562,13 +561,13 @@ div.alert-message {
 
 #start_search {font-size:17px}
 
-#map_container {
-  .map_nav {
-    float:left;
-    li { float:left; margin-right:5px; font-size:15px; font-weight:bold; color:#55a1d5; padding:6px 15px; cursor:pointer }
-    li.current { background:#ccc; color:#fff; text-shadow:0 1px 2px #999; border-radius:20px; box-shadow:0 1px 3px 2px #aaa inset }
-  }
-  .interaction_wrapper { margin-bottom:10px }
+.tabs_wrapper {
+  margin-bottom:10px;
+}
+
+.tabs {
+  li { float:left; margin-right:5px; font-size:15px; font-weight:bold; color:#55a1d5; padding:6px 15px; cursor:pointer }
+  li.current { background:#ccc; color:#fff; text-shadow:0 1px 2px #999; border-radius:20px; box-shadow:0 1px 3px 2px #aaa inset }
 }
 
 #map, #street_view {height:400px}

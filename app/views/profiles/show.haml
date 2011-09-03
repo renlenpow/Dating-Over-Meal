@@ -11,7 +11,9 @@
       #frame
         = image_tag @user.avatar.url(:thumb)
     
-    %br
+    - if current_user.id == @user.id
+      .form_row
+        = link_to "Edit Profile", edit_profile_path(@profile), :class => "button white"
     
     - unless @profile.facebook.blank? and @profile.twitter.blank? and @profile.flickr.blank? and @profile.linkedin.blank?
       .box#profile_social_networks
@@ -52,49 +54,98 @@
         
   #right
     .box#profile_details
-      %h2 Profile
-      %ul
-        - location = []
-        - location << @profile.city unless @profile.city.blank?
-        - location << @profile.state unless @profile.state.blank?
-        - location << Carmen.country_name(@profile.country) unless @profile.country.blank?
-        - unless location.join(", ").blank?
-          %li 
-            %b Location: 
-            #{location.join(", ")}
-        %li 
-          %b Phone Number: 
-          #{@profile.phone_number.blank? ? "N/A" : @profile.phone_number}
-        
-        - unless @profile.birth_day.blank? or @profile.birth_month.blank? or @profile.birth_year.blank?
-          %li 
-            %b Birthday: #{@profile.birth_month} #{@profile.birth_day}, #{@profile.birth_year}
-            
-        %li
-          %b Relationship status:
-          #{@profile.relationship_status.blank? ? "N/A" : @profile.relationship_status}
-            
-        %li
-          %b Occupation: 
-          #{@profile.occupation.blank? ? "N/A" : @profile.occupation}
+      .tabs_wrapper
+        %ul.tabs.clearfix
+          %li.current{:tab => :about} About me
+          %li{:tab => :looking_for} What I'm looking for
           
-        - unless @profile.school.blank?
-          %li
-            %b School #{@profile.school.blank? ? "N/A" : @profile.school}
-            
-        - unless @profile.company.blank?
-          %li
-            %b Company #{@profile.company.blank? ? "N/A" : @profile.company}
+      #about.tab_content
+      
+        - unless @profile.description.blank?
+          .content
+            %p
+              = image_tag "quote_16.png", :id => :quote
+              = @profile.description
         
-        %li 
-          %b Languages: 
-          #{@profile.languages.blank? ? "N/A" : @profile.languages}
-        %li 
-          %b Hobbies: 
-          #{@profile.hobbies.blank? ? "N/A" : @profile.hobbies}
-        %li 
-          %b About me: 
-          #{@profile.description.blank? ? "N/A" : @profile.description}
+        .content
+          %ul.profile_details
+            - location = []
+            - location << @profile.city unless @profile.city.blank?
+            - location << @profile.state unless @profile.state.blank?
+            - location << Carmen.country_name(@profile.country) unless @profile.country.blank?
+            - unless location.join(", ").blank?
+              %li
+                = image_tag "location_16.png", :class => :profile_illustration
+                %b Location: 
+                #{location.join(", ")}
+            %li
+              = image_tag "phone_16.png", :class => :profile_illustration
+              %b Phone Number: 
+              #{@profile.phone_number.blank? ? "N/A" : @profile.phone_number}
+        
+            - unless @profile.birth_day.blank? or @profile.birth_month.blank? or @profile.birth_year.blank?
+              %li
+                = image_tag "cake_16.png", :class => :profile_illustration
+                %b Birthday: 
+                #{@profile.birth_month} #{@profile.birth_day}, #{@profile.birth_year}
+            
+            %li
+              = image_tag "heart_16.png", :class => :profile_illustration
+              %b Relationship status:
+              #{@profile.relationship_status.blank? ? "N/A" : @profile.relationship_status}
+            
+            %li
+              = image_tag "job_16.png", :class => :profile_illustration
+              %b Occupation: 
+              #{@profile.occupation.blank? ? "N/A" : @profile.occupation}
+          
+            - unless @profile.school.blank?
+              %li
+                = image_tag "school_16.png", :class => :profile_illustration
+                %b School: 
+                #{@profile.school.blank? ? "N/A" : @profile.school}
+            
+            - unless @profile.company.blank?
+              %li
+                %b Company #{@profile.company.blank? ? "N/A" : @profile.company}
+        
+            %li
+              = image_tag "language_16.png", :class => :profile_illustration
+              %b Languages: 
+              #{@profile.languages.blank? ? "N/A" : @profile.languages}
+            %li.last
+              = image_tag "basketball_16.png", :class => :profile_illustration
+              %b Hobbies: 
+              #{@profile.hobbies.blank? ? "N/A" : @profile.hobbies}
+              
+      #looking_for.tab_content{:style => "display:none"}
+        .content
+          %ul.profile_details
+            %li
+              %b Gender:
+              = @profile.looking_for_gender
+            %li
+              %b No younger than:
+              = @profile.looking_for_age_min
+            %li
+              %b No older than:
+              = @profile.looking_for_age_max
+            %li
+              %b Ethnicity:
+              = @profile.looking_for_ethnicity
+            %li
+              %b Body type:
+              = @profile.looking_for_body_type
+            %li.last
+              %b Location:
+              = @profile.looking_for_location
+              
+        - unless @profile.partner_expectation.blank?
+          .content
+            %p
+              = image_tag "star_16.png", :class => :profile_illustration
+              = @profile.partner_expectation
+              
           
     .box#thoughts
       %h2 What's on my mind

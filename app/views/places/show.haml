@@ -41,12 +41,10 @@
   
     .box#map_container
       
-      .interaction_wrapper.clearfix
-        %ul.map_nav.tabs
-          %li.current{:tab => :map}
-            Map
-          %li{:tab => :street_view}
-            Street View
+      .tabs_wrapper.clearfix
+        %ul.tabs
+          %li.current{:tab => :map} Map
+          %li{:tab => :street_view} Street View
       
         #interaction_like.interaction{:user_id => current_user.id, :place_id => @place.id, :kind => :like, :class => current_user.like_place?(@place) ? "green button" : "white button"}
           %span I like this place
