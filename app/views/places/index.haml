@@ -1,12 +1,12 @@
 - @title_for_layout = 'Places'
-- @body_id = 'places'
+- @body_id = 'places_index'
 
 = render :partial => "shared/header"
 
 %h1= @title_for_layout
 
 #stage
-  .box
+  .embossed_box
     #search_place
       = form_for places_path, :method => :get do |f|
         = text_field_tag :name, nil, :class => :textbox, :id => :place_search_box, :placeholder => "Search a restaurant...", :value => params[:name]
@@ -31,7 +31,7 @@
             = link_to place.name, place_path(place), :class => :place_name
             .place_short_description
               %p
-                = truncate(place.description, :length => 350)
+                = truncate(place.description, :length => 400)
                 = link_to "more", place_path(place)
             .place_location #{place.city}, #{place.state}
           .place_other_info

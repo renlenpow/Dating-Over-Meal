@@ -1,3 +1,5 @@
+@font-face {font-family:CrimsonRoman;src: url('EspinosaNova-Regular.otf');}
+
 * {margin:0; padding:0}
 
 header, footer {display:block}
@@ -363,7 +365,7 @@ div.alert-message {
 }
 
 #content {
-  width:900px; margin:0 auto;
+  width:1000px; margin:0 auto;
 }
 
 #home {
@@ -388,29 +390,48 @@ div.alert-message {
 }
 
 #stage {
-  border-radius:4px; background: #ededed; border:1px solid #ccc; padding:20px; margin:20px 0;
+  border-radius:4px; background: #ededed; border:1px solid #ccc; margin:20px 0; overflow:hidden; 
   #left {
-    float:left; width:200px; margin-right:20px;
+    float:left; width:250px; padding:20px;
     
-    #picture {
-      background:#fff; padding:10px; box-shadow:0 2px 3px 2px #ddd; border-radius:4px; margin-bottom:20px;
+    #picture_wrapper {
+      background:#fff; padding:15px; box-shadow:0 1px 7px 3px #ccc; border-radius:6px; margin-bottom:20px;
+      
       #frame {
-        img { width:100%; height:180px } 
+        box-shadow:0 1px 4px #ccc; background:#fff; padding:2px 2px 0; border:1px solid #aaa;
+        img { width:100% } 
       }
     }
   }
   
-  #right { float:left; width:636px; }
+  #right { float:left; width:667px; background:#fff; padding:20px; border-left:1px solid #ccc; box-shadow:0 7px 7px 5px #d6d6d6; }
 }
 
 .box {
-  position:relative; background:#fff; border-radius:4px; padding:15px; box-shadow:0 2px 3px 2px #ddd; margin-bottom:20px;
-  h2 { color:#74a106; margin-bottom:10px }
+  position:relative; background:#EBEBEB; border-radius:6px; box-shadow:0 2px 3px 2px #ddd inset; margin-bottom:20px;
+  .header { 
+    padding:8px 20px; font-size:17px; border-radius:6px 6px 0 0; color:#fff;
+    text-shadow:0 1px 2px #333;
+    border:1px solid #777;
+    background: #bfd255; /* Old browsers */
+    background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bfd255), color-stop(46%,#8eb92a), color-stop(100%,#72aa00), color-stop(100%,#9ecb2d)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 46%,#72aa00 100%,#9ecb2d 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #bfd255 0%,#8eb92a 46%,#72aa00 100%,#9ecb2d 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #bfd255 0%,#8eb92a 46%,#72aa00 100%,#9ecb2d 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, #bfd255 0%,#8eb92a 46%,#72aa00 100%,#9ecb2d 100%); /* W3C */
+  }
   p { line-height:17px }
-  .content {padding:15px; background:#EDEDED; border-radius:4px; box-shadow:0 0 10px 1px #ccc inset; margin:15px 0 0}
+  .content {padding:20px; border-width:0 1px 1px 1px; border-style:solid; border-color:#aaa; border-radius:0 0 6px 6px}
 }
 
-#thoughts_box {width:590px; height:19px}
+#thoughts {
+  .embossed_box {
+    margin:0;
+  }
+}
+#thoughts_box {width:570px; height:19px}
 
 #profile_top_wash {
   h1 {margin-bottom:6px}
@@ -424,7 +445,6 @@ div.alert-message {
 }
 
 #profile_information {
-  h2 {margin-bottom:0}
   .form_row {
     margin:0; padding:15px 0; border-bottom:1px dotted #ccc;
   }
@@ -432,7 +452,7 @@ div.alert-message {
 
 #profile_information_form {
   label {font-weight:bold}
-  .textbox {width:594px}
+  .textbox {width:612px}
   select {padding:4px; border:1px solid #aaa; width:180px}
 }
 
@@ -498,7 +518,7 @@ div.alert-message {
 }
 
 .places_list {
-  margin:15px 0; overflow:hidden; background:#E7E7DE; padding:12px; box-shadow:0 1px 3px 1px #ccc inset; border-radius:4px;
+  margin:0 0 15px;
   .place {
     float:left; margin-right:13px; display:block; width:50px; height:50px; background:#fff; padding:4px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px;
     img { width:100%; height:100% }
@@ -506,8 +526,6 @@ div.alert-message {
   .place_name {display:block; font-size:14px; margin-bottom:8px}
   .button {border-radius:20px; padding:3px 11px; font-size:11px}
 }
-
-#map { border:1px solid #bbb }
 
 #place_social_share {
   float:right; width:400px;
@@ -528,7 +546,7 @@ div.alert-message {
   li { margin:4px 0; word-wrap:break-word }
 }
 
-.follow_list { background:#E7E7DE; border-radius:4px; padding:12px; box-shadow:0 1px 3px 1px #ccc inset; margin:15px 0 }
+.follow_list { margin:0 0 15px }
 
 #follows_count {
   li {
@@ -541,7 +559,7 @@ div.alert-message {
 .places_listing {
   .place { padding:15px }
   .place_photo { float:left; width:115px; background:#fff; padding:5px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px }
-  .place_overview { float:left; width:498px; margin-left:20px }
+  .place_overview { float:left; width:584px; margin-left:20px }
   .place_name { font-size:21px; font-weight:bold; display:block; margin:5px 0 }
   .place_location { margin:10px 0 0; font-weight:bold; }
   .place_other_info {
@@ -557,22 +575,22 @@ div.alert-message {
 }
 
 .pagination { 
-  text-align: center;
+  text-align: center; margin-bottom:20px;
   * {margin:0 3px}
   em {padding:1px 4px; background:#EA0A89; border-radius:3px; color:#fff; font-style:normal}
 }
 
-#search_place {margin-bottom:15px}
+#search_place {margin-bottom:9px}
 #search_criteria {
   background: -webkit-gradient(linear, left top, left bottom, from(#FFE75F), to(#ffce26)); background: -moz-linear-gradient(top,  #FFE75F,  #ffce26);
 	box-shadow:0 1px 1px 0px #fff inset; padding:8px; border:1px solid #999; border-radius:4px; margin-top:8px;
   label {font-weight:bold; font-size:15px; margin-right:5px }
-  .textbox {width:182px; border:1px solid #999}
+  .textbox {width:204px; border:1px solid #999}
   li {
     float:left; margin-right:8px;
   }
 }
-#place_search_box {width:729px !important; font-size:20px}
+#place_search_box {width:814px !important; margin-right:5px;; font-size:20px}
 
 #start_search {font-size:17px}
 
@@ -616,5 +634,32 @@ div.alert-message {
 .users_listing {
   .white {
     padding:15px;
+  }
+}
+
+.embossed_box {
+  background:#fff; margin:20px 0;  border-radius:6px; border:1px solid #ccc;  box-shadow:1px 2px 4px 0 #ccc; padding:20px;
+}
+
+#profile_social_networks {padding:11px 20px 8px}
+
+#follows_count_wrapper {padding:11px 20px 8px}
+
+#edit_my_profile {display:block; border-radius:0 0 4px 4px; border-top:0}
+
+#map_controls {margin-bottom:9px}
+
+#map_container {
+  border-radius:4px;
+  border-top:1px solid #aaa;
+  .embossed_box {
+    padding:9px;
+    margin:0;
+  }
+}
+
+#places_index {
+  .embossed_box {
+    margin:20px;
   }
 }

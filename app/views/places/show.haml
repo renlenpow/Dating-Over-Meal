@@ -8,16 +8,14 @@
 
 #stage
   #left
-    #picture
+    #picture_wrapper
       #frame
         - if @place.primary_image.nil?  
           = image_tag "restaurant_silhouette.png"
         - else
           = image_tag @place.primary_image
     
-    %br
-    
-    %ul.box#place_general_info
+    %ul.embossed_box#place_general_info
       %li
         %b Price:
         = "$" * @place.price_range.to_i
@@ -33,43 +31,48 @@
         - else
           %a{:href => @place.website, :target => "_blank"}= @place.website
         
-    .box
+    .embossed_box
       %h2 Ratings
       = ratings_for @place
   
   #right
   
     .box#map_container
-      
-      .tabs_wrapper.clearfix
-        %ul.tabs
-          %li.current{:tab => :map} Map
-          %li{:tab => :street_view} Street View
-      
-        #interaction_like.interaction{:user_id => current_user.id, :place_id => @place.id, :kind => :like, :class => current_user.like_place?(@place) ? "green button" : "white button"}
-          %span I like this place
-      
-        #interaction_visit.interaction{:user_id => current_user.id, :place_id => @place.id, :kind => :visit, :class => current_user.has_visited_place?(@place) ? "green button" : "white button"}
-          %span I've been here
-      
-      #map.tab_content
-      #street_view.tab_content{:style => "display:none"}
+      .content
+        .embossed_box
+          #map_controls.tabs_wrapper.clearfix
+            %ul.tabs
+              %li.current{:tab => :map} Map
+              %li{:tab => :street_view} Street View
+    
+            #interaction_like.interaction{:user_id => current_user.id, :place_id => @place.id, :kind => :like, :class => current_user.like_place?(@place) ? "green button" : "white button"}
+              %span I like this place
+    
+            #interaction_visit.interaction{:user_id => current_user.id, :place_id => @place.id, :kind => :visit, :class => current_user.has_visited_place?(@place) ? "green button" : "white button"}
+              %span I've been here
+    
+          #map.tab_content
+          #street_view.tab_content{:style => "display:none"}
   
     .box
-      %h2 Description
-      %p= @place.description
+      %h2.header Description
+      .content
+        %p= @place.description
             
     .box
-      %h2 Hours
-      %p= @place.hours.blank? ? "Not specified" : @place.hours
+      %h2.header Hours
+      .content
+        %p= @place.hours.blank? ? "Not specified" : @place.hours
       
     .box
-      %h2 Parking
-      %p= @place.parking.blank? ? "Not specified" : @place.parking
+      %h2.header Parking
+      .content
+        %p= @place.parking.blank? ? "Not specified" : @place.parking
       
     .box
-      %h2 Payment
-      %p= @place.payment.blank? ? "Not specified" : @place.payment
+      %h2.header Payment
+      .content
+        %p= @place.payment.blank? ? "Not specified" : @place.payment
   
   .clearfloat
   

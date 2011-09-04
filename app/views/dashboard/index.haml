@@ -14,61 +14,69 @@
   
   #right
     .box#thoughts
-      %h2 What's on your mind?
-      = form_for @thought, :remote => true do |f|
-        = f.text_area :description, :class => :textbox, :id => :thoughts_box
-        = f.submit :value => "Share", :class => "button blue", :id => "share_thought"
+      %h2.header What's on your mind?
+      .content
+        .embossed_box
+          = form_for @thought, :remote => true do |f|
+            = f.text_area :description, :class => :textbox, :id => :thoughts_box
+            = f.submit :value => "Share", :class => "button blue", :id => "share_thought"
           
-    .box#places_list
-      %h2 Places you might like
-      = render :partial => "shared/places_list", :locals => {:places => @random_places}
-      = link_to "View all places", places_path
+    .box
+      %h2.header Places you might like
+      .content
+        = render :partial => "shared/places_list", :locals => {:places => @random_places}
+        = link_to "View all places", places_path, :class => "button rosy"
                   
     .box#inbox_messages
-      %h2 Messages (#{@messages.count})
-      - if @messages.count == 0
-        You have no new messages
-      - else
-        = render :partial => "shared/messages_list"
+      %h2.header Messages (#{@messages.count})
+      .content
+        - if @messages.count == 0
+          You have no new messages
+        - else
+          = render :partial => "shared/messages_list"
               
-        = link_to "View All Messages", messages_path
+          = link_to "View All Messages", messages_path, :class => "button rosy"
         
     .box#followed
-      %h2 Following
-      - if @following.size > 0
-        %ul.follow_list.clearfix
-          - @following.each do |user|
-            %li
-              = link_to profile_path(user.username) do
-                = image_tag user.avatar.url(:thumb), :class => :profile_photo
-      - else
-        %p You're not following anybody
+      %h2.header Following
+      .content
+        - if @following.size > 0
+          %ul.follow_list.clearfix
+            - @following.each do |user|
+              %li
+                = link_to profile_path(user.username) do
+                  = image_tag user.avatar.url(:thumb), :class => :profile_photo
+        - else
+          %p You're not following anybody
       
     .box#followers
-      %h2 Followers
-      - if @followers.size > 0
-        %ul.follow_list.clearfix
-          - @followers.each do |user|
-            %li
-              = link_to profile_path(user.username) do
-                = image_tag user.avatar.url(:thumb), :class => :profile_photo
-      - else
-        %p You don't have any followers
+      %h2.header Followers
+      .content
+        - if @followers.size > 0
+          %ul.follow_list.clearfix
+            - @followers.each do |user|
+              %li
+                = link_to profile_path(user.username) do
+                  = image_tag user.avatar.url(:thumb), :class => :profile_photo
+        - else
+          %p You don't have any followers
         
     .box#places_you_been
-      %h2 Places you've been to
-      - if @visited_places.size > 0
-        = render :partial => "shared/places_list", :locals => {:places => @visited_places}
-      - else
-        %p You haven't been to any places yet
-      = link_to "Check out other places", places_path
+      %h2.header Places you've been to
+      .content
+        - if @visited_places.size > 0
+          = render :partial => "shared/places_list", :locals => {:places => @visited_places}
+        - else
+          %p You haven't been to any places yet
+        = link_to "Check out other places", places_path, :class => "button rosy"
         
     .box#places_you_like
-      %h2 Places you like
-      - if @liked_places.size > 0
-        = render :partial => "shared/places_list", :locals => {:places => @liked_places}
-      - else
-        %p You don't have any favorite places yet
-      = link_to "Check out other places", places_path
+      %h2.header Places you like
+      .content
+        - if @liked_places.size > 0
+          = render :partial => "shared/places_list", :locals => {:places => @liked_places}
+        - else
+          %p You don't have any favorite places yet
+        = link_to "Check out other places", places_path, :class => "button rosy"
       
   .clearfloat
