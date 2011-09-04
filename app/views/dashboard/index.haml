@@ -24,7 +24,27 @@
     .box
       %h2.header Places you might like
       .content
-        = render :partial => "shared/places_list", :locals => {:places => @random_places}
+        %ul.places_listing
+          - @random_places.each do |place|
+            %li.clearfix.white.place
+              = link_to place_path(place) do
+                = image_tag place.primary_image, :class => :place_photo
+              .place_overview
+                %h3.place_name
+                  = link_to place.name, place_path(place)
+                .place_short_description
+                  %p= truncate(place.description, :length => 100)
+                .place_location #{place.city}, #{place.state}
+              .place_other_info
+                .clearfix.ratings= place.rating_average
+                .comments
+                  %span= place.count_likes 
+                  %span.caption likes
+
+                .visits
+                  %span= place.count_visits
+                  %span.caption visits
+          
         = link_to "View all places", places_path, :class => "button rosy"
                   
     .box#inbox_messages

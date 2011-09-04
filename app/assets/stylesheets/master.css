@@ -80,6 +80,14 @@ textarea {
   padding: 6px;
   font-family: arial; }
 
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0; }
+
 .button {
   display: inline-block;
   zoom: 1;
@@ -302,6 +310,54 @@ textarea {
 .clearfloat {
   clear: both; }
 
+.box {
+  position: relative;
+  background: #EBEBEB;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px 2px #ddd inset;
+  margin-bottom: 20px;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#ededed));
+  background: -moz-linear-gradient(top, white, #ededed); }
+  .box .header {
+    padding: 8px 20px;
+    font-size: 17px;
+    border-radius: 6px 6px 0 0;
+    color: #fff;
+    box-shadow: 0 1px 0 0 #e4fdbd inset;
+    text-shadow: 0 1px 2px #333;
+    border: 1px solid #777;
+    background: #bfd255;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bfd255), color-stop(46%, #8eb92a), color-stop(100%, #72aa00), color-stop(100%, #9ecb2d));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
+    /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
+    /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+    /* IE6-9 */
+    background: linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
+    /* W3C */ }
+  .box p {
+    line-height: 17px; }
+  .box .content {
+    padding: 20px;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: #aaa;
+    border-radius: 0 0 6px 6px; }
+
+.embossed_box {
+  background: #fff;
+  margin: 20px 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px 0 #ccc;
+  padding: 20px; }
+
 div.alert-message.success {
   background: #74C474; }
 
@@ -464,49 +520,12 @@ div.alert-message {
     border-left: 1px solid #ccc;
     box-shadow: 0 7px 7px 5px #d6d6d6; }
 
-.box {
-  position: relative;
-  background: #EBEBEB;
-  border-radius: 6px;
-  box-shadow: 0 2px 3px 2px #ddd inset;
-  margin-bottom: 20px; }
-  .box .header {
-    padding: 8px 20px;
-    font-size: 17px;
-    border-radius: 6px 6px 0 0;
-    color: #fff;
-    text-shadow: 0 1px 2px #333;
-    border: 1px solid #777;
-    background: #bfd255;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bfd255), color-stop(46%, #8eb92a), color-stop(100%, #72aa00), color-stop(100%, #9ecb2d));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
-    /* Opera11.10+ */
-    background: -ms-linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
-    /* IE10+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
-    /* IE6-9 */
-    background: linear-gradient(top, #bfd255 0%, #8eb92a 46%, #72aa00 100%, #9ecb2d 100%);
-    /* W3C */ }
-  .box p {
-    line-height: 17px; }
-  .box .content {
-    padding: 20px;
-    border-width: 0 1px 1px 1px;
-    border-style: solid;
-    border-color: #aaa;
-    border-radius: 0 0 6px 6px; }
-
 #thoughts .embossed_box {
+  padding: 10px;
   margin: 0; }
 
 #thoughts_box {
-  width: 570px;
+  width: 590px;
   height: 19px; }
 
 #profile_top_wash h1 {
@@ -664,14 +683,6 @@ div.alert-message {
     margin-left: 5px;
     overflow: hidden; }
 
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0; }
-
 #place_images_list li {
   float: left;
   width: 260px;
@@ -680,9 +691,6 @@ div.alert-message {
 #place_general_info li {
   margin: 4px 0;
   word-wrap: break-word; }
-
-.follow_list {
-  margin: 0 0 15px; }
 
 #follows_count li {
   float: left;
@@ -853,14 +861,6 @@ div.alert-message {
 .users_listing .white {
   padding: 15px; }
 
-.embossed_box {
-  background: #fff;
-  margin: 20px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-shadow: 1px 2px 4px 0 #ccc;
-  padding: 20px; }
-
 #profile_social_networks {
   padding: 11px 20px 8px; }
 
@@ -879,3 +879,25 @@ div.alert-message {
 
 #places_index .embossed_box {
   margin: 20px; }
+
+#dashboard .places_listing {
+  margin-bottom: 10px; }
+  #dashboard .places_listing .place_photo {
+    width: 50px;
+    height: 50px; }
+  #dashboard .places_listing .place_name {
+    margin: 0 0 5px;
+    font-size: 14px; }
+  #dashboard .places_listing .place_overview {
+    width: 388px; }
+  #dashboard .places_listing .place_other_info {
+    width: 105px;
+    margin-left: 20px; }
+    #dashboard .places_listing .place_other_info .ratings {
+      font-size: 20px; }
+    #dashboard .places_listing .place_other_info span {
+      font-size: 14px; }
+    #dashboard .places_listing .place_other_info .caption {
+      font-size: 10px; }
+    #dashboard .places_listing .place_other_info .comments, #dashboard .places_listing .place_other_info .visits {
+      width: 45px; }

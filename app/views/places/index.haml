@@ -28,7 +28,8 @@
           = link_to place_path(place) do
             = image_tag place.primary_image, :class => :place_photo
           .place_overview
-            = link_to place.name, place_path(place), :class => :place_name
+            %h3.place_name
+              = link_to place.name, place_path(place)
             .place_short_description
               %p
                 = truncate(place.description, :length => 400)
@@ -38,7 +39,7 @@
             .clearfix.ratings= place.rating_average
             .comments
               %span= place.count_likes 
-              %span.caption likes this
+              %span.caption likes
             
             .visits
               %span= place.count_visits
