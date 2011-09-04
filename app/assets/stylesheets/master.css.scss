@@ -401,6 +401,9 @@ div.alert-message {
         box-shadow:0 1px 4px #ccc; background:#fff; padding:2px 2px 0; border:1px solid #aaa;
         img { width:100% } 
       }
+      .button {
+        border-radius: 0 0 4px 4px; border-top: 0 none; display: block;
+      }
     }
   }
   
@@ -444,17 +447,14 @@ div.alert-message {
   .button {padding:1px 4px; font-size:10px}
 }
 
-#profile_information {
-  .form_row {
-    margin:0; padding:15px 0; border-bottom:1px dotted #ccc;
-  }
+#profile_information_form {
+  label {font-weight:bold; width:132px; margin:8px 16px 0 0; float:left; text-align:right}
+  .textbox {width:442px}
+  textarea {height:90px}
+  select {padding:6px; border:1px solid #aaa; width:455px}
 }
 
-#profile_information_form {
-  label {font-weight:bold}
-  .textbox {width:612px}
-  select {padding:4px; border:1px solid #aaa; width:180px}
-}
+#profile_birth_month, #profile_birth_year, #profile_birth_day {width:100px !important}
 
 .profile_details {
   li {margin-bottom:10px; padding:0 0 10px; border-bottom:1px dotted #bbb}
@@ -462,6 +462,14 @@ div.alert-message {
 
 #profile_social_networks {
   img {margin-right:10px}
+}
+
+#edit_profile {
+  .box {
+    .content {
+      padding:5px 20px;
+    }
+  }
 }
 
 .profile_illustration {
@@ -644,9 +652,6 @@ div.alert-message {
 #profile_social_networks {padding:11px 20px 8px}
 
 #follows_count_wrapper {padding:11px 20px 8px}
-
-#edit_my_profile {display:block; border-radius:0 0 4px 4px; border-top:0}
-
 #map_controls {margin-bottom:9px}
 
 #map_container {

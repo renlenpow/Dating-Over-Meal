@@ -452,6 +452,10 @@ div.alert-message {
         border: 1px solid #aaa; }
         #stage #left #picture_wrapper #frame img {
           width: 100%; }
+      #stage #left #picture_wrapper .button {
+        border-radius: 0 0 4px 4px;
+        border-top: 0 none;
+        display: block; }
   #stage #right {
     float: left;
     width: 667px;
@@ -518,19 +522,23 @@ div.alert-message {
     padding: 1px 4px;
     font-size: 10px; }
 
-#profile_information .form_row {
-  margin: 0;
-  padding: 15px 0;
-  border-bottom: 1px dotted #ccc; }
-
 #profile_information_form label {
-  font-weight: bold; }
+  font-weight: bold;
+  width: 132px;
+  margin: 8px 16px 0 0;
+  float: left;
+  text-align: right; }
 #profile_information_form .textbox {
-  width: 612px; }
+  width: 442px; }
+#profile_information_form textarea {
+  height: 90px; }
 #profile_information_form select {
-  padding: 4px;
+  padding: 6px;
   border: 1px solid #aaa;
-  width: 180px; }
+  width: 455px; }
+
+#profile_birth_month, #profile_birth_year, #profile_birth_day {
+  width: 100px !important; }
 
 .profile_details li {
   margin-bottom: 10px;
@@ -539,6 +547,9 @@ div.alert-message {
 
 #profile_social_networks img {
   margin-right: 10px; }
+
+#edit_profile .box .content {
+  padding: 5px 20px; }
 
 .profile_illustration {
   float: left;
@@ -855,11 +866,6 @@ div.alert-message {
 
 #follows_count_wrapper {
   padding: 11px 20px 8px; }
-
-#edit_my_profile {
-  display: block;
-  border-radius: 0 0 4px 4px;
-  border-top: 0; }
 
 #map_controls {
   margin-bottom: 9px; }
