@@ -35,8 +35,7 @@ $(function(){
   
   $("#new_message").bind("ajax:success", function(evt, data, status, xhr){
     if (data.success == 1) {
-      alert("Your message has been sent")
-      $("#message_subject").val("")
+      window.flash_alert("Your message has been sent")
       $("#message_content").val("")
       $("#cancel_message").trigger("click")
     } else {
@@ -45,7 +44,7 @@ $(function(){
         for (err in data.errors) {
           errors += err + " " + data.errors[err]
         }
-        alert(errors)
+        window.flash_error(errors)
       }
     }
   })

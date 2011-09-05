@@ -10,6 +10,8 @@ DatingOverMeal::Application.routes.draw do
   
   match '/users/follow' => 'users#follow'
   
+  match '/webcam/capture' => 'webcam#capture', :as => :webcam_capture
+  
   resources :profiles
   
   resources :thoughts

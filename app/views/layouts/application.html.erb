@@ -4,8 +4,9 @@
   <title><%= @title_for_layout %> - Dating Over Meal</title>
   <%= stylesheet_link_tag    "master" %>
   <%= stylesheet_link_tag    "ajaxful_rating.css" %>
-  <%= javascript_include_tag "application" %>
   <%= yield :head %>
+  <%= javascript_include_tag "application" %>
+  
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= @body_id %>">
@@ -20,8 +21,14 @@
   <div class="content" id="alert_content"></div>
 </div>
 
+<div id="error" style="display:none" class="red">
+  <div class="content" id="error_content"></div>
+</div>
+
 <footer id="footer">
   Copyright &copy; 2011 - <%= link_to "Dating Over Meal", root_path %> - 
+  <a href="/about">About</a> - 
+  <a href="/help">Help</a> -
   <a class="back_to_top">Back to top</a>
 </footer>
 

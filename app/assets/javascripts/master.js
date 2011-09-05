@@ -23,4 +23,17 @@ $(document).ready(function(){
       }
     })
   })
+  
+  window.flash_alert = function(alert_message) {
+    $("#alert_content").html(alert_message)
+    $("#alert").slideDown()
+    setTimeout(function(){ $("#alert").slideUp().html("") }, 4000)
+  }
+  
+  window.flash_error = function(error_message) {
+    $("#error_content").html(error_message)
+    $("#error").slideDown()
+    setTimeout(function(){ $("#error").slideUp().html("") }, 4000)
+  }
+  
 })

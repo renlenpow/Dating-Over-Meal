@@ -279,7 +279,7 @@ textarea {height:50px}
 .clearfloat { clear:both; }
 
 .box {
-  position:relative; background:#EBEBEB; border-radius:6px; box-shadow:0 2px 3px 2px #ddd inset; margin-bottom:20px;
+  background:#EBEBEB; border-radius:6px; box-shadow:0 2px 3px 2px #ddd inset; margin-bottom:20px;
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#ededed));
     background: -moz-linear-gradient(top, white, #ededed);
   .header { 
@@ -301,7 +301,7 @@ textarea {height:50px}
 }
 
 .embossed_box {
-  background:#fff; margin:20px 0;  border-radius:6px; box-shadow:0 2px 4px 0 #ccc; padding:20px;
+  background:#fff; margin:20px;  border-radius:6px; box-shadow:0 2px 4px 0 #ccc; padding:20px;
 }
 
 div.alert-message.success { background:#74C474 }
@@ -336,25 +336,16 @@ div.alert-message {
 .messages_list {
   margin-bottom:10px;
   li {
-    background:#E7E7DE;
-    overflow:hidden;
-    padding:12px;
-    margin:5px 0;
-    box-shadow:0 1px 3px 1px #ccc inset;
-    border-radius:4px;
-    .content {display:block; float:left; width:510px}
-    .show_message_details {display:block}
-    .author { display:block; margin:5px 0; color:#EA0A89; }
-    a {color:inherit}
-  }
-  li.unread {
-    background:#cecec0;
-  }
-  li:hover {
-    background:#dadacc; box-shadow:0 1px 3px 1px #aaa inset;
+    padding:15px;
   }
   .delete {
     float:right; display:block; width:16px; height:16px; background:url(/assets/trash_16.png); text-indent:-9999px;
+  }
+  .preview {
+    display:block; margin:5px 0; color:#444;
+  }
+  .snap {
+    float:left; width:500px;
   }
 }
 
@@ -495,6 +486,7 @@ div.alert-message {
   background:#fff; width:460px; border-radius:5px; position:absolute; top:160px; left:50%; margin-left:-230px; box-shadow:0 4px 8px 2px #555; z-index:100;
   .header {
     border-radius:4px 4px 0 0; background:-moz-linear-gradient(center top , #F12891, #C00D6A) repeat scroll 0 0 transparent; color:#fff; padding:7px 15px;
+    box-shadow:0 1px 1px #FCBEDE inset;
   }
   .content {
     .form_row {overflow:hidden}
@@ -511,7 +503,7 @@ div.alert-message {
   background:#000; opacity:0.5; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%; z-index:90;
 }
 
-#message_content {width:720px;}
+#message_content {width:819px;}
 #profile {
   #message_content {
     width:405px;
@@ -644,6 +636,17 @@ div.alert-message {
   }
 }
 
+#error {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
+	background: -moz-linear-gradient(top,  #ed1c24,  #aa1317);
+	box-shadow:0 -6px 7px 6px #aaa;
+	font-weight:bold; text-align:center;
+  font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; border-bottom:2px solid #b7000d; color:#fff;
+  .content {
+    padding:15px;
+  }
+}
+
 .users_listing {
   .white {
     padding:15px;
@@ -658,45 +661,56 @@ div.alert-message {
 #map_container {
   border-radius:4px;
   border-top:1px solid #aaa;
+  background:#EDEDED;
   .embossed_box {
     padding:9px;
-    margin:0;
-  }
-}
-
-#places_index {
-  .embossed_box {
-    margin:20px;
+    margin:0 !important;
   }
 }
 
 #dashboard {
   .places_listing {
     margin-bottom:10px;
-    .place_photo {
-      width:50px; height:50px;
-    }
-    .place_name {
-      margin:0 0 5px;
-      font-size:14px;
-    }
-    .place_overview {
-      width:388px;
-    }
+    .place_photo { width:50px; height:50px; padding:4px }
+    .place_name { margin:0 0 5px; font-size:14px }
+    .place_overview { width:388px }
     .place_other_info {
       width:105px; margin-left:20px;
-      .ratings {
-        font-size:20px;
-      }
-      span {
-        font-size:14px;
-      }
-      .caption {
-        font-size:10px;
-      }
-      .comments, .visits {
-        width:45px;
-      }
+      .ratings { font-size:20px }
+      span { font-size:14px }
+      .caption { font-size:10px }
+      .comments, .visits { width:45px }
+    }
+    .place_location {margin-top:5px}
+  }
+}
+
+#upload_avatar {
+  #right {
+    min-height:400px;
+  }
+}
+
+#webcam_wrapper {
+  width:580px; background:#fff; position:absolute; top:5%; left:50%; margin-left:-290px; z-index:1000;padding:10px;
+  border-radius:6px; box-shadow:0 3px 10px 1px #333;
+  .panel {margin-top:10px; text-align:right}
+}
+
+#profile {
+  .embossed_box { margin:20px 0 }
+}
+
+#place_details {
+  #left {
+    .embossed_box {margin:20px 0; padding:15px}
+  }
+}
+
+#message_detail {
+  .messages_list {
+    .snap {
+      width:780px;
     }
   }
 }

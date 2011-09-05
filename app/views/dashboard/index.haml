@@ -7,9 +7,11 @@
 
 #stage
   #left
-    = render :partial => "shared/profile_picture"
-  
-    = link_to "Edit profile", edit_profile_path(current_user), :class => "button white social_option"
+    #picture_wrapper
+      #frame
+        = image_tag current_user.avatar.url(:thumb), :alt => current_user.username
+      = link_to "Edit profile", edit_profile_path(current_user), :class => "button white"
+      
     = link_to "View profile", profile_path(current_user.username), :class => "button white social_option"
   
   #right
@@ -28,7 +30,11 @@
           - @random_places.each do |place|
             %li.clearfix.white.place
               = link_to place_path(place) do
-                = image_tag place.primary_image, :class => :place_photo
+                - primary_image_url = place.primary_image
+                - if primary_image_url.nil?
+                  = image_tag "restaurant_silhouette.png", :class => :place_photo
+                - else
+                  = image_tag primary_image_url, :class => :place_photo
               .place_overview
                 %h3.place_name
                   = link_to place.name, place_path(place)
@@ -53,7 +59,7 @@
         - if @messages.count == 0
           You have no new messages
         - else
-          = render :partial => "shared/messages_list"
+          = render :partial => "shared/messages_list", :locals => {:show_profile_link => false}
               
           = link_to "View All Messages", messages_path, :class => "button rosy"
         

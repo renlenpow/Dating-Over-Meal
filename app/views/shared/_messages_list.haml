@@ -3,12 +3,16 @@
     - @messages.each do |message|
       - sender = message.sender
       - profile = sender.profile
-      %li
+      %li.clearfix.white
         = link_to message_path(message), :class => :show_message_details do
           = image_tag sender.avatar.url(:thumb), :class => :profile_photo, :alt => sender.username
-          %span.content
-            %b.author #{profile.firstname} #{profile.lastname}
-            %span= message.content
+          %span.snap
+            - if show_profile_link
+              %b.author
+                = link_to profile.firstname.to_s + " " + profile.lastname.to_s, profile_path(sender.username)
+            - else
+              %b.author #{profile.firstname} #{profile.lastname}
+            %span.preview= truncate(message.content, :length => 100)
     
         = link_to "x", message_path(message), :method => :delete, :class => :delete, :confirm => "Are you sure?"
 - else

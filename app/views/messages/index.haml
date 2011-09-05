@@ -1,12 +1,12 @@
 - @title_for_layout = "Messages"
-- @body_id = "messages"
+- @body_id = "messages_listing"
 
 = render :partial => "shared/header"
 
 %h1= @title_for_layout
 
 #stage
-  .box
-    = render :partial => "shared/messages_list"
+  .embossed_box
+    = render :partial => "shared/messages_list", :locals => {:show_profile_link => true}
         
   = will_paginate @messages

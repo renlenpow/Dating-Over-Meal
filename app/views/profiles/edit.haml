@@ -7,9 +7,10 @@
 
 #stage
   #left
-    = render :partial => "shared/profile_picture"
-    
-    = link_to "Change picture", edit_user_path(current_user), :class => "button white social_option"
+    #picture_wrapper
+      #frame
+        = image_tag current_user.avatar.url(:thumb), :alt => current_user.username
+      = link_to "Change picture", edit_user_path(current_user), :class => "button white"
         
     = link_to "View Profile", profile_path(current_user.username), :class => "button white social_option"
       
