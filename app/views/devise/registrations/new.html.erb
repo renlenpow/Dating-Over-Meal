@@ -1,11 +1,11 @@
 <%
 @title_for_layout = "Sign up"
-@body_id = "signup"
+@body_id = "signup_form"
 %>
 
 <div class="devise_form">
 
-  <h2>Sign up for Dating Over Meal</h2>
+  <%= render :partial => "shared/devise_form_logo" %>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -25,13 +25,20 @@
     <div class="form_row">
       <%= f.text_field :username, :class => :textbox, :placeholder => "Username" %>
     </div>
-
+    
     <div class="form_row">
       <%= f.password_field :password, :class => :textbox, :placeholder => "Password" %>
     </div>
 
     <div class="form_row">
       <%= f.password_field :password_confirmation, :class => :textbox, :placeholder => "Password confirmation" %>
+    </div>
+    
+    <div class="form_row clearfix">
+      <%= f.select :birth_month, options_for_select(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]), 
+      :include_blank => "Birth month" %>
+      <%= f.select :birth_day, options_for_select((1..31).to_a), :include_blank => "Birth day" %>
+      <%= f.select :birth_year, options_for_select(1993.downto(1905).to_a), :include_blank => "Birth year" %>
     </div>
 
     <div class="form_row">

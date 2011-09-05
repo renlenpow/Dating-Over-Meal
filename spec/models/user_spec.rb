@@ -13,12 +13,14 @@ describe User do
   
   it "should have a unique email address" do
     first_user  = Factory(:user)
-    second_user = User.new(:firstname => "First", :lastname => "Last", :username => "abcd123", :email => "first.last@email.com", :password => "password")
+    second_user = User.new(:firstname => "First", :lastname => "Last", :username => "abcd123", :email => "first.last@email.com", :password => "password", 
+    :birth_day => 30, :birth_month => "May", :birth_year => 1984)
     second_user.should_not be_valid
   end
   
   it "should have a username consisted of only letters, numbers, and underscores" do
-    user = User.new(:firstname => "First", :lastname => "Last", :username => "first.last", :email => "first.last@email.com", :password => "password")
+    user = User.new(:firstname => "First", :lastname => "Last", :username => "first.last", :email => "first.last@email.com", :password => "password",
+    :birth_day => 30, :birth_month => "May", :birth_year => 1984)
     user.should_not be_valid
     
     user.username = "first_last"

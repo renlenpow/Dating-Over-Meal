@@ -38,15 +38,10 @@
         
         .form_row
           %input{:type => :button, :value => "Take picture", :class => "button orange", :id => :init_webcam}
-          
-= content_for :head do
-  = javascript_include_tag "webcam.js"
   
 :javascript
   function upload_complete(msg) {
       if (msg == 'ok') {
-        $('#new_photo').show();
-        $('#photo_description').focus();
       } else {
         alert('An error occured');
         webcam.reset();

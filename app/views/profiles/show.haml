@@ -78,7 +78,6 @@
             %li{:tab => :looking_for} What I'm looking for
           
         #overview.tab_content
-      
           - unless @profile.description.blank?
             .embossed_box
               %p
@@ -86,54 +85,56 @@
                 = @profile.description
         
           
-            %ul.profile_details.embossed_box
-              - location = []
-              - location << @profile.city unless @profile.city.blank?
-              - location << @profile.state unless @profile.state.blank?
-              - unless location.join(", ").blank?
-                %li
-                  = image_tag "location_16.png", :class => :profile_illustration
-                  %b Location: 
-                  #{location.join(", ")}
+          %ul.profile_details.embossed_box
+            - location = []
+            - location << @profile.city unless @profile.city.blank?
+            - location << @profile.state unless @profile.state.blank?
+            - unless location.join(", ").blank?
               %li
-                = image_tag "phone_16.png", :class => :profile_illustration
-                %b Phone Number: 
-                #{@profile.phone_number.blank? ? "N/A" : @profile.phone_number}
-        
-              - unless @profile.birth_day.blank? or @profile.birth_month.blank? or @profile.birth_year.blank?
-                %li
-                  = image_tag "cake_16.png", :class => :profile_illustration
-                  %b Birthday: 
-                  #{@profile.birth_month} #{@profile.birth_day}, #{@profile.birth_year}
-            
+                = image_tag "location_16.png", :class => :profile_illustration
+                %b Location: 
+                #{location.join(", ")}
+            %li
+              = image_tag "phone_16.png", :class => :profile_illustration
+              %b Phone Number: 
+              #{@profile.phone_number.blank? ? "N/A" : @profile.phone_number}
+      
+            - unless @profile.birth_day.blank? or @profile.birth_month.blank? or @profile.birth_year.blank?
               %li
-                = image_tag "heart_16.png", :class => :profile_illustration
-                %b Relationship status:
-                #{@profile.relationship_status.blank? ? "N/A" : @profile.relationship_status}
-            
-              %li
-                = image_tag "job_16.png", :class => :profile_illustration
-                %b Occupation: 
-                #{@profile.occupation.blank? ? "N/A" : @profile.occupation}
+                = image_tag "cake_16.png", :class => :profile_illustration
+                %b Birthday: 
+                #{@profile.birth_month} #{@profile.birth_day}, #{@profile.birth_year}
           
-              - unless @profile.school.blank?
-                %li
-                  = image_tag "school_16.png", :class => :profile_illustration
-                  %b School: 
-                  #{@profile.school.blank? ? "N/A" : @profile.school}
-            
-              - unless @profile.company.blank?
-                %li
-                  %b Company #{@profile.company.blank? ? "N/A" : @profile.company}
+            %li
+              = image_tag "heart_16.png", :class => :profile_illustration
+              %b Relationship status:
+              #{@profile.relationship_status.blank? ? "N/A" : @profile.relationship_status}
+          
+            %li
+              = image_tag "job_16.png", :class => :profile_illustration
+              %b Occupation: 
+              #{@profile.occupation.blank? ? "N/A" : @profile.occupation}
         
+            - unless @profile.school.blank?
               %li
-                = image_tag "language_16.png", :class => :profile_illustration
-                %b Languages: 
-                #{@profile.languages.blank? ? "N/A" : @profile.languages}
-              %li.last
-                = image_tag "basketball_16.png", :class => :profile_illustration
-                %b Hobbies: 
-                #{@profile.hobbies.blank? ? "N/A" : @profile.hobbies}
+                = image_tag "school_16.png", :class => :profile_illustration
+                %b School: 
+                #{@profile.school.blank? ? "N/A" : @profile.school}
+          
+            %li
+              = image_tag "company_16.png", :class => :profile_illustration
+              %b Company: 
+              #{@profile.company.blank? ? "N/A" : @profile.company}
+        
+            %li
+              = image_tag "language_16.png", :class => :profile_illustration
+              %b Languages: 
+              #{@profile.languages.blank? ? "N/A" : @profile.languages}
+            
+            %li.last
+              = image_tag "basketball_16.png", :class => :profile_illustration
+              %b Hobbies: 
+              #{@profile.hobbies.blank? ? "N/A" : @profile.hobbies}
               
         #about.tab_content{:style => "display:none"}
           .embossed_box

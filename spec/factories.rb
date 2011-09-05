@@ -6,6 +6,9 @@ FactoryGirl.define do
     username  'username'
     email     'first.last@email.com'
     password  'password'
+    birth_day 30
+    birth_month 'May'
+    birth_year  1984
   end
   
   factory :message do

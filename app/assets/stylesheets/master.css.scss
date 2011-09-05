@@ -375,7 +375,7 @@ div.alert-message {
   text-align:center; padding:10px; margin:20px 0;
 }
 
-#signup, #login {
+#signup_form, #login_form, #forgot_password_form {
   background:url(/assets/collage_bw.jpg) repeat;
 }
 
@@ -628,9 +628,8 @@ div.alert-message {
 #alert {
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFD000), to(#FFE600));
 	background: -moz-linear-gradient(top,  #FFD000,  #FFE600);
-	box-shadow:0 -6px 7px 6px #aaa;
-	font-weight:bold; text-align:center;
-  font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; border-bottom:2px solid #E0BC00;
+	box-shadow:0 -6px 7px 6px #aaa; font-weight:bold; text-align:center; font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; 
+	border-bottom:2px solid #E0BC00; z-index:1000;
   .content {
     padding:15px;
   }
@@ -639,9 +638,8 @@ div.alert-message {
 #error {
   background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
 	background: -moz-linear-gradient(top,  #ed1c24,  #aa1317);
-	box-shadow:0 -6px 7px 6px #aaa;
-	font-weight:bold; text-align:center;
-  font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; border-bottom:2px solid #b7000d; color:#fff;
+  box-shadow:0 -6px 7px 6px #aaa; font-weight:bold; text-align:center; font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; 
+  border-bottom:2px solid #b7000d; color:#fff; z-index:1000;
   .content {
     padding:15px;
   }
@@ -712,5 +710,17 @@ div.alert-message {
     .snap {
       width:780px;
     }
+  }
+}
+
+#error_explanation {
+  background:#F4ECC6; border: 1px solid #ECAA6A; border-radius: 4px; color: #CB1515; line-height: 20px; margin: 20px 0; padding: 12px;
+  h2 { margin-bottom:10px }
+  li { padding:5px 0 5px 24px; background:url(/assets/error.png) no-repeat left center }
+}
+
+#signup_form {
+  #user_birth_month, #user_birth_day, #user_birth_year {
+    float:left; margin-right:5px; padding:6px; border:1px solid #C2C2C2; width:140px; font-size:14px;
   }
 }

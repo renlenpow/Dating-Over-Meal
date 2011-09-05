@@ -1,11 +1,11 @@
 <%
 @title_for_layout = "Login"
-@body_id = "login"
+@body_id = "login_form"
 %>
 
 <div class="devise_form">
 
-  <h2>Sign in</h2>
+  <%= render :partial => "shared/devise_form_logo" %>
 
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     

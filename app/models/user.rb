@@ -28,10 +28,11 @@ class User < ActiveRecord::Base
   has_many  :interactions, :dependent => :destroy
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessor :firstname, :lastname
-  attr_accessible :firstname, :lastname, :email, :username, :password, :password_confirmation, :remember_me, :avatar, :facebook_token
+  attr_accessor :firstname, :lastname, :birth_day, :birth_month, :birth_year
+  attr_accessible :firstname, :lastname, :email, :username, :password, :password_confirmation, :remember_me, :avatar, :facebook_token,
+  :birth_day, :birth_month, :birth_year
   
-  validates_presence_of :firstname, :lastname, :username, :on => :create
+  validates_presence_of :firstname, :lastname, :username, :birth_day, :birth_month, :birth_year, :on => :create
   validates_uniqueness_of :username, :on => :create
   validates :username, :format => {:with => /\A[a-zA-Z0-9_]+\z/, :message => "Only letters, numbers and underscores are allowed"}
   
