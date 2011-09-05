@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_filter :load_user, :only => [:edit, :update]
   
   def index
-    @users = User.paginate(:page => @page, :per_page => 100)
+    @users = User.includes(:profile).paginate(:page => params[:page], :per_page => 100)
   end
   
   def follow

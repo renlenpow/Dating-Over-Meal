@@ -121,7 +121,8 @@ class User < ActiveRecord::Base
   private
   
   def create_user_profile
-    self.create_profile(:firstname => firstname, :lastname => lastname)
+    self.create_profile(:firstname => firstname, :lastname => lastname, :birth_day => birth_day, :birth_month => birth_month, 
+    :birth_year => birth_year)
   end
   
   def log_registration_activity

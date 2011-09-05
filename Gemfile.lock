@@ -156,6 +156,12 @@ GIT
       cocaine (>= 0.0.2)
       mime-types
 
+GIT
+  remote: git://github.com/tomharris/random_data.git
+  revision: 2f92c979d87da72709874c19946ed048777760a5
+  specs:
+    random_data (1.5.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -356,6 +362,7 @@ DEPENDENCIES
   paperclip-aws!
   pg
   rails (= 3.1.0.rc6)
+  random_data!
   randumb!
   rspec-rails!
   sass-rails (~> 3.1.0.rc)
