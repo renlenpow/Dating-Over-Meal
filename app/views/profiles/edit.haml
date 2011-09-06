@@ -52,6 +52,10 @@
           .form_row.clearfix
             = f.label :country
             = f.select :country, options_for_select(Carmen.countries, @profile.country), :include_blank => "-- no answer --"
+            
+          .form_row.clearfix
+            = f.label :zipcode
+            = f.text_field :zipcode, :class => :textbox
           
           .form_row.clearfix
             = f.label :occupation

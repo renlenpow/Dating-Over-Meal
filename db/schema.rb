@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110903170556) do
+ActiveRecord::Schema.define(:version => 20110906051201) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +31,26 @@ ActiveRecord::Schema.define(:version => 20110903170556) do
   create_table "cuisines_places", :id => false, :force => true do |t|
     t.integer "cuisine_id"
     t.integer "place_id"
+  end
+
+  create_table "geoinfo_cities", :force => true do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.integer  "gnis_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "population_2000"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "geoinfo_states", :force => true do |t|
+    t.string   "name"
+    t.string   "abbr"
+    t.string   "country"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "images", :force => true do |t|
@@ -116,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20110903170556) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
+    t.string   "zipcode"
     t.string   "phone_number"
     t.text     "description"
     t.string   "gender"
