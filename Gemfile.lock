@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/7even/zodiac.git
+  revision: 5a1f12fa2394dd5ed3daac212b0189891f95cc9f
+  specs:
+    zodiac (0.1.1)
+      funtimes
+      i18n
+
+GIT
   remote: git://github.com/apneadiving/Google-Maps-for-Rails.git
   revision: ea899c54ec69cb909369d622e7b41e3d5b1ea8c9
   specs:
@@ -221,6 +229,7 @@ GEM
       addressable (~> 2.2.6)
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
+    funtimes (0.2.1)
     hike (1.2.1)
     httparty (0.7.8)
       crack (= 0.1.8)
@@ -374,3 +383,4 @@ DEPENDENCIES
   turn
   uglifier
   will_paginate!
+  zodiac!
