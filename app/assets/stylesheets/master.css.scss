@@ -724,3 +724,9 @@ div.alert-message {
     float:left; margin-right:5px; padding:6px; border:1px solid #C2C2C2; width:140px; font-size:14px;
   }
 }
+
+#app_error {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFD000), to(#FFE600));
+	background: -moz-linear-gradient(top,  #FFD000,  #FFE600);
+	padding:20px; text-align:center; margin:20px; border:1px solid #e59c00; border-radius:4px;
+}

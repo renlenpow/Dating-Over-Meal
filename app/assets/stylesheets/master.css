@@ -955,3 +955,12 @@ div.alert-message {
   border: 1px solid #C2C2C2;
   width: 140px;
   font-size: 14px; }
+
+#app_error {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffd000), to(#ffe600));
+  background: -moz-linear-gradient(top, #ffd000, #ffe600);
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  border: 1px solid #e59c00;
+  border-radius: 4px; }

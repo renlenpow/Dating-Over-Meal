@@ -8,8 +8,6 @@ describe Profile do
     
     profile = user.profile
     
-    profile.calculate_age.should be_nil
-    
     profile.update_attributes(:birth_year => 1984, :birth_month => "May", :birth_day => 30)
     
     profile.calculate_age.should == 27

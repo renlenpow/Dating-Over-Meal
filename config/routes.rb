@@ -12,6 +12,8 @@ DatingOverMeal::Application.routes.draw do
   
   match '/webcam/capture' => 'webcam#capture', :as => :webcam_capture
   
+  match '/error' => 'error#index', :as => :error
+  
   resources :profiles
   
   resources :thoughts

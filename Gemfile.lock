@@ -29,6 +29,15 @@ GIT
     ajaxful_rating_jquery (3.0.0.beta3)
 
 GIT
+  remote: git://github.com/brynary/webrat.git
+  revision: fea21fc15a866752a4c114658649c2c864c99bc1
+  specs:
+    webrat (0.7.3)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
+
+GIT
   remote: git://github.com/chrislloyd/gravtastic.git
   revision: 2b2252c0aee98854d94f040d88a9f70c1da3097d
   specs:
@@ -382,5 +391,6 @@ DEPENDENCIES
   thinking-sphinx!
   turn
   uglifier
+  webrat!
   will_paginate!
   zodiac!

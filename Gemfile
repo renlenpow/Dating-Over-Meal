@@ -52,6 +52,7 @@ group :test, :development do
   gem 'nokogiri'
   gem 'image_downloader'
   gem 'activerecord-import'
+  gem 'webrat', :git => 'git://github.com/brynary/webrat.git'
 end
 
 group :production do

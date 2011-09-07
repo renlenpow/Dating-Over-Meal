@@ -1,10 +1,9 @@
 %header#auth_header
-  - if user_signed_in?
+  #logo
+    = link_to root_path do
+      = image_tag "logo.png"
   
-    #logo
-      = link_to root_path do
-        = image_tag "logo.png"
-      
+  - if user_signed_in?
     #nav
       %ul
         %li

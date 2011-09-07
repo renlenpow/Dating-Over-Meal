@@ -141,4 +141,8 @@ describe User do
     user.like_place(place_2).should == false
   end
   
+  it "mock test" do
+    user = mock User
+  end
+  
 end
