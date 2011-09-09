@@ -53,7 +53,15 @@ describe ProfilesController do
     end
     
     context "when the viewing user is anonymous" do
-      #TO BE IMPLEMENTED
+      before(:each) do
+        @user = Factory(:user, :username => :apollo)
+      end
+      
+      it "should not show the 'Follow user' and 'Message this user' button" do
+        get :show, :id => :apollo
+        response.should_not contain("Message this user")
+        response.should_not contain("Follow this user")
+      end
     end
     
   end
