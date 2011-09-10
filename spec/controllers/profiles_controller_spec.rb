@@ -3,10 +3,9 @@ require 'spec_helper'
 describe ProfilesController do
   
   include Devise::TestHelpers
+  render_views
   
   describe "GET /username" do
-    
-    render_views
     
     context "testing profile page" do
       before(:each) do
@@ -63,6 +62,17 @@ describe ProfilesController do
         response.should_not contain("Follow this user")
       end
     end
+    
+  end
+  
+  describe "PUT /id" do
+    
+    # it "should update the profile properly" do
+    #       profile = mock_model(Profile)
+    #       #profile.stub!(:update_attributes).and_return(true)
+    #       put :update, :id => 1, :profile => {}
+    #       response.should be_success
+    #     end
     
   end
   

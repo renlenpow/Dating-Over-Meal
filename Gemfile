@@ -30,7 +30,6 @@ gem 'jquery-rails'
 gem 'aws-sdk'
 gem 'taps'
 
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -53,6 +52,7 @@ group :test, :development do
   gem 'image_downloader'
   gem 'activerecord-import'
   gem 'webrat', :git => 'git://github.com/brynary/webrat.git'
+  gem 'jasmine'
 end
 
 group :production do

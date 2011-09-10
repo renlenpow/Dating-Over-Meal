@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   
+  #before_filter :authenticate_user!, :only => :update
+  
   def show
     begin
       @user = User.find_by_username(params[:id])
