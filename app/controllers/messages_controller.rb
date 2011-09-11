@@ -8,9 +8,9 @@ class MessagesController < ApplicationController
     message = Message.new params[:message]
     
     if message.save
-      render :json => {:success => 1}
+      render :json => {:success => 1, :message => "Your message has been sent"}
     else
-      render :json => {:success => -1, :errors => message.errors}
+      render :json => {:success => -1, :message => message.errors.flatten_to_string}
     end
   end
   

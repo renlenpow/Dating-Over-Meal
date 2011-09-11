@@ -10,7 +10,9 @@
     %ul.users_listing
       - @users.each do |user|
         - profile = user.profile
-        %li.white.clearfix.user
+        %li.white.clearfix
+          - unless current_user == user
+            %span.orange.button.make_a_date{:invitee_id => user.id, :invitee_name => "#{profile.firstname} #{profile.lastname}"} Suggest a date
           = link_to profile_path(user.username) do
             = image_tag user.avatar.url(:thumb), :class => :profile_photo
           %h3
@@ -19,4 +21,37 @@
           %p #{profile.city}, #{profile.state}
           %p= profile.brief
           
+          
   = will_paginate(@users)
+  
+#date_proposal.pop_dialog{:style => "display:none"}
+  %h2.header 
+    Make a date with
+    %span#appointment_invitee_name
+  .content
+    = form_for @appointment, :remote => true, :id => :new_appointment_form do |f|
+    
+      = f.hidden_field :inviter_id, :value => current_user.id
+      = f.hidden_field :invitee_id, :value => nil
+      
+      .form_row
+        = f.label :date
+        = f.text_field :date, :class => "textbox datepicker"
+        
+      .form_row
+        = f.label :hour, "Time"
+        = f.select :hour, options_for_select((0..23).to_a)
+        = f.select :minute, options_for_select((0..59).to_a)
+        
+      .form_row
+        = f.label :Place
+        = f.text_field :place_id, :class => :textbox
+        
+      .form_row
+        = f.label :note
+        = f.text_area :note, :class => :textbox
+        
+      .button_container
+        = f.submit :value => "Send", :class => "button green"
+        %input{:type => :button, :class => "button red cancel_pop_dialog", :value => "Cancel"}
+        

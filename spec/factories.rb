@@ -33,4 +33,13 @@ FactoryGirl.define do
     picture_updated_at    Time.now
   end
   
+  factory :appointment do
+    inviter_id  1
+    invitee_id  2
+    date        Time.now
+    hour        18
+    minute      15
+    place_id    1
+  end
+  
 end

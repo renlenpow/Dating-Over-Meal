@@ -483,7 +483,7 @@ div.alert-message {
 }
 
 .pop_dialog {
-  background:#fff; width:460px; border-radius:5px; position:absolute; top:160px; left:50%; margin-left:-230px; box-shadow:0 4px 8px 2px #555; z-index:100;
+  background:#fff; width:460px; border-radius:5px; position:fixed; top:160px; left:50%; margin-left:-230px; box-shadow:0 4px 8px 2px #555; z-index:100;
   .header {
     border-radius:4px 4px 0 0; background:-moz-linear-gradient(center top , #F12891, #C00D6A) repeat scroll 0 0 transparent; color:#fff; padding:7px 15px;
     box-shadow:0 1px 1px #FCBEDE inset;
@@ -646,9 +646,8 @@ div.alert-message {
 }
 
 .users_listing {
-  .white {
-    padding:15px;
-  }
+  .white { padding:15px }
+  .make_a_date { float:right }
 }
 
 #profile_social_networks {padding:11px 20px 8px}
@@ -729,4 +728,15 @@ div.alert-message {
   background: -webkit-gradient(linear, left top, left bottom, from(#FFD000), to(#FFE600));
 	background: -moz-linear-gradient(top,  #FFD000,  #FFE600);
 	padding:20px; text-align:center; margin:20px; border:1px solid #e59c00; border-radius:4px;
+}
+
+#dating_calendar_wrapper {
+  margin:0; padding:10px;
+  #dating_calendar {
+    background:#fff;
+  } 
+}
+
+#new_appointment {
+  select { padding:6px; border:1px solid #c2c2c2; width:50px; margin-right:10px }
 }

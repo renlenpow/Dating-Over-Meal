@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.includes(:profile).paginate(:page => params[:page], :per_page => 100)
+    @appointment = Appointment.new
   end
   
   def follow

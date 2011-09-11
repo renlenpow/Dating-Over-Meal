@@ -6,9 +6,9 @@ class ThoughtsController < ApplicationController
     thought = Thought.new params[:thought]
     thought.user_id = current_user.id
     if thought.save
-      render :json => {:success => 1}
+      render :json => {:success => 1, :message => "Your thought has been shared"}
     else
-      render :json => {:success => -1, :errors => thought.errors}
+      render :json => {:success => -1, :message => thought.errors.flatten_to_string }
     end
     
   end

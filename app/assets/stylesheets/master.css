@@ -566,7 +566,7 @@ div.alert-message {
   background: #fff;
   width: 460px;
   border-radius: 5px;
-  position: absolute;
+  position: fixed;
   top: 160px;
   left: 50%;
   margin-left: -230px;
@@ -863,6 +863,8 @@ div.alert-message {
 
 .users_listing .white {
   padding: 15px; }
+.users_listing .make_a_date {
+  float: right; }
 
 #profile_social_networks {
   padding: 11px 20px 8px; }
@@ -964,3 +966,15 @@ div.alert-message {
   margin: 20px;
   border: 1px solid #e59c00;
   border-radius: 4px; }
+
+#dating_calendar_wrapper {
+  margin: 0;
+  padding: 10px; }
+  #dating_calendar_wrapper #dating_calendar {
+    background: #fff; }
+
+#new_appointment select {
+  padding: 6px;
+  border: 1px solid #c2c2c2;
+  width: 50px;
+  margin-right: 10px; }

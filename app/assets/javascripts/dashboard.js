@@ -8,17 +8,10 @@ $(function(){
   
   $("#new_thought").bind("ajax:success", function(evt, data, status, xhr){
     if (data.success == 1) {
-      alert("Your thought has been shared")
+      window.flash_alert(data.message)
       $("#thoughts_box").val("")
     } else {
-      
-      if (data.errors) {
-        var errors = ""
-        for (err in data.errors) {
-          errors += err + " " + data.errors[err]
-        }
-        alert(errors)
-      }
+      window.flash_error(data.message.join("<br />"))
     }
   })
 })

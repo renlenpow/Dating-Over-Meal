@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  
+  window.overlay = $("#overlay")
+  
   $(".back_to_top").click(function(){
     $.scrollTo(0, 500);
   })
@@ -33,7 +36,19 @@ $(document).ready(function(){
   window.flash_error = function(error_message) {
     $("#error_content").html(error_message)
     $("#error").slideDown()
-    setTimeout(function(){ $("#error").slideUp().html("") }, 4000)
+    setTimeout(function(){ $("#error").slideUp() }, 4000)
   }
+  
+  $("#dating_calendar").fullCalendar({
+    
+  })
+  
+  $(".pop_dialog .cancel_pop_dialog").click(function(){
+    $(".pop_dialog").fadeOut(function(){
+      window.overlay.hide();
+    });
+  })
+  
+  $(".datepicker").datepicker();
   
 })

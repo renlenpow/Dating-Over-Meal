@@ -15,6 +15,13 @@
     = link_to "View profile", profile_path(current_user.username), :class => "button white social_option"
   
   #right
+  
+    .box#calendar
+      %h2.header Your dating calendar
+      .content
+        .embossed_box#dating_calendar_wrapper
+          #dating_calendar
+  
     .box#thoughts
       %h2.header What's on your mind?
       .content
