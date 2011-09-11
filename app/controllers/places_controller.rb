@@ -4,10 +4,18 @@ class PlacesController < ApplicationController
   before_filter :load_page, :only => [:index]
   
   def index
-    if params[:name].present? and !params[:name].blank?
-      @places = Place.search_place(:name => params[:name], :city => params[:city], :state => params[:state], :zipcode => params[:zipcode])
-    else
-      @places = Place.most_recent.paginate(:page => @page, :per_page => 25)
+    respond_to do |format|
+      format.html {
+        if params[:name].present? and !params[:name].blank?
+          @places = Place.search_place(:name => params[:name], :city => params[:city], :state => params[:state], :zipcode => params[:zipcode])
+        else
+          @places = Place.most_recent.paginate(:page => @page, :per_page => 25)
+        end
+      }
+      
+      format.json {
+        render :json => Place.all.each.map(&:name).to_json
+      }
     end
   end
   

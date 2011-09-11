@@ -54,4 +54,11 @@
       .button_container
         = f.submit :value => "Send", :class => "button green"
         %input{:type => :button, :class => "button red cancel_pop_dialog", :value => "Cancel"}
-        
+
+:javascript
+  $(function(){
+    $("#appointment_place_id").autocomplete({
+      source: ["#{Place.all.each.map(&:name).join('","')}"],
+      minLength: 5
+    })
+  })
