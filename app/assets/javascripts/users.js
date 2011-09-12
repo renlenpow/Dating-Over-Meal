@@ -16,6 +16,9 @@ $(document).ready(function(){
   $("#new_appointment").bind("ajax:success", function(evt, data, status, xhr){
     if (data.success == 1) {
       window.flash_alert(data.message)
+      date_proposal.fadeOut(function(){
+        window.overlay.fadeOut()
+      })
     } else {
       window.flash_error(data.message.join("<br />"))
     }

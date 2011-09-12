@@ -42,4 +42,14 @@ describe Appointment do
     appointment_2.should_not be_valid
   end
   
+  it "should find place id by name before create" do
+    now = Time.now
+    
+    place_1 = Factory(:place, :name => "The Cheesecake Factory")
+    place_2 = Factory(:place, :name => "In and Out")
+    place_3 = Factory(:place, :name => "Golden Coral")
+    
+    #appointment = Factory(:appointment, :inviter_id => @inviter.id, :invitee_id => @invitee.id, :date => now, :hour => now.hour, :minute => now.minute, :place_i)
+  end
+  
 end

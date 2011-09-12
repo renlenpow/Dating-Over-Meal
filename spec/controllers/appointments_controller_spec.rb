@@ -8,6 +8,7 @@ describe AppointmentsController do
     
     before(:each) do
       @now = Time.now
+      @place = Factory(:place)
     end
     
     context "with valid params" do
@@ -15,7 +16,7 @@ describe AppointmentsController do
       
         expect { 
           post :create, :appointment => {:inviter_id => 1, :invitee_id => 2, :date => Date.today, :hour => (@now + 5.hours).hour, 
-          :minute => @now.min, :place_id => 1}
+          :minute => @now.min, :place_id => @place.name}
         }.to change{ 
           Appointment.count 
         }.by(1)
@@ -38,7 +39,7 @@ describe AppointmentsController do
         
         expected_rendered_json = {
           :success => -1,
-          :message => ["date is required", "hour is required", "minute is required", "place_id is required"]
+          :message => ["Date is required", "Hour is required", "Minute is required", "Place_id is required"]
         }.to_json
         
         response.body.should == expected_rendered_json
