@@ -88,7 +88,8 @@ class User < ActiveRecord::Base
       :lastname => data['last_name'], :facebook_token => access_token['credentials']['token'], :birth_day => birth_day[1], :birth_month => birth_month,
       :birth_year => birth_day[2]
       )
-      save_facebook_profile_image(access_token, user)
+      #save_facebook_profile_image(access_token, user)
+      user
     end
   end
   
