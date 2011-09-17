@@ -80,10 +80,19 @@ class User < ActiveRecord::Base
       :lastname => data['last_name'], :facebook_token => access_token['credentials']['token'], :birth_day => birth_day[1], :birth_month => birth_month,
       :birth_year => birth_day[2]
       )
-      user.avatar = File.open(access_token['user_info']['image'])
-      user.save
-      user
+      save_facebook_profile_image(access_token, user)
     end
+  end
+  
+  def self.save_facebook_profile_image(access_token, signed_in_resource)
+    facebook_image_url = access_token['user_info']['image'].gsub("square", "large")
+    url = URI.parse(facebook_image_url)
+    res = Net::HTTP.start(url.host, url.port) { |http|
+      http.get(facebook_image_url)
+    }
+    signed_in_resource.avatar = open(res['location'])
+    signed_in_resource.save
+    signed_in_resource
   end
   
   def like_place(place)

@@ -1,1 +1,55 @@
 A dating and social network site
+
+Sample Facebook user data fetched by OmniAuth
+
+{
+  "provider"=>"facebook", 
+  "uid"=>"515097306", 
+  "credentials"=>{
+    "token"=>"AAADl2UBrGvEBAHrZCHVgPlJbUeqPJsYclbq6M2DRljtBthAQps1RhC3jrOFR8mUUF602orFggQZCsHQZCPonp9zz1ctx9AZD"}, 
+    "user_info"=>{
+      "nickname"=>"trivuong", 
+      "email"=>"tri.vuong@utoronto.ca", 
+      "first_name"=>"Tri", 
+      "last_name"=>"Vuong", 
+      "name"=>"Tri Vuong", 
+      "image"=>"http://graph.facebook.com/515097306/picture?type=square", 
+      "urls"=>{
+        "Facebook"=>"http://www.facebook.com/trivuong", 
+        "Website"=>nil
+      }
+    }, 
+    "extra"=>{
+      "user_hash"=>{
+        "id"=>"515097306", 
+        "name"=>"Tri Vuong", 
+        "first_name"=>"Tri", 
+        "last_name"=>"Vuong", 
+        "link"=>"http://www.facebook.com/trivuong", 
+        "username"=>"trivuong", 
+        "birthday"=>"05/30/1918", 
+        "hometown"=>{"id"=>"110545832300381", "name"=>"Saigon"}, 
+        "location"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, 
+        "quotes"=>"Luck is when preparation meets opportunity (13 going on 30)", 
+        "work"=>[
+          {
+            "employer"=>{"id"=>"377357418757", "name"=>"Students Associations"}, "position"=>{"id"=>"142256765795401", "name"=>"Website Administrator"}, "description"=>"Design and develop ucsaa.ca  and uvsaontario.ca", "start_date"=>"2008-05"}, 
+            {
+              "employer"=>{"id"=>"128576530519299", "name"=>"better the world"}, "position"=>{"id"=>"143257402365425", "name"=>"Web Developer"}, "description"=>"Fix various cross browser issues, playing around with jQuery, XUL, and write SQL queries", "start_date"=>"2009-07", "end_date"=>"2010-12"}, 
+                {
+                  "employer"=>{"id"=>"114116861937266", "name"=>"IBM"}, "position"=>{"id"=>"111450168930839", "name"=>"Internet/Multimedia Developer"}, "description"=>"Fix various Java COM Interop issues and do some additional PHP", "start_date"=>"2008-06", "end_date"=>"2009-05"}, 
+                  {
+                    "employer"=>{"id"=>"114295378581515", "name"=>"Vietnamese Association, Toronto"}, "position"=>{"id"=>"124366917609201", "name"=>"Website Designer"}, "description"=>"Design and develop vatoronto.ca to reach out the Vietnamese community in GTA and around the world", "start_date"=>"2008-08", "end_date"=>"2008-09"}, 
+                  {"employer"=>{"id"=>"194714530370", "name"=>"Onlinewindows.ca"}, "position"=>{"id"=>"139977262693172", "name"=>"Front End Designer"}, "description"=>"Provide front-end solutions for e-commerce project", "start_date"=>"2008-04", "end_date"=>"2008-05"}, {"employer"=>{"id"=>"110937465592009", "name"=>"Intel"}, "position"=>{"id"=>"186031124765571", "name"=>"Environmental Health and Safety/Information Technology Intern"}, "start_date"=>"2007-07", "end_date"=>"2007-08"}, {"employer"=>{"id"=>"184130774951527", "name"=>"Better The World Inc."}, 
+                  "with"=>[{"id"=>"506202992", "name"=>"Andru Weir"}], "from"=>{"id"=>"506202992", "name"=>"Andru Weir"}}], 
+                  "education"=>[{"school"=>{"id"=>"133187973359305", "name"=>"University of Toronto"}, "year"=>{"id"=>"141778012509913", "name"=>"2008"}, 
+                  "concentration"=>[{"id"=>"148737835185394", "name"=>"Computer Science, Mathematics, Geography"}], "type"=>"College"}], 
+                  "gender"=>"male", 
+                  "email"=>"tri.vuong@utoronto.ca", "timezone"=>-7, "locale"=>"en_US", 
+                    "languages"=>[
+                      {"id"=>"106059522759137", "name"=>"English"}, 
+                      {"id"=>"108106272550772", "name"=>"French"}, 
+                      {"id"=>"105673612800327", "name"=>"German"}, 
+                      {"id"=>"110343528993409", "name"=>"Spanish"}, 
+                      {"id"=>"113153272032690", "name"=>"Italian"}, 
+                      {"id"=>"112624162082677", "name"=>"Russian"}, {"id"=>"109549852396760", "name"=>"Japanese"}, {"id"=>"112575665423976", "name"=>"Korean"}, {"id"=>"104059856296458", "name"=>"Vietnamese"}], "verified"=>true, "updated_time"=>"2011-06-03T23:10:55+0000"}}}
