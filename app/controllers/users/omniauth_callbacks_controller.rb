@@ -11,7 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to dashboard_url
     else
       session["devise.facebook_data"] = env["omniauth.auth"]
-      redirect_to new_registration_path
+      redirect_to new_user_registration_path
     end
   end
   
