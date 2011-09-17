@@ -154,7 +154,7 @@
           
           .form_row.clearfix
             = f.label :drinking
-            = f.select :drinking, options_for_select(["Never", "Sometimes", "Occasionally", "I'm a lush", "Rather not say"], @profile.drinking), :include_blank => "-- no answer --"
+            = f.select :drinking, options_for_select(["Never", "Sometimes", "Occasionally", "I'm a lush", "Rather not say"], @profile.drinking), :include_blank => "- no answer -"
           
           .form_row.clearfix
             = f.label :kids
