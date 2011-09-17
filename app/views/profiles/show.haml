@@ -20,7 +20,7 @@
   #left
     #picture_wrapper
       #frame
-        = image_tag @user.avatar.url(:thumb)
+        = image_tag @user.avatar.url(:thumb), :alt => @user.username
     
       - if user_signed_in? and current_user.id == @user.id
         = link_to "Edit Profile", edit_profile_path(@profile), :class => "button white", :id => :edit_my_profile

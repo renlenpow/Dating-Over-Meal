@@ -14,7 +14,11 @@ class User < ActiveRecord::Base
     :s3_acl => :public_read,
     :s3_protocol => 'http',
     :s3_bucket => :dom305,
-    :path => "avatars/:id/:style/:filename"
+    :path => "avatars/:id/:style/:randomized_filename.jpg"
+    
+  Paperclip.interpolates :randomized_filename do |attachment, style|
+    attachment.instance.randomized_filename
+  end
   
   has_one   :profile, :dependent => :destroy
   has_many  :activities, :dependent => :destroy
@@ -44,6 +48,10 @@ class User < ActiveRecord::Base
   gravtastic
   
   ajaxful_rater
+  
+  def randomized_filename
+    "#{self.id}_#{Digest::MD5.hexdigest("dom")}"
+  end
   
   def recent_activities
     self.activities.order("created_at DESC").limit(50)
@@ -76,7 +84,7 @@ class User < ActiveRecord::Base
     else # Create a user with a stub password. 
       birth_day = data['birthday'].split("/")
       birth_month = Date::MONTHNAMES[birth_day[0].to_i][0,3]
-      user = User.create(:email => data['email'], :username => Time.now.to_i, :password => Devise.friendly_token[0,20], :firstname => data['first_name'], 
+      user = User.create(:email => data['email'], :username => "user#{Time.now.to_i + 1}", :password => Devise.friendly_token[0,20], :firstname => data['first_name'], 
       :lastname => data['last_name'], :facebook_token => access_token['credentials']['token'], :birth_day => birth_day[1], :birth_month => birth_month,
       :birth_year => birth_day[2]
       )
