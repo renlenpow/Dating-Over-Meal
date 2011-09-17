@@ -10,7 +10,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in :user, @user
       redirect_to dashboard_url
     else
-      session["devise.facebook_data"] = env["omniauth.auth"]
+      #Probably the line below will cause cookie overflow issue
+      #session["devise.facebook_data"] = env["omniauth.auth"]
       redirect_to new_user_registration_path
     end
   end

@@ -74,8 +74,10 @@ class User < ActiveRecord::Base
     if user = User.find_by_email(data["email"])
       user
     else # Create a user with a stub password. 
+      birth_day = data['birth_day'].split("/")
       User.create(:email => data['email'], :username => Time.now.to_i, :password => Devise.friendly_token[0,20], :firstname => data['first_name'], 
-      :lastname => data['last_name'], :facebook_token => access_token['credentials']['token']
+      :lastname => data['last_name'], :facebook_token => access_token['credentials']['token'], :birth_day => birth_day[1], :birth_month => birth_day[0],
+      :birth_year => birth_day[2]
       )
     end
   end
