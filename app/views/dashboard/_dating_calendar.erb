@@ -1,0 +1,16 @@
+<script>
+$(function(){
+  $("#dating_calendar").fullCalendar({
+    <% if @proposed_appointments.size > 0 %>
+      events: [
+        <% @proposed_appointments.each do |app| %>
+          {
+            title: 'Date',
+            start: '<%= app.date.strftime("%Y-%m-%d") %>'
+          }
+        <% end %>
+      ]
+    <% end %>
+  })
+})
+</script>

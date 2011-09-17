@@ -10,6 +10,7 @@ class DashboardController < ApplicationController
     @followers = current_user.followers.limit(5)
     @visited_places = current_user.visited_places
     @liked_places = current_user.liked_places
+    @proposed_appointments = current_user.proposed_appointments
   end
   
 end

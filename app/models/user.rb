@@ -119,6 +119,10 @@ class User < ActiveRecord::Base
     Place.where(:id => self.interactions.where(:kind => :visit).map(&:place_id))
   end
   
+  def proposed_appointments
+    Appointment.where("inviter_id = #{self.id} OR invitee_id = #{self.id}")
+  end
+  
   private
   
   def create_user_profile

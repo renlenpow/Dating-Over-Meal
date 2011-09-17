@@ -39,10 +39,6 @@ $(document).ready(function(){
     setTimeout(function(){ $("#error").slideUp() }, 4000)
   }
   
-  $("#dating_calendar").fullCalendar({
-    
-  })
-  
   $(".pop_dialog .cancel_pop_dialog").click(function(){
     $(".pop_dialog").fadeOut(function(){
       window.overlay.hide();

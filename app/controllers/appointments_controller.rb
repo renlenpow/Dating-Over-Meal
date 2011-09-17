@@ -1,5 +1,14 @@
 class AppointmentsController < ApplicationController
   
+  def index
+    respond_to do |format|
+      format.json do
+        render :json => Appointment.where("inviter_id = #{current_user.id} OR invitee_id = #{current_user.id}").all.to_json
+      end
+    end
+    
+  end
+  
   def create
     @appointment = Appointment.new params[:appointment]
     
