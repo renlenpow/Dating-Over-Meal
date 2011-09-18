@@ -399,9 +399,8 @@ div.alert-message {
   height: 50px;
   margin-right: 12px;
   background: #fff;
-  padding: 4px;
-  box-shadow: 0 1px 4px 1px #aaa;
-  border-radius: 4px; }
+  padding: 2px;
+  box-shadow: 0 1px 4px 1px #999; }
 
 .messages_list {
   margin-bottom: 10px; }
@@ -438,6 +437,10 @@ div.alert-message {
   #footer #footer_content {
     width: 1000px;
     margin: 0 auto; }
+  #footer #footer_logo {
+    float: left;
+    margin-right: 12px;
+    clear: both; }
   #footer #copyright_statement {
     float: left; }
     #footer #copyright_statement p {

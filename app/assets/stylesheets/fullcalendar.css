@@ -57,11 +57,15 @@ html .fc,
 .fc-header-title {
 	display: inline-block;
 	vertical-align: top;
+	position:relative;
+	top:3px;
 	}
 	
 .fc-header-title h2 {
 	margin-top: 0;
 	white-space: nowrap;
+	padding-left:4px;
+	text-shadow:0 1px 1px #fff;
 	}
 	
 .fc .fc-header-space {
@@ -69,7 +73,6 @@ html .fc,
 	}
 	
 .fc-header .fc-button {
-	margin-bottom: 1em;
 	vertical-align: top;
 	}
 	
@@ -281,7 +284,8 @@ a.fc-event {
 	
 .fc-event-skin {
 	border-color: #36c;     /* default BORDER color */
-	background-color: #36c; /* default BACKGROUND color */
+  background: -webkit-gradient(linear, left top, left bottom, from(#007bf9), to(#004fa0));
+	background: -moz-linear-gradient(top,  #007bf9,  #004fa0);
 	color: #fff;            /* default TEXT color */
 	}
 	
@@ -429,7 +433,23 @@ table.fc-border-separate {
 	border-top-width: 0;
 	}
 	
-	
+.fc-border-separate thead {
+  background:#EAECF2;
+}
+
+.fc-border-separate thead th {
+  padding:4px 5px; text-transform:uppercase;  border-top:1px solid #b1b1b1;
+}
+
+table.fc-header {
+  background:url(/assets/name-bg.png) repeat-x;
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+}
+
+table.fc-header tr td {
+  padding:5px;
+}
 
 /* Month View, Basic Week View, Basic Day View
 ------------------------------------------------------------------------*/
