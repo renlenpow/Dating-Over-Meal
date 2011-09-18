@@ -12,7 +12,9 @@ header, footer {
 body {
   font-family: arial;
   font-size: 12px;
-  color: #444; }
+  color: #444;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(white));
+  background: -moz-linear-gradient(top, #eeeeee, white); }
 
 a {
   text-decoration: none;
@@ -50,7 +52,8 @@ h1 {
 .page_header {
   width: 1000px;
   margin: 0 auto;
-  text-align: center; }
+  text-align: center;
+  text-shadow: 0 1px 1px #fff; }
 
 textarea {
   height: 50px; }
@@ -427,9 +430,20 @@ div.alert-message {
     margin: 20px auto 40px; }
 
 #footer {
-  text-align: center;
-  padding: 10px;
-  margin: 20px 0; }
+  padding: 20px 0;
+  margin: 100px 0 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#d6d6d6));
+  background: -moz-linear-gradient(top, #f2f2f2, #d6d6d6);
+  border-top: 1px solid #bababa; }
+  #footer #footer_content {
+    width: 1000px;
+    margin: 0 auto; }
+  #footer #copyright_statement {
+    float: left; }
+    #footer #copyright_statement p {
+      margin: 4px 0; }
+  #footer #social_presence {
+    float: right; }
 
 #signup_form, #login_form, #forgot_password_form {
   background: url(/assets/collage_bw.jpg) repeat; }
@@ -501,7 +515,8 @@ div.alert-message {
   background: #ededed;
   border: 1px solid #ccc;
   margin: 40px auto;
-  overflow: hidden; }
+  overflow: hidden;
+  box-shadow: 0 1px 4px #ccc; }
   #stage #left {
     float: left;
     width: 250px;

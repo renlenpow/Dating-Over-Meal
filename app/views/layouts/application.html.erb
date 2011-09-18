@@ -26,10 +26,16 @@
 </div>
 
 <footer id="footer">
-  Copyright &copy; 2011 - <%= link_to "Dating Over Meal", root_path %> - 
-  <a href="/about">About</a> - 
-  <a href="/help">Help</a> -
-  <a class="back_to_top">Back to top</a>
+  <div id="footer_content" class="clearfix">
+    <div id="copyright_statement">
+      <p>&copy; 2011 Dating over Meal. All rights reserved.</p>
+      <p>Dating over Meal is open-sourced on Github and welcomes all forks and pull requests</p>
+    </div>
+    <div id="social_presence">
+      <%= image_tag "twitter.png" %>
+      <%= image_tag "facebook.png" %>
+    </div>
+  </div>
 </footer>
 
 </body>
