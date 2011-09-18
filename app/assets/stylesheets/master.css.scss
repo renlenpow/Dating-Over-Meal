@@ -27,6 +27,8 @@ header {
 
 h1 {margin-bottom:20px}
 
+.page_header {width:1000px; margin:0 auto; text-align:center}
+
 textarea {height:50px}
 
 .devise_form {
@@ -386,7 +388,7 @@ div.alert-message {
 }
 
 #content {
-  width:1000px; margin:0 auto;
+  margin:0 auto;
 }
 
 #home {
@@ -398,20 +400,38 @@ div.alert-message {
 .last {border:0 !important; margin:0 !important; padding:0 !important}
 
 #auth_header {
-  overflow:hidden;
-  
-  #nav {
-    float:right; margin-top:10px;
-    ul li {float:left; padding:10px; list-style:none}
+  margin:0 0 40px; background:#ffe75f url(/assets/header_bg.jpg) repeat-x left bottom; border-bottom:1px solid #aa8800; overflow:hidden;
+  box-shadow:0 1px 2px #ccc;
+  #middle_section {
+    width:1000px; margin:0 auto;
+    #nav {
+      float:right;
+      ul {
+        li {
+          float:left; list-style:none; text-align:center; margin-left:15px;
+          a {
+            text-transform:uppercase; color:#fff; text-shadow:0 1px 1px #666; font-weight:bold; display:block; padding:8px;
+            span {margin-top:4px; display:block}
+          }
+        }
+        li.current {
+          background:#ffe57f url(/assets/shine.png) no-repeat bottom center; border-left:1px solid #e1b507; border-right:1px solid #e1b507;
+          a {
+            border-left:1px solid #fbffd3;
+            border-right:1px solid #fbffd3
+          }
+        }
+      }
+    }
   }
-  
+
   #logo {
-    float:left;
+    float:left; height:47px; margin-top:8px;
   }
 }
 
 #stage {
-  border-radius:4px; background: #ededed; border:1px solid #ccc; margin:20px 0; overflow:hidden; 
+  width:998px;border-radius:4px; background: #ededed; border:1px solid #ccc; margin:40px auto; overflow:hidden; 
   #left {
     float:left; width:250px; padding:20px;
     
@@ -464,14 +484,6 @@ div.alert-message {
 
 #profile_social_networks {
   img {margin-right:10px}
-}
-
-#edit_profile {
-  .box {
-    .content {
-      padding:5px 20px;
-    }
-  }
 }
 
 .profile_illustration {

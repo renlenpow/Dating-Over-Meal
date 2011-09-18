@@ -1,22 +1,33 @@
 %header#auth_header
-  #logo
-    = link_to root_path do
-      = image_tag "logo.png"
+  #middle_section
+    #logo
+      = link_to root_path do
+        = image_tag "logo.png"
   
-  - if user_signed_in?
-    #nav
-      %ul
-        %li
-          Hi #{current_user.email}!
-        %li
-          = link_to "Dashboard", dashboard_path
-        %li
-          = link_to "Profile", profile_path(current_user.username)
-        %li
-          = link_to "Places", places_path
-        %li
-          = link_to "Members", users_path
-        %li
-          = link_to "Messages", messages_path
-        %li
-          = link_to "Sign out", destroy_user_session_path, :method => :delete
+    - if user_signed_in?
+      #nav
+        %ul
+          %li{:class => @body_id == "dashboard" ? "current" : ""}
+            = link_to dashboard_path do
+              = image_tag "dash_24.png"
+              %span Dashboard
+          %li{:class => @body_id == "profile" ? "current" : ""}
+            = link_to profile_path(current_user.username) do
+              = image_tag "profile_24.png"
+              %span Profile
+          %li{:class => @body_id == "places_index" ? "current" : ""}
+            = link_to places_path do
+              = image_tag "place_24.png"
+              %span Places
+          %li{:class => @body_id == "users" ? "current" : ""}
+            = link_to users_path do
+              = image_tag "members_24.png"
+              %span Members
+          %li{:class => @body_id == "messages_listing" ? "current" : ""}
+            = link_to messages_path do
+              = image_tag "message_24.png"
+              %span Message
+          %li
+            = link_to destroy_user_session_path, :method => :delete do
+              = image_tag "signout_24.png"
+              %span Sign out
