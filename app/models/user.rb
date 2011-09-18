@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     :s3_acl => :public_read,
     :s3_protocol => 'http',
     :s3_bucket => :dom305,
-    :path => "avatars/:id/:style/:randomized_filename.jpg"
+    :path => "user_avatar/:id/:style/:randomized_filename.jpg"
     
   Paperclip.interpolates :randomized_filename do |attachment, style|
     attachment.instance.randomized_filename

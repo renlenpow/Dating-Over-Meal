@@ -14,7 +14,7 @@
           - unless current_user == user
             %span.orange.button.make_a_date{:invitee_id => user.id, :invitee_name => "#{profile.firstname} #{profile.lastname}"} Suggest a date
           = link_to profile_path(user.username) do
-            = image_tag user.avatar.url(:thumb), :class => :profile_photo
+            = image_tag user.avatar.url(:thumb), :class => :profile_photo, :alt => user.username
           %h3
             = link_to profile_path(user.username) do
               #{profile.firstname} #{profile.lastname}

@@ -397,10 +397,11 @@ div.alert-message {
   float: left;
   width: 50px;
   height: 50px;
-  margin-right: 12px;
+  margin-right: 13px;
   background: #fff;
-  padding: 2px;
-  box-shadow: 0 1px 4px 1px #999; }
+  padding: 4px;
+  box-shadow: 0 1px 4px 1px #999;
+  border-radius: 4px; }
 
 .messages_list {
   margin-bottom: 10px; }
@@ -427,6 +428,13 @@ div.alert-message {
     width: 188px;
     display: block;
     margin: 20px auto 40px; }
+
+#random_places {
+  width: 1000px;
+  margin: 20px auto 30px; }
+  #random_places h2 {
+    margin: 30px 0 20px;
+    text-align: center; }
 
 #footer {
   padding: 20px 0;
@@ -457,8 +465,11 @@ div.alert-message {
 #content {
   margin: 0 auto; }
 
-#home #content {
-  width: 100%; }
+#home .places_list li {
+  margin: 0 15px; }
+#home .places_list .place {
+  width: 70px;
+  height: 70px; }
 
 .last {
   border: 0 !important;
@@ -673,23 +684,20 @@ div.alert-message {
 
 .places_list {
   margin: 0 0 15px; }
-  .places_list .place {
+  .places_list li {
     float: left;
-    margin-right: 13px;
-    display: block;
-    width: 50px;
-    height: 50px;
-    background: #fff;
-    padding: 4px;
-    box-shadow: 0 1px 4px 1px #aaa;
-    border-radius: 4px; }
-    .places_list .place img {
-      width: 100%;
-      height: 100%; }
-  .places_list .place_name {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 8px; }
+    margin-right: 19px; }
+    .places_list li .place {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 1px 4px 1px #aaa;
+      border-radius: 4px; }
+      .places_list li .place img {
+        width: 100%;
+        height: 100%; }
   .places_list .button {
     border-radius: 20px;
     padding: 3px 11px;
@@ -718,7 +726,7 @@ div.alert-message {
 
 #follows_count li {
   float: left;
-  width: 85px;
+  width: 105px;
   text-align: center; }
   #follows_count li span {
     font-size: 11px;
@@ -903,7 +911,10 @@ div.alert-message {
 .users_listing .white {
   padding: 15px; }
 .users_listing .make_a_date {
-  float: right; }
+  float: right;
+  margin-top: 14px; }
+.users_listing p {
+  margin: 3px 0; }
 
 #profile_social_networks {
   padding: 11px 20px 8px; }

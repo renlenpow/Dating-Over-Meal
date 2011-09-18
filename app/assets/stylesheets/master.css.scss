@@ -334,32 +334,26 @@ div.alert-message {
     border-radius: 4px;
 }
 
-.profile_photo { float:left; width:50px; height:50px; margin-right:12px; background:#fff; padding:2px; box-shadow:0 1px 4px 1px #999 }
+.profile_photo { float:left; width:50px; height:50px; margin-right:13px; background:#fff; padding:4px; box-shadow:0 1px 4px 1px #999; border-radius:4px }
 
 .messages_list {
   margin-bottom:10px;
-  li {
-    padding:15px;
-  }
-  .delete {
-    float:right; display:block; width:16px; height:16px; background:url(/assets/trash_16.png); text-indent:-9999px;
-  }
-  .preview {
-    display:block; margin:5px 0; color:#444;
-  }
-  .snap {
-    float:left; width:500px;
-  }
+  li { padding:15px }
+  .delete { float:right; display:block; width:16px; height:16px; background:url(/assets/trash_16.png); text-indent:-9999px }
+  .preview { display:block; margin:5px 0; color:#444 }
+  .snap { float:left; width:500px }
 }
 
 #home {
   #cta {
     padding:80px 0 0;
-    
-    #signup, #take_a_tour {
-      width:188px; display:block; margin: 20px auto 40px;
-    }
+    #signup, #take_a_tour { width:188px; display:block; margin: 20px auto 40px}
   }
+}
+
+#random_places { 
+  width:1000px; margin: 20px auto 30px;
+  h2 {margin:30px 0 20px; text-align:center}
 }
 
 #footer {
@@ -398,9 +392,11 @@ div.alert-message {
 }
 
 #home {
-  #content {
-    width:100%;
+  .places_list {
+    li {margin:0 15px}
+    .place {width:70px; height:70px}
   }
+  
 }
 
 .last {border:0 !important; margin:0 !important; padding:0 !important}
@@ -547,17 +543,18 @@ div.alert-message {
 
 .places_list {
   margin:0 0 15px;
-  .place {
-    float:left; margin-right:13px; display:block; width:50px; height:50px; background:#fff; padding:4px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px;
-    img { width:100%; height:100% }
+  li {
+    float:left; margin-right:19px;
+    .place {
+       display:block; width:50px; height:50px; background:#fff; padding:4px; box-shadow:0 1px 4px 1px #aaa; border-radius:4px;
+      img { width:100%; height:100% }
+    }
   }
-  .place_name {display:block; font-size:14px; margin-bottom:8px}
   .button {border-radius:20px; padding:3px 11px; font-size:11px}
 }
 
 #place_social_share {
   float:right; width:400px;
-  
   .twshare { float:right; margin-left:5px }
   .fshare { float:right; width:51px; margin-left:5px; overflow:hidden }
 }
@@ -572,7 +569,7 @@ div.alert-message {
 
 #follows_count {
   li {
-    float:left; width:85px; text-align:center;
+    float:left; width:105px; text-align:center;
     span { font-size:11px; display:block; margin-bottom:4px }
     .count { font-weight:bold; font-size:20px; color:#EA0A89 }
   }
@@ -608,17 +605,13 @@ div.alert-message {
 	box-shadow:0 1px 1px 0px #fff inset; padding:8px; border:1px solid #999; border-radius:4px; margin-top:8px;
   label {font-weight:bold; font-size:15px; margin-right:5px }
   .textbox {width:204px; border:1px solid #999}
-  li {
-    float:left; margin-right:8px;
-  }
+  li { float:left; margin-right:8px }
 }
 #place_search_box {width:814px !important; margin-right:5px;; font-size:20px}
 
 #start_search {font-size:17px}
 
-.tabs_wrapper {
-  margin-bottom:10px;
-}
+.tabs_wrapper { margin-bottom:10px }
 
 .tabs {
   li { float:left; margin-right:5px; font-size:15px; font-weight:bold; color:#55a1d5; padding:6px 15px; cursor:pointer }
@@ -647,9 +640,7 @@ div.alert-message {
 	background: -moz-linear-gradient(top,  #FFD000,  #FFE600);
 	box-shadow:0 -6px 7px 6px #aaa; font-weight:bold; text-align:center; font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; 
 	border-bottom:2px solid #E0BC00; z-index:1000;
-  .content {
-    padding:15px;
-  }
+  .content { padding:15px }
 }
 
 #error {
@@ -657,14 +648,13 @@ div.alert-message {
 	background: -moz-linear-gradient(top,  #ed1c24,  #aa1317);
   box-shadow:0 -6px 7px 6px #aaa; font-weight:bold; text-align:center; font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; 
   border-bottom:2px solid #b7000d; color:#fff; z-index:1000;
-  .content {
-    padding:15px;
-  }
+  .content { padding:15px }
 }
 
 .users_listing {
   .white { padding:15px }
-  .make_a_date { float:right }
+  .make_a_date { float:right; margin-top:14px }
+  p {margin:3px 0}
 }
 
 #profile_social_networks {padding:11px 20px 8px}
@@ -673,13 +663,8 @@ div.alert-message {
 #map_controls {margin-bottom:9px}
 
 #map_container {
-  border-radius:4px;
-  border-top:1px solid #aaa;
-  background:#EDEDED;
-  .embossed_box {
-    padding:9px;
-    margin:0 !important;
-  }
+  border-radius:4px; border-top:1px solid #aaa; background:#EDEDED;
+  .embossed_box { padding:9px; margin:0 !important }
 }
 
 #dashboard {
@@ -700,14 +685,11 @@ div.alert-message {
 }
 
 #upload_avatar {
-  #right {
-    min-height:400px;
-  }
+  #right { min-height:400px }
 }
 
 #webcam_wrapper {
-  width:580px; background:#fff; position:absolute; top:5%; left:50%; margin-left:-290px; z-index:1000;padding:10px;
-  border-radius:6px; box-shadow:0 3px 10px 1px #333;
+  width:580px; background:#fff; position:absolute; top:5%; left:50%; margin-left:-290px; z-index:1000;padding:10px; border-radius:6px; box-shadow:0 3px 10px 1px #333;
   .panel {margin-top:10px; text-align:right}
 }
 
@@ -723,9 +705,7 @@ div.alert-message {
 
 #message_detail {
   .messages_list {
-    .snap {
-      width:780px;
-    }
+    .snap { width:780px }
   }
 }
 
@@ -742,16 +722,13 @@ div.alert-message {
 }
 
 #app_error {
-  background: -webkit-gradient(linear, left top, left bottom, from(#FFD000), to(#FFE600));
-	background: -moz-linear-gradient(top,  #FFD000,  #FFE600);
-	padding:20px; text-align:center; margin:20px; border:1px solid #e59c00; border-radius:4px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFD000), to(#FFE600)); background: -moz-linear-gradient(top,  #FFD000,  #FFE600); 
+  padding:20px; text-align:center; margin:20px; border:1px solid #e59c00; border-radius:4px;
 }
 
 #dating_calendar_wrapper {
   margin:0; padding:10px;
-  #dating_calendar {
-    background:#fff;
-  } 
+  #dating_calendar { background:#fff } 
 }
 
 #new_appointment {

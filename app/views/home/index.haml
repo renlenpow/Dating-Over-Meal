@@ -12,7 +12,18 @@
 
 #collage
   #cta
-    = link_to new_user_registration_path, :id => :signup do
-      = image_tag "signup_cta.png", :alt => "Sign up"
+    - unless user_signed_in?
+      = link_to new_user_registration_path, :id => :signup do
+        = image_tag "signup_cta.png", :alt => "Sign up"
+      
     = link_to tour_path, :id => :take_a_tour do
       = image_tag "tour_cta.png", :alt => "Take a tour"
+      
+#random_places
+  %h2 Places
+  = render :partial => "shared/places_list", :locals => {:places => @places}
+  
+  %h2 People
+  = render :partial => "shared/users_list", :locals => {:users => @users}
+      
+  
