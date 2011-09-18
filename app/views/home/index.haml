@@ -12,5 +12,7 @@
 
 #collage
   #cta
-    = link_to "Sign up", new_user_registration_path, :id => :signup
-    = link_to "Take a tour", tour_path, :id => :take_a_tour
+    = link_to new_user_registration_path, :id => :signup do
+      = image_tag "signup_cta.png", :alt => "Sign up"
+    = link_to tour_path, :id => :take_a_tour do
+      = image_tag "tour_cta.png", :alt => "Take a tour"

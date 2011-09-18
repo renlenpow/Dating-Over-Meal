@@ -420,24 +420,11 @@ div.alert-message {
     width: 500px; }
 
 #home #cta {
-  padding: 100px 0 0; }
+  padding: 80px 0 0; }
   #home #cta #signup, #home #cta #take_a_tour {
-    width: 150px;
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 5px;
-    text-align: center;
+    width: 188px;
     display: block;
-    box-shadow: 0 3px 11px 4px #222;
     margin: 20px auto 40px; }
-  #home #cta #signup:hover, #home #cta #take_a_tour:hover {
-    box-shadow: 0 3px 11px 6px #222; }
-  #home #cta #signup {
-    background: #fff000;
-    color: #000; }
-  #home #cta #take_a_tour {
-    background: #009cff;
-    color: #fff; }
 
 #footer {
   text-align: center;
