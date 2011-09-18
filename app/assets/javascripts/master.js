@@ -47,4 +47,8 @@ $(document).ready(function(){
   
   $(".datepicker").datepicker();
   
+  $(".tooltip").qtip({
+    
+  })
+  
 })

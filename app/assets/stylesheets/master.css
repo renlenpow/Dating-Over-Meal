@@ -487,6 +487,9 @@ div.alert-message {
           #auth_header #middle_section #nav ul li a span {
             margin-top: 4px;
             display: block; }
+          #auth_header #middle_section #nav ul li a img {
+            height: 24px;
+            max-width: 24px; }
       #auth_header #middle_section #nav ul li.current {
         background: #ffe57f url(/assets/shine.png) no-repeat bottom center;
         border-left: 1px solid #e1b507;
@@ -494,6 +497,12 @@ div.alert-message {
         #auth_header #middle_section #nav ul li.current a {
           border-left: 1px solid #fbffd3;
           border-right: 1px solid #fbffd3; }
+      #auth_header #middle_section #nav #nav_profile_photo {
+        width: 22px;
+        height: 22px;
+        background: #fff;
+        padding: 1px;
+        box-shadow: 0 1px 3px 0 #666; }
   #auth_header #logo {
     float: left;
     height: 47px;
@@ -501,7 +510,7 @@ div.alert-message {
 
 #stage {
   width: 998px;
-  border-radius: 4px;
+  border-radius: 7px;
   background: #ededed;
   border: 1px solid #ccc;
   margin: 40px auto;
@@ -533,7 +542,8 @@ div.alert-message {
     background: #fff;
     padding: 20px;
     border-left: 1px solid #ccc;
-    box-shadow: 0 7px 7px 5px #d6d6d6; }
+    box-shadow: 0 7px 7px 5px #d6d6d6;
+    border-radius: 7px 0 0 7px; }
 
 #thoughts .embossed_box {
   padding: 10px;
@@ -545,10 +555,6 @@ div.alert-message {
 
 #profile_top_wash h1 {
   margin-bottom: 6px; }
-
-#profile_header_left {
-  float: left;
-  width: 400px; }
 
 #profile_header_right {
   float: right; }
