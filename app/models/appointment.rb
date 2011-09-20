@@ -2,6 +2,7 @@ class Appointment < ActiveRecord::Base
   
   belongs_to :inviter, :class_name => "User"
   belongs_to :invitee, :class_name => "User"
+  belongs_to :place
   
   scope :most_recent, order("created_at DESC")
   scope :chronologically_ordered, order("date DESC, hour DESC, minute DESC")
@@ -9,7 +10,7 @@ class Appointment < ActiveRecord::Base
   scope :by_invitee, lambda { |invitee_id| where(:invitee_id => invitee_id) }
   
   validates_presence_of :date, :hour, :minute, :place_id, :message => "is required"
-  validate :appointment_time, :if => :should_validate_appointment_time?
+  #validate :appointment_time, :if => :should_validate_appointment_time?
   
   before_create :parse_date
   before_create :find_place_id_by_name

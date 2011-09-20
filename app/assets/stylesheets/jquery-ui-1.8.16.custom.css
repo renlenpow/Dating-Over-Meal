@@ -408,3 +408,8 @@
     width: 200px; /*must have*/
     height: 200px; /*must have*/
 }
+
+.ui-autocomplete {
+    height: 180px;
+    overflow-x: auto;
+}

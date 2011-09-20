@@ -1,5 +1,9 @@
 class AppointmentsController < ApplicationController
   
+  before_filter :authenticate_user!
+  before_filter :find_appointment, :only => [:edit, :update, :show, :destroy]
+  before_filter :get_place, :only => [:edit]
+  
   def index
     respond_to do |format|
       format.json do
@@ -17,6 +21,35 @@ class AppointmentsController < ApplicationController
     else
       render :json => {:success => -1, :message => @appointment.errors.flatten_to_string }
     end
+  end
+  
+  def edit
+  end
+  
+  def update
+    if @appointment.update_attributes(params[:appointment])
+      flash[:notice] = "Appointment has been updated"
+      redirect_to :action => :edit
+    else
+      get_place
+      render :action => :edit
+    end
+  end
+  
+  def show
+  end
+  
+  def destroy
+  end
+  
+  private
+  
+  def find_appointment
+    @appointment = Appointment.find(params[:id])
+  end
+  
+  def get_place
+    @place = Place.find(:first, :conditions => {:id => @appointment.place_id})
   end
   
 end

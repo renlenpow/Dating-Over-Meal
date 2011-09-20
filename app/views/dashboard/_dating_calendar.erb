@@ -6,7 +6,8 @@ $(function(){
         <% @proposed_appointments.each do |app| %>
           {
             title: 'Date',
-            start: '<%= app.date.strftime("%Y-%m-%d") %>'
+            start: '<%= app.date.strftime("%Y-%m-%d") %>',
+            url: '<%= appointment_path(app) %>'
           }
         <% end %>
       ]

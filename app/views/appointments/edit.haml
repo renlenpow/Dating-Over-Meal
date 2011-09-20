@@ -1,0 +1,70 @@
+- @body_id = "appointment"
+- @title_for_layout = "Edit appointment"
+
+= render :partial => "shared/header"
+
+%h1.page_header= @title_for_layout
+
+= render :partial => "shared/flash_notice"
+
+#stage
+  .embossed_box
+    = form_for @appointment do |f|
+    
+      = render :partial => "shared/form_errors", :locals => {:target => @appointment, :f => f}
+      
+      .form_row
+        = f.text_field :date, :class => "textbox datepicker"
+        
+      .form_row
+        = f.label :hour, "Hour"
+        = f.select :hour, options_for_select((0..23).to_a, @appointment.hour), :class => :textbox
+        
+      .form_row
+        = f.label :minute, "Minute"
+        = f.select :minute, options_for_select((0..59).to_a, @appointment.minute), :class => :textbox
+        
+      .form_row
+        = f.label :note
+        = f.text_area :note, :class => :textbox
+        
+      .form_row
+        = f.label :place_id, "Place"
+        - unless @place.nil?
+          %p 
+            Your appointment will take place at
+            = link_to @place.name, place_path(@place)
+            
+          #place_wrapper{:style => "display:none"}
+            = f.text_field :place_id, :class => "textbox autocomplete", :placeholder => "New place name"
+            
+          %a#edit_place Change
+        
+      = f.submit :value => "Update", :class => "button green"
+      
+:javascript
+  $(function(){
+  
+    var place_wrapper = $("#place_wrapper")
+    var appointment_place_id = $("#appointment_place_id")
+    
+    appointment_place_id.autocomplete({
+      source: ["#{Place.all.each.map(&:name).join('","')}"],
+      minLength: 5,
+      scrollHeight: 10,
+      scroll: true
+    })
+    
+    $("#edit_place").toggle(
+      function() {
+        place_wrapper.show();
+        $(this).text("Cancel")
+        appointment_place_id.val("")
+      },
+      function() {
+        place_wrapper.hide()
+        $(this).text("Change")
+        appointment_place_id.val("")
+      }
+    )
+  })

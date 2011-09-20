@@ -1,0 +1,19 @@
+- @body_id = "appointment"
+- @title_for_layout = "Appointment"
+
+= render :partial => "shared/header"
+
+%h1.page_header= @title_for_layout
+
+#stage
+  .embossed_box
+    %ul
+      %li Time: #{@appointment.date}
+      - place = @appointment.place
+      %li 
+        Location: #{place.name}
+        = link_to "Visit", place_path(place)
+        
+    %br
+        
+    = link_to "Edit", edit_appointment_path(@appointment), :class => "orange button"

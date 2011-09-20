@@ -312,6 +312,7 @@ div.alert-message.success { background:#74C474 }
 div.alert-message.error { background:#E06359 }
 
 div.alert-message {
+  max-width:1000px; margin:20px auto;
   background-color: rgba(0, 0, 0, 0.15);
     background-repeat: repeat-x;
     background-image: -khtml-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.15)));
