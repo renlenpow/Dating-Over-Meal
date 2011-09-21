@@ -34,14 +34,6 @@ describe Appointment do
     Appointment.chronologically_ordered.should == [appointment_3, appointment_2, appointment_1]
   end
   
-  specify "any 2 appointments should be at least 1 hour apart" do
-    now = Time.now
-    
-    appointment_1 = Factory(:appointment, :inviter_id => @inviter.id, :invitee_id => @invitee.id, :date => now, :hour => now.hour, :minute => now.min, :place_id => @place.id)
-    appointment_2 = Appointment.new(:inviter_id => @inviter.id, :invitee_id => @invitee.id, :date => now, :hour => now.hour, :minute => (now + 30.minutes).min, :place_id => @place.id)
-    appointment_2.should_not be_valid
-  end
-  
   it "should find place id by name before create" do
     now = Time.now
     

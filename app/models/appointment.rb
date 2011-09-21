@@ -12,7 +12,7 @@ class Appointment < ActiveRecord::Base
   validates_presence_of :date, :hour, :minute, :place_id, :message => "is required"
   #validate :appointment_time, :if => :should_validate_appointment_time?
   
-  before_create :parse_date
+  before_create :parse_date_from_js
   before_create :find_place_id_by_name
   
   def appointment_time    
@@ -36,7 +36,7 @@ class Appointment < ActiveRecord::Base
     end
   end
   
-  def parse_date
+  def parse_date_from_js
     self.date = Date.parse(self.date.to_s)
   end
   
