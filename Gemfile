@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '3.1.0'
 
 gem 'mysql2'
 
 # Asset template engines
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'devise',                 :git => 'git://github.com/plataformatec/devise.git'
@@ -20,7 +20,7 @@ gem 'friendly_id',            :git => 'git://github.com/norman/friendly_id.git'
 gem 'gmaps4rails',            :git => 'git://github.com/apneadiving/Google-Maps-for-Rails.git'
 gem 'paperclip-aws',          :git => 'git://github.com/igor-alexandrov/paperclip-aws.git'
 gem 'randumb',                :git => 'git://github.com/spilliton/randumb.git'
-gem 'omniauth',               :git => 'git://github.com/intridea/omniauth.git'
+gem 'omniauth',               :git => 'git://github.com/intridea/omniauth.git', :tag => 'v0.3.0.rc3'
 gem 'koala',                  :git => 'git://github.com/arsduo/koala.git'
 gem 'ajaxful_rating_jquery',  :git => 'git://github.com/baxang/ajaxful_rating_jquery.git', :branch => 'rails3'
 gem 'thinking-sphinx',        :git => 'git://github.com/freelancing-god/thinking-sphinx.git', :branch => 'rails3'
@@ -41,6 +41,8 @@ gem 'taps'
 
 gem 'execjs'
 gem 'therubyracer'
+
+gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
 
 group :test, :development do
   # Pretty printed test output
