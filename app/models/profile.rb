@@ -12,7 +12,7 @@ class Profile < ActiveRecord::Base
     
     b << self.gender unless self.gender.nil?
     
-    b << self.zodiac_sign unless self.zodiac_sign.nil?
+    b << self.zodiac unless self.zodiac.nil?
     
     b.join(" - ")
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110910031136) do
+ActiveRecord::Schema.define(:version => 20110921052234) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(:version => 20110910031136) do
     t.string   "eye_color"
     t.string   "tattoos"
     t.string   "piercings"
-    t.string   "zodiac_sign"
+    t.string   "zodiac"
     t.string   "religion"
     t.string   "exercise"
     t.string   "smoking"
