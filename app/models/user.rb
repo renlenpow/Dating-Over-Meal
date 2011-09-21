@@ -44,9 +44,6 @@ class User < ActiveRecord::Base
   after_create :create_user_profile
   after_create :log_registration_activity
   
-  include Gravtastic
-  gravtastic
-  
   ajaxful_rater
   
   def randomized_filename
