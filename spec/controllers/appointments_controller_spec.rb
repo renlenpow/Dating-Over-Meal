@@ -11,6 +11,7 @@ describe AppointmentsController do
       @place = Factory(:place)
     end
     
+    #TODO: figure out why the fuck this test fails
     context "with valid params" do
       # it "should create a new appointment" do
       #         inviter = Factory(:user, :username => :inviter, :email => "inviter@email.com")
@@ -36,14 +37,14 @@ describe AppointmentsController do
       
       it "should not create a new appointment" do
         
-        post :create
+        post :create, :appointment => {}
         
         expected_rendered_json = {
           :success => -1,
           :message => ["Date is required", "Place_id is required"]
         }.to_json
         
-        puts response.body
+        puts response.message
         
         response.body.should == expected_rendered_json
         

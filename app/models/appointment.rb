@@ -10,6 +10,7 @@ class Appointment < ActiveRecord::Base
   scope :by_invitee, lambda { |invitee_id| where(:invitee_id => invitee_id) }
   
   validates_presence_of :date, :hour, :minute, :place_id, :message => "is required"
+  validate :appointment_cannot_occur_in_the_past, :unless => Proc.new { self.date.blank? }
   #validate :appointment_time, :if => :should_validate_appointment_time?
   
   before_create :parse_date_from_js
@@ -46,6 +47,15 @@ class Appointment < ActiveRecord::Base
       self.place_id = nil
     else
       self.place_id = place.id
+    end
+  end
+  
+  def appointment_cannot_occur_in_the_past
+    if self.date < Time.now.to_date
+      self.errors[:date] << "cannot occur in the past"
+      false
+    else
+      true
     end
   end
   

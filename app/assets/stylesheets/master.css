@@ -365,11 +365,23 @@ textarea {
   box-shadow: 0 2px 4px 0 #ccc;
   padding: 20px; }
 
-div.alert-message.success {
-  background: #74C474; }
-
-div.alert-message.error {
-  background: #E06359; }
+div.alert-message {
+  background: #fff;
+  padding: 16px;
+  color: #51a519;
+  margin: 20px auto;
+  width: 968px;
+  box-shadow: 0 2px 4px 0 #ccc;
+  border-radius: 7px;
+  font-size: 18px;
+  height: 24px; }
+  div.alert-message .errorExplanation ul li {
+    color: #d10000;
+    background: url(/assets/error_24.png) no-repeat left center;
+    text-indent: 34px; }
+  div.alert-message .success {
+    background: url(/assets/check_24.gif) no-repeat left center;
+    text-indent: 34px; }
 
 .profile_photo {
   float: left;

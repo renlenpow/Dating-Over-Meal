@@ -7,13 +7,15 @@
 
 = render :partial => "shared/flash_notice"
 
-#stage
-  .embossed_box
-    = form_for @appointment do |f|
-    
-      = render :partial => "shared/form_errors", :locals => {:target => @appointment, :f => f}
+= form_for @appointment do |f|
+
+  = render :partial => "shared/form_errors", :locals => {:target => @appointment, :f => f}
+  
+  #stage
+    .embossed_box    
       
       .form_row
+        = f.label :date
         = f.text_field :date, :class => "textbox datepicker"
         
       .form_row
@@ -47,6 +49,7 @@
   
     var place_wrapper = $("#place_wrapper")
     var appointment_place_id = $("#appointment_place_id")
+    var appointment_date = $("#appointment_date")
     
     appointment_place_id.autocomplete({
       source: ["#{Place.all.each.map(&:name).join('","')}"],
@@ -66,5 +69,9 @@
         $(this).text("Change")
         appointment_place_id.val("")
       }
+    )
+    
+    appointment_date.val(
+      appointment_date.val().substr(0,10)
     )
   })
