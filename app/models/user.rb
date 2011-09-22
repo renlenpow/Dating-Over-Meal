@@ -139,7 +139,7 @@ class User < ActiveRecord::Base
   end
   
   def visited_places
-    Place.where(:id => self.interactions.where(:kind => :visit).map(&:place_id))
+    Place.includes(:images).where(:id => self.interactions.where(:kind => :visit).map(&:place_id))
   end
   
   def proposed_appointments

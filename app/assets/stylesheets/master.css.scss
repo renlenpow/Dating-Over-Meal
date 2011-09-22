@@ -389,8 +389,7 @@ div.alert-message {
 .last {border:0 !important; margin:0 !important; padding:0 !important}
 
 #auth_header {
-  margin:0 0 40px; background:#ffe75f url(/assets/header_bg.jpg) repeat-x left bottom; border-bottom:1px solid #aa8800; overflow:hidden;
-  box-shadow:0 1px 2px #ccc;
+  margin:0 0 40px; background:#ffe75f url(/assets/header_bg.jpg) repeat-x left bottom; border-bottom:1px solid #aa8800; overflow:hidden; box-shadow:0 1px 2px #ccc; height:62px;
   #middle_section {
     width:1000px; margin:0 auto;
     #nav {

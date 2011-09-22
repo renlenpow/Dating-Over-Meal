@@ -18,13 +18,15 @@ class Place < ActiveRecord::Base
   ajaxful_rateable :stars => 5
     
   def primary_image
-    if self.images.size == 0
+    images = self.images
+    if images.length == 0
       nil
     else
-      all_images = self.images
-      primary_image = all_images.where(:is_primary => true).first
-      return all_images.first.picture.url if primary_image.nil?
-      primary_image.picture.url
+      # all_images = self.images
+      #       primary_image = all_images.where(:is_primary => true).first
+      #       return all_images.first.picture.url if primary_image.nil?
+      #       primary_image.picture.url
+      images.first.picture.url
     end
   end
   
@@ -50,11 +52,11 @@ class Place < ActiveRecord::Base
   end
   
   def count_visits
-    self.interactions.where(:kind => :visit).count
+    self.interactions.where(:kind => :visit).size
   end
   
   def count_likes
-    self.interactions.where(:kind => :like).count
+    self.interactions.where(:kind => :like).size
   end
   
 end

@@ -471,7 +471,8 @@ div.alert-message {
   background: #ffe75f url(/assets/header_bg.jpg) repeat-x left bottom;
   border-bottom: 1px solid #aa8800;
   overflow: hidden;
-  box-shadow: 0 1px 2px #ccc; }
+  box-shadow: 0 1px 2px #ccc;
+  height: 62px; }
   #auth_header #middle_section {
     width: 1000px;
     margin: 0 auto; }
