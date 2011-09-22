@@ -47,7 +47,6 @@ group :test, :development do
   gem 'rspec-rails',        :git => 'git://github.com/rspec/rspec-rails.git'
   gem 'factory_girl_rails', :git => 'git://github.com/thoughtbot/factory_girl_rails.git'
   gem 'nokogiri'
-  gem 'image_downloader'
   gem 'activerecord-import'
   gem 'webrat', :git => 'git://github.com/brynary/webrat.git'
   gem 'jasmine'
