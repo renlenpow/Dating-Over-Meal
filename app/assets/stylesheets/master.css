@@ -1019,3 +1019,6 @@ div.alert-message {
   border: 1px solid #c2c2c2;
   width: 50px;
   margin-right: 10px; }
+
+#appointment #stage #right {
+  min-height: 500px; }

@@ -1,0 +1,6 @@
+id,parent_id,receiver_id,sender_id,"subject","content",read,archived,spam,"created_at","updated_at"
+1,NULL,2,3,"[no subject]","which of my books did you read?",0,0,0,"2011-09-05 03:32:54","2011-09-05 03:32:54"
+2,1,3,2,"[no subject]","Just one look",0,0,0,"2011-09-05 04:39:48","2011-09-05 04:39:48"
+3,1,2,2,"[no subject]","what is your next book called?",0,0,0,"2011-09-05 04:40:49","2011-09-05 04:40:49"
+4,1,2,3,"[no subject]","The Shelter",0,0,0,"2011-09-05 04:43:04","2011-09-05 04:43:04"
+5,1,3,2,"[no subject]","Great, I'm looking forward to it",0,0,0,"2011-09-05 04:43:31","2011-09-05 04:43:31"

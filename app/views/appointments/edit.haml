@@ -5,6 +5,8 @@
 
 %h1.page_header= @title_for_layout
 
+- place = @appointment.place
+
 = render :partial => "shared/flash_notice"
 
 = form_for @appointment do |f|
@@ -12,37 +14,50 @@
   = render :partial => "shared/form_errors", :locals => {:target => @appointment, :f => f}
   
   #stage
-    .embossed_box    
-      
-      .form_row
-        = f.label :date
-        = f.text_field :date, :class => "textbox datepicker"
+    #left
+      #picture_wrapper
+        #frame
+          - if place.images.size == 0
+            = image_tag place.images.first.url
+          - else
+            = image_tag "restaurant_silhouette.png"
+    
+    #right
+      .box
+        %h2.header Appointment
+        .box
+          .content
+            .form_row
+              = f.label :date
+              = f.text_field :date, :class => "textbox datepicker"
         
-      .form_row
-        = f.label :hour, "Hour"
-        = f.select :hour, options_for_select((0..23).to_a, @appointment.hour), :class => :textbox
+            .form_row
+              = f.label :hour, "Hour"
+              = f.select :hour, options_for_select((0..23).to_a, @appointment.hour), :class => :textbox
         
-      .form_row
-        = f.label :minute, "Minute"
-        = f.select :minute, options_for_select((0..59).to_a, @appointment.minute), :class => :textbox
+            .form_row
+              = f.label :minute, "Minute"
+              = f.select :minute, options_for_select((0..59).to_a, @appointment.minute), :class => :textbox
         
-      .form_row
-        = f.label :note
-        = f.text_area :note, :class => :textbox
+            .form_row
+              = f.label :note
+              = f.text_area :note, :class => :textbox
         
-      .form_row
-        = f.label :place_id, "Place"
-        - unless @place.nil?
-          %p 
-            Your appointment will take place at
-            = link_to @place.name, place_path(@place)
+            .form_row
+              = f.label :place_id, "Place"
+              - unless @place.nil?
+                %p 
+                  Your appointment will take place at
+                  = link_to @place.name, place_path(@place)
             
-          #place_wrapper{:style => "display:none"}
-            = f.text_field :place_id, :class => "textbox autocomplete", :placeholder => "New place name"
+                #place_wrapper{:style => "display:none"}
+                  = f.text_field :place_id, :class => "textbox autocomplete", :placeholder => "New place name"
             
-          %a#edit_place Change
+                %a#edit_place Change
         
-      = f.submit :value => "Update", :class => "button green"
+            = f.submit :value => "Update", :class => "button green"
+        
+    .clearfloat
       
 :javascript
   $(function(){

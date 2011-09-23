@@ -5,15 +5,29 @@
 
 %h1.page_header= @title_for_layout
 
+- place = @appointment.place
+
 #stage
-  .embossed_box
-    %ul
-      %li Time: #{@appointment.date}
-      - place = @appointment.place
-      %li 
-        Location: #{place.name}
-        = link_to "Visit", place_path(place)
-        
-    %br
-        
+  #left
+    #picture_wrapper
+      #frame
+        - if place.images.size == 0
+          = image_tag place.images.first.url
+        - else
+          = image_tag "restaurant_silhouette.png"
+  
+  #right
+    .box
+      %h2.header= Appointment
+      
+      .content
+        %ul
+          %li Time: #{@appointment.date}
+      
+          %li 
+            Location: #{place.name}
+          
+          %li
+            = link_to "Visit", place_path(place)
+      
     = link_to "Edit", edit_appointment_path(@appointment), :class => "orange button"

@@ -137,8 +137,8 @@
             = f.select :piercings, options_for_select(["None, absolutely not", "None, but I might get one", "Many piercings", "Rather not say"], @profile.piercings), :include_blank => "- no answer -"
           
           .form_row.clearfix
-            = f.label :zodiac_sign
-            = f.select :zodiac_sign, options_for_select(["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Rather not say"], @profile.zodiac_sign), :include_blank => "- no answer -"
+            = f.label :zodiac
+            = f.select :zodiac, options_for_select(["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Rather not say"], @profile.zodiac), :include_blank => "- no answer -"
           
           .form_row.clearfix
             = f.label :religion
