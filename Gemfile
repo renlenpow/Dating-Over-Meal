@@ -38,7 +38,7 @@ gem 'taps'
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
+gem 'rails-footnotes', '>= 3.7.5.rc4'
 
 group :test, :development do
   # Pretty printed test output
