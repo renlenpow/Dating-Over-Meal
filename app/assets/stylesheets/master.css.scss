@@ -723,8 +723,18 @@ div.alert-message {
 
 #appointment {
   #stage {
-    #right {
-      min-height:500px;
+    #right { min-height:500px }
+  }
+}
+
+#event_details {
+  width:100%;
+  tr {
+    td { vertical-align:top; padding:10px; border-bottom:1px solid #cacaca }
+  }
+  tr.last {
+    td {
+      border:0 !important;
     }
   }
 }

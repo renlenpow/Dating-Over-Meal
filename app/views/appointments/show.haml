@@ -6,6 +6,8 @@
 %h1.page_header= @title_for_layout
 
 - place = @appointment.place
+- invitee = @appointment.invitee
+- invitee_profile = invitee.profile
 
 #stage
   #left
@@ -21,13 +23,29 @@
       %h2.header= Appointment
       
       .content
-        %ul
-          %li Time: #{@appointment.date}
-      
-          %li 
-            Location: #{place.name}
-          
-          %li
-            = link_to "Visit", place_path(place)
-      
-    = link_to "Edit", edit_appointment_path(@appointment), :class => "orange button"
+        .embossed_box{:style => "margin:0"}
+          %table#event_details{:border => 0, :cellpadding => 0, :cellspacing => 0}
+            %tr
+              %td Time: 
+              %td #{@appointment.date.strftime("%A %m/%d/%Y at %I:%M %P")}
+            %tr
+              %td Location:
+              %td 
+                %p= link_to place.name, place_path(place)
+                %p= place.street_address
+                %p #{place.city}, #{place.state}, #{place.zipcode}
+            %tr
+              %td Your date:
+              %td
+                = link_to profile_path(invitee.username) do
+                  = image_tag invitee.avatar.url(:thumb), :class => :profile_photo, :title => invitee.username
+            %tr
+              %td Note:
+              %td
+                = @appointment.note
+            %tr.last
+              %td
+              %td
+                = link_to "Edit", edit_appointment_path(@appointment), :class => "orange button"
+                &nbsp;
+                = link_to "Cancel this date", edit_appointment_path(@appointment), :method => :delete, :confirm => "Are you sure? Your date might be heart-broken", :class => "red button"

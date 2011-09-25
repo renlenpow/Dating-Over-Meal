@@ -1022,3 +1022,12 @@ div.alert-message {
 
 #appointment #stage #right {
   min-height: 500px; }
+
+#event_details {
+  width: 100%; }
+  #event_details tr td {
+    vertical-align: top;
+    padding: 10px;
+    border-bottom: 1px solid #cacaca; }
+  #event_details tr.last td {
+    border: 0 !important; }
