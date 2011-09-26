@@ -42,10 +42,13 @@
             %tr
               %td Note:
               %td
-                = @appointment.note
+                = @appointment.note.blank? ? "You have no note" : @appointment.note
             %tr.last
               %td
               %td
-                = link_to "Edit", edit_appointment_path(@appointment), :class => "orange button"
-                &nbsp;
-                = link_to "Cancel this date", edit_appointment_path(@appointment), :method => :delete, :confirm => "Are you sure? Your date might be heart-broken", :class => "red button"
+                - if @appointment.date >= Time.now
+                  = link_to "Edit", edit_appointment_path(@appointment), :class => "orange button"
+                  &nbsp;
+                  = link_to "Cancel this date", appointment_path(@appointment), :method => :delete, :confirm => "Are you sure? Your date might be heart-broken", :class => "red button"
+                - else
+                  %span.button.red Report abuse

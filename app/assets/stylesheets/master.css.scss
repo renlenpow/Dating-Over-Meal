@@ -4,8 +4,7 @@
 
 header, footer {display:block}
 
-body {font-family:arial; font-size:12px; color:#444; background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff));
-background: -moz-linear-gradient(top, #eee, #fff)}
+body {font-family:arial; font-size:12px; color:#444; background:#fff url(/assets/body_bg.jpg) repeat-x}
 
 a {text-decoration:none; outline-style:none; color:#ea0a89; cursor:pointer}
 
@@ -389,7 +388,7 @@ div.alert-message {
 .last {border:0 !important; margin:0 !important; padding:0 !important}
 
 #auth_header {
-  margin:0 0 40px; background:#ffe75f url(/assets/header_bg.jpg) repeat-x left bottom; border-bottom:1px solid #aa8800; overflow:hidden; box-shadow:0 1px 2px #ccc; height:62px;
+  margin:0 0 40px; background:#ffe75f url(/assets/header_bg.jpg) repeat-x left bottom; border-bottom:1px solid #aa8800; overflow:hidden; height:62px;
   #middle_section {
     width:1000px; margin:0 auto;
     #nav {
@@ -733,8 +732,13 @@ div.alert-message {
     td { vertical-align:top; padding:10px; border-bottom:1px solid #cacaca }
   }
   tr.last {
-    td {
-      border:0 !important;
-    }
+    td { border:0 !important }
+  }
+}
+
+#edit_appointment_form {
+  .textbox { width:611px }
+  #appointment_hour_minute {
+    select { margin-left:6px; margin-right:20px }
   }
 }

@@ -9,7 +9,7 @@
 
 = render :partial => "shared/flash_notice"
 
-= form_for @appointment do |f|
+= form_for @appointment, :html => {:id => "edit_appointment_form"} do |f|
 
   = render :partial => "shared/form_errors", :locals => {:target => @appointment, :f => f}
   
@@ -31,12 +31,10 @@
               = f.label :date
               = f.text_field :date, :class => "textbox datepicker"
         
-            .form_row
-              = f.label :hour, "Hour"
+            .form_row#appointment_hour_minute
+              %span Hour
               = f.select :hour, options_for_select((0..23).to_a, @appointment.hour), :class => :textbox
-        
-            .form_row
-              = f.label :minute, "Minute"
+              %span Minute
               = f.select :minute, options_for_select((0..59).to_a, @appointment.minute), :class => :textbox
         
             .form_row

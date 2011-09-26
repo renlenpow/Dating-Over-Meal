@@ -13,8 +13,7 @@ body {
   font-family: arial;
   font-size: 12px;
   color: #444;
-  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(white));
-  background: -moz-linear-gradient(top, #eeeeee, white); }
+  background: white url(/assets/body_bg.jpg) repeat-x; }
 
 a {
   text-decoration: none;
@@ -471,7 +470,6 @@ div.alert-message {
   background: #ffe75f url(/assets/header_bg.jpg) repeat-x left bottom;
   border-bottom: 1px solid #aa8800;
   overflow: hidden;
-  box-shadow: 0 1px 2px #ccc;
   height: 62px; }
   #auth_header #middle_section {
     width: 1000px;
@@ -1031,3 +1029,9 @@ div.alert-message {
     border-bottom: 1px solid #cacaca; }
   #event_details tr.last td {
     border: 0 !important; }
+
+#edit_appointment_form .textbox {
+  width: 611px; }
+#edit_appointment_form #appointment_hour_minute select {
+  margin-left: 6px;
+  margin-right: 20px; }

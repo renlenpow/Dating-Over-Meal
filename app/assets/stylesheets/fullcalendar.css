@@ -283,9 +283,7 @@ a.fc-event {
 	}
 	
 .fc-event-skin {
-	border-color: #36c;     /* default BORDER color */
-  background: -webkit-gradient(linear, left top, left bottom, from(#007bf9), to(#004fa0));
-	background: -moz-linear-gradient(top,  #007bf9,  #004fa0);
+	border-color: #55a1d5;     /* default BORDER color */
 	color: #fff;            /* default TEXT color */
 	}
 	

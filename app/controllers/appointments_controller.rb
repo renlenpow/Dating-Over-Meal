@@ -3,6 +3,7 @@ class AppointmentsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_appointment, :only => [:edit, :update, :show, :destroy]
   before_filter :get_place, :only => [:edit]
+  before_filter :can_update_appointment?, :only => [:edit, :update]
   
   def index
     respond_to do |format|
@@ -40,6 +41,8 @@ class AppointmentsController < ApplicationController
   end
   
   def destroy
+    flash[:notice] = "Appointment has been cancelled"
+    redirect_to dashboard_url
   end
   
   private
@@ -50,6 +53,10 @@ class AppointmentsController < ApplicationController
   
   def get_place
     @place = Place.find(:first, :conditions => {:id => @appointment.place_id})
+  end
+  
+  def can_update_appointment?
+    redirect_to dashboard_url and return if @appointment.date < Time.now
   end
   
 end
