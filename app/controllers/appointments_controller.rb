@@ -56,7 +56,14 @@ class AppointmentsController < ApplicationController
   end
   
   def can_update_appointment?
-    redirect_to dashboard_url and return if @appointment.date < Time.now
+    if @appointment.date < Time.now
+      flash[:error] = "The date has already happened"
+      redirect_to dashboard_url and return 
+    end
+    if @appointment.inviter_id != current_user.id
+      flash[:error] = "You cannot change that appointment"
+      redirect_to dashboard_url and return 
+    end
   end
   
 end

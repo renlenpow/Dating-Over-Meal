@@ -4,6 +4,10 @@ describe AppointmentsController do
   
   include Devise::TestHelpers
   
+  describe "GET /appointments/:id" do
+    #TO BE IMPLEMENTED
+  end
+  
   describe "POST /appointments" do
     
     before(:each) do
@@ -54,6 +58,36 @@ describe AppointmentsController do
     
   end
 
+  describe "GET /appointments/:id/edit" do
+    before(:each) do
+      @inviter = Factory(:user, :username => :inviter, :email => "inviter@email.com")
+      @invitee = Factory(:user, :username => :invitee, :email => "invitee@email.com")
+      @place_1 = Factory(:place, :name => "Place 1")
+      @place_2 = Factory(:place, :name => "Place 2")
+      @appointment = Factory(:appointment, :inviter_id => @inviter.id, :invitee_id => @invitee.id, :date => Time.now + 5.days, 
+      :place_id => @place_1.id, :note => "Initial note")
+    end
+    
+    it "should ask user to log in if they are not" do
+      get :edit, :id => @appointment.id
+      response.should redirect_to new_user_session_url
+    end
+    
+    it "should render the edit form if a user is logged in and is the inviter" do
+      sign_in(@inviter)
+      get :edit, :id => @appointment.id
+      response.should be_success
+    end
+    
+    it "should redirect if a user is not the inviter of the appointment" do
+      lame_user = Factory(:user)
+      sign_in(lame_user)
+      
+      get :edit, :id => @appointment.id
+      response.should redirect_to dashboard_url
+      flash[:error].should == "You cannot change that appointment"
+    end
+  end
 
   describe "PUT /appointments/:id" do
       
@@ -87,6 +121,21 @@ describe AppointmentsController do
       put :update, :id => appointment.id, :appointment => {:note => "Updated note", :place_id => @place_2.id}
       
       response.should redirect_to dashboard_url
+    end
+    
+    specify "a user who did not create the date should not be able to update it" do
+      
+      appointment = Factory(:appointment, :inviter_id => @inviter.id, :invitee_id => @invitee.id, :date => Time.now + 5.days, 
+      :place_id => @place_1.id, :note => "Initial note")
+      
+      current_user = Factory(:user)
+      
+      sign_in(current_user)
+      
+      put :update, :id => appointment.id, :appointment => {:note => "Updated note", :place_id => @place_2.id}
+      
+      response.should redirect_to dashboard_url
+      flash[:error].should == "You cannot change that appointment"
     end
     
   end
