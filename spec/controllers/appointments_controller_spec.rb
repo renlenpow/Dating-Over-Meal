@@ -140,4 +140,25 @@ describe AppointmentsController do
     
   end
 
+  describe "DELETE /appointments/:id" do
+    before(:each) do
+      @inviter = Factory(:user, :username => :inviter, :email => "inviter@email.com")
+      @invitee = Factory(:user, :username => :invitee, :email => "invitee@email.com")
+      sign_in(@inviter)
+      @place_1 = Factory(:place, :name => "Place 1")
+      @place_2 = Factory(:place, :name => "Place 2")
+      @appointment = Factory(:appointment, :inviter_id => @inviter.id, :invitee_id => @invitee.id, :date => Time.now + 5.days, 
+      :place_id => @place_1.id, :note => "Initial note")
+    end
+    
+    it "should delete the appointment" do  
+      delete :destroy, :id => @appointment.id
+      
+      Appointment.where(:id => @appointment.id).first.should be_nil
+      
+      response.should redirect_to dashboard_url
+      flash[:notice].should == "Appointment has been cancelled"
+    end
+  end
+  
 end
