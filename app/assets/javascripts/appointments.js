@@ -20,6 +20,9 @@ $(function(){
           if (response.success == 1) {
             window.flash_alert(response.message)
           }
+        },
+        error: function() {
+          window.flash_error("An error occured. Please try again later.")
         }
       })
     }

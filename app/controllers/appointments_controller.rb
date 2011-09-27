@@ -48,7 +48,7 @@ class AppointmentsController < ApplicationController
   
   def report_abuse
     @appointment.abuse_reports << AbuseReport.create(:note => params[:note])
-    render :json => {:success => 1, :message => "Thank you for reporting"}
+    render :json => {:success => 1, :message => "Thank you for helping make Dating over Meal a better place"}
   end
   
   private
