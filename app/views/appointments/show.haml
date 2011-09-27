@@ -51,4 +51,15 @@
                   &nbsp;
                   = link_to "Cancel this date", appointment_path(@appointment), :method => :delete, :confirm => "Are you sure? Your date might be heart-broken", :class => "red button"
                 - else
-                  %span.button.red Report abuse
+                  %span.button.red#report_abuse Report abuse
+                  
+#appointment_report_abuse.pop_dialog{:style => "display:none"}
+  %h2.header Report abuse
+  .content
+    %input{:type => :hidden, :id => "appointment_id", :value => @appointment.id}
+    .form_row
+      %label{:for => "report_abuse_note"} Reason
+      %textarea{:id => "report_abuse_note", :class => "textbox"}
+    .button_container
+      %input{:type => :button, :id => "send_abuse_report", :class => "button green", :value => "Send"}
+      %input{:type => :button, :id => "cancel_abuse_report", :class => "button red cancel_pop_dialog", :value => "Cancel"}

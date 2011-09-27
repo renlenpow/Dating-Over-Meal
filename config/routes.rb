@@ -40,7 +40,11 @@ DatingOverMeal::Application.routes.draw do
     
   end
   
-  resources :appointments
+  resources :appointments do
+    member do
+      post :report_abuse
+    end
+  end
   
   root :to => "home#index"
 

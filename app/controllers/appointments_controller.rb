@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :find_appointment, :only => [:edit, :update, :show, :destroy]
+  before_filter :find_appointment, :only => [:edit, :update, :show, :destroy, :report_abuse]
   before_filter :get_place, :only => [:edit]
   before_filter :can_update_appointment?, :only => [:edit, :update, :delete]
   
@@ -44,6 +44,11 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     flash[:notice] = "Appointment has been cancelled"
     redirect_to dashboard_url
+  end
+  
+  def report_abuse
+    @appointment.abuse_reports << AbuseReport.create(:note => params[:note])
+    render :json => {:success => 1, :message => "Thank you for reporting"}
   end
   
   private

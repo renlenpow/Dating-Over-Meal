@@ -3,6 +3,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :inviter, :class_name => "User"
   belongs_to :invitee, :class_name => "User"
   belongs_to :place
+  has_many :abuse_reports, :dependent => :destroy
   
   scope :most_recent, order("created_at DESC")
   scope :chronologically_ordered, order("date DESC, hour DESC, minute DESC")

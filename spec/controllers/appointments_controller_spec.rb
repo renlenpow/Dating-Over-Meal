@@ -161,4 +161,20 @@ describe AppointmentsController do
     end
   end
   
+  describe "POST /appointments/:id/report_abuse" do
+    @inviter = Factory(:user, :username => :inviter, :email => "inviter@email.com")
+    @invitee = Factory(:user, :username => :invitee, :email => "invitee@email.com")
+    sign_in(@inviter)
+    @place_1 = Factory(:place, :name => "Place 1")
+    @place_2 = Factory(:place, :name => "Place 2")
+    @appointment = Factory(:appointment, :inviter_id => @inviter.id, :invitee_id => @invitee.id, :date => Time.now + 5.days, 
+    :place_id => @place_1.id, :note => "Initial note")
+    
+    it "should create abuse reports" do
+      post :report_abuse, :id => @appointment.id
+      @appointment.abuse_reports.count.should == 1
+    end
+    
+  end
+  
 end

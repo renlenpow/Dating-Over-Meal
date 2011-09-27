@@ -39,4 +39,9 @@ describe Appointment do
     a.should_not be_valid
   end
   
+  it "should have many abuse reports" do
+    a = Appointment.new(:inviter_id => @inviter.id, :invitee_id => @invitee.id, :date => Time.now - 5.days, :hour => 11, :minute => 15, :place_id => @place.id)
+    a.should respond_to(:abuse_reports)
+  end
+  
 end
