@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
   belongs_to :imageable, :polymorphic => true
   
   has_attached_file :picture, 
-    :styles => { :medium => "300x300>", :thumb => "100x100#" },
+    :styles => { :large => "800x800>", :medium => "300x300>", :thumb => "100x100#" },
     :storage => :aws,
     :s3_credentials => {
       :access_key_id => 'AKIAIGHKJHBKXPQHPWIQ',
