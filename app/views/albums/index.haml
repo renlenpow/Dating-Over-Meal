@@ -1,0 +1,20 @@
+- @title_for_layout = "My photos"
+- @body_id = "my_albums"
+- @body_class = "albums"
+
+= render :partial => "shared/header"
+
+%h1.page_header= @title_for_layout
+
+#stage
+  #left
+  
+  #right
+  
+    %h3 You are having #{@albums.count} albums
+    
+    %br
+  
+    = link_to "Create new album", new_album_path, :class => "button blue"
+  
+  .clearfloat

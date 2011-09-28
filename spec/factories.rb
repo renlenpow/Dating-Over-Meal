@@ -42,4 +42,9 @@ FactoryGirl.define do
     place_id    1
   end
   
+  factory :album do
+    user_id 1
+    title 'My album'
+  end
+  
 end

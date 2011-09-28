@@ -46,6 +46,8 @@ DatingOverMeal::Application.routes.draw do
     end
   end
   
+  resources :albums
+  
   root :to => "home#index"
 
 end

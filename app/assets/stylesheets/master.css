@@ -867,7 +867,7 @@ div.alert-message {
 #alert {
   background: -webkit-gradient(linear, left top, left bottom, from(#ffd000), to(#ffe600));
   background: -moz-linear-gradient(top, #ffd000, #ffe600);
-  box-shadow: 0 -6px 7px 6px #aaaaaa;
+  box-shadow: 0 -6px 7px 6px #111111;
   font-weight: bold;
   text-align: center;
   font-size: 14px;
@@ -876,14 +876,14 @@ div.alert-message {
   left: 0;
   width: 100%;
   border-bottom: 2px solid #E0BC00;
-  z-index: 1000; }
-  #alert .content {
-    padding: 15px; }
+  z-index: 1000;
+  height: 59px;
+  line-height: 59px; }
 
 #error {
   background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
   background: -moz-linear-gradient(top, #ed1c24, #aa1317);
-  box-shadow: 0 -6px 7px 6px #aaaaaa;
+  box-shadow: 0 -6px 7px 6px #111111;
   font-weight: bold;
   text-align: center;
   font-size: 14px;
@@ -893,9 +893,9 @@ div.alert-message {
   width: 100%;
   border-bottom: 2px solid #b7000d;
   color: #fff;
-  z-index: 1000; }
-  #error .content {
-    padding: 15px; }
+  z-index: 1000;
+  height: 59px;
+  line-height: 59px; }
 
 .users_listing .white {
   padding: 15px; }

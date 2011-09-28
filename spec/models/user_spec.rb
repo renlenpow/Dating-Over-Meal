@@ -141,8 +141,9 @@ describe User do
     user.like_place(place_2).should == false
   end
   
-  it "mock test" do
-    user = mock User
+  it "should have many albums" do
+    user = Factory(:user)
+    user.should respond_to(:albums)
   end
   
 end

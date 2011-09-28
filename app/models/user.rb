@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_many  :rates
   has_many  :interactions, :dependent => :destroy
   has_many  :appointments, :foreign_key => :inviter_id, :dependent => :destroy
+  has_many  :albums, :dependent => :destroy
   
   # Setup accessible (or protected) attributes for your model
   attr_accessor :firstname, :lastname, :birth_day, :birth_month, :birth_year
