@@ -22,9 +22,11 @@ gem 'ajaxful_rating_jquery',  :git => 'git://github.com/baxang/ajaxful_rating_jq
 gem 'thinking-sphinx',        :git => 'git://github.com/freelancing-god/thinking-sphinx.git', :branch => 'rails3'
 gem 'random_data',            :git => 'git://github.com/tomharris/random_data.git'
 gem 'zodiac',                 :git => 'git://github.com/7even/zodiac.git'
+gem 'flash_cookie_session',   :git => 'git://github.com/trevorturk/flash_cookie_session.git'
 gem 'jquery-rails'
 gem 'aws-sdk'
 gem 'taps'
+gem 'mime-types', :require => 'mime/types'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -50,6 +52,7 @@ group :test, :development do
   gem 'activerecord-import'
   gem 'webrat', :git => 'git://github.com/brynary/webrat.git'
   gem 'jasmine'
+  gem 'shoulda'
 end
 
 group :production do

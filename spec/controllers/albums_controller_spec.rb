@@ -33,5 +33,30 @@ describe AlbumsController do
     end    
     
   end
+  
+  describe "POST /albums" do
+    
+    before(:each) do
+      @user = Factory(:user)
+      sign_in(@user)
+    end
+    
+    it "should create an album with valid params" do
+      expect {
+        post :create, :album => {:title => "My album"}
+      }.to change {
+        Album.count
+      }.by(1)
+      
+      @user.albums.count.should == 1
+      
+      response.should redirect_to albums_path
+      
+    end
+    
+    it "should not create an album with invalid params" do
+    end
+    
+  end
 
 end

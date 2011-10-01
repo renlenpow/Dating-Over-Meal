@@ -43,5 +43,8 @@ module DatingOverMeal
       g.view_specs false
       g.helper_specs false
     end
+    
+    config.autoload_paths += %W(#{config.root}/app/middleware/)
+    
   end
 end

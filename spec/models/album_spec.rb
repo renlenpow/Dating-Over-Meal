@@ -10,4 +10,6 @@ describe Album do
     @album.should respond_to(:images)
   end
   
+  it { should validate_presence_of(:title) }
+  
 end

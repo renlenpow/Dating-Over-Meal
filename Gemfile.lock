@@ -162,6 +162,13 @@ GIT
   specs:
     random_data (1.5.2)
 
+GIT
+  remote: git://github.com/trevorturk/flash_cookie_session.git
+  revision: c6852d1f3ceb6b49cfc390cd75919514f1271088
+  specs:
+    flash_cookie_session (1.1.1)
+      rails (~> 3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -326,6 +333,7 @@ GEM
       json_pure
       rubyzip
     sequel (3.20.0)
+    shoulda (2.11.3)
     sinatra (1.0)
       rack (>= 1.0)
     spork (0.8.5)
@@ -376,10 +384,12 @@ DEPENDENCIES
   dynamic_form!
   execjs
   factory_girl_rails!
+  flash_cookie_session!
   friendly_id!
   haml!
   jasmine
   jquery-rails
+  mime-types
   mysql2
   nokogiri
   omniauth!
@@ -392,6 +402,7 @@ DEPENDENCIES
   randumb!
   rspec-rails!
   sass-rails
+  shoulda
   spork
   taps
   therubyracer
