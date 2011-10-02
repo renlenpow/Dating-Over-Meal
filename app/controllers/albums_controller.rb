@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
   
   before_filter :authenticate_user!, :only => [:new, :edit]
-  before_filter :find_album, :only => [:edit]
+  before_filter :find_album, :only => [:edit, :upload_photos, :show]
   before_filter :manipulatable?, :only => [:edit]
   
   def index
@@ -27,10 +27,22 @@ class AlbumsController < ApplicationController
   def edit
   end
   
+  def update
+  end
+  
+  def show
+    
+  end
+  
+  def destroy
+  end
+  
   def upload_photos
     image = Image.new(coerce(params))
     
     if image.save
+      @album.images << image
+      
       render :json => {:succcess => 1}
     else
       render :json => {:succcess => -1}

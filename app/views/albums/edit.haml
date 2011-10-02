@@ -1,4 +1,4 @@
-- @title_for_layout = "#{@album.title}"
+- @title_for_layout = "Edit album \"#{@album.title}\""
 - @body_id = "my_albums"
 - @body_class = "albums"
 
@@ -6,11 +6,28 @@
 
 %h1.page_header= @title_for_layout
 
-#stage
-  #left
+= form_for(@album) do |f|
+  #stage
+    #left
   
-  #right
-    %input{:type => :file, :id => :file_upload}
+    #right
+      
+      .form_row
+        = f.label :title
+        = f.text_field :title, :class => :textbox
+      
+      .form_row
+        = f.label :description
+        = f.text_area :description, :class => :textbox
+        
+      .form_row
+        = f.label :location
+        = f.text_field :location, :class => :textbox
+    
+      .form_row
+        %input{:type => :file, :id => :file_upload}
+      
+      = f.submit :value => "Update", :class => "button green"
 
 - session_key = Rails.application.config.session_options[:key]
   
@@ -23,12 +40,21 @@
       buttonText: 'Select photos',
       auto: true,
       multi: true,
-      script: '#{upload_photos_albums_path}',
+      script: '#{upload_photos_album_path(@album)}',
       scriptData: {
         '#{Rails.application.config.session_options[:key]}': '#{cookies[session_key]}',
         '#{request_forgery_protection_token}': '#{form_authenticity_token}'
+      },
+      onOpen: function() {
+        window.flash_alert("Your images are being uploaded. This might take a few moments");
+      },
+      onAllComplete: function() {
+        window.flash_alert("All your images have been completed uploaded");
+        window.location.href = '#{album_path(@album)}';
       }
       
     })
   })
   
+- content_for :head do
+  - stylesheet_link_tag "uploadify.css"

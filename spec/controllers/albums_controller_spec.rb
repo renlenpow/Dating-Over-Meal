@@ -108,5 +108,13 @@ describe AlbumsController do
     end
     
   end
+  
+  describe "GET /albums/:id" do
+    #TBI
+  end
+  
+  describe "DELETE /albums/:id" do
+    #TBI
+  end
 
 end

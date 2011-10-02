@@ -47,7 +47,7 @@ DatingOverMeal::Application.routes.draw do
   end
   
   resources :albums do
-    collection do
+    member do
       post :upload_photos
     end
   end
