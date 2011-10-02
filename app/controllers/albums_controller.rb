@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
   before_filter :manipulatable?, :only => [:edit]
   
   def index
-    @albums = current_user.albums
+    @albums = current_user.albums.includes(:images)
   end
   
   def new

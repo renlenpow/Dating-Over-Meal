@@ -1,4 +1,4 @@
-- @title_for_layout = "My photos"
+- @title_for_layout = "My albums"
 - @body_id = "my_albums"
 - @body_class = "albums"
 
@@ -13,22 +13,24 @@
   
   #right
   
-    %h3 You are having #{@albums.count} albums
-    
-    %br
-    
-    %ul
-      - @albums.each do |album|
-        %li
-          = link_to album.title, edit_album_path(album) 
-          |
-          = link_to "Edit", edit_album_path(album)
-          |
-          = link_to "View", album_path(album)
-          |
-          = link_to "Delete", album_path(album), :method => :delete, :confirm => "Are you sure?"
-    
-    %br
+    .box
+      %h2.header Albums
+      .content
+        %ul.albums_listing.clearfix
+          - @albums.each do |album|
+            %li
+              - if album.images.size == 0
+              - else
+                = image_tag album.images.first.picture.url, :class => :album
+              
+              = link_to edit_album_path(album), :class => :tooltip, :title => "Edit" do
+                = image_tag "edit_24.png", :class => :action
+                
+              = link_to album_path(album), :method => :delete, :confirm => "Are you sure?", :class => :tooltip, :title => "Delete this album" do
+                = image_tag "delete_24.png", :class => :action
+                
+              = link_to album_path(album), :class => :tooltip, :title => "View this album" do
+                = image_tag "view_24.png", :class => :action
   
     = link_to "Create new album", new_album_path, :class => :action_button
   

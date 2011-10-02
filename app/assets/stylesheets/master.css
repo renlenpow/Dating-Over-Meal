@@ -1118,3 +1118,19 @@ div.alert-message {
 #edit_appointment_form #appointment_hour_minute select {
   margin-left: 6px;
   margin-right: 20px; }
+
+.albums_listing li {
+  float: left;
+  width: 180px;
+  margin-right: 25px;
+  text-align: center; }
+  .albums_listing li .album {
+    display: block;
+    width: 164px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px 1px #999; }
+  .albums_listing li .action {
+    margin: 0 3px; }
