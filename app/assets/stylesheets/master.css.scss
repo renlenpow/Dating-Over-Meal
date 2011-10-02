@@ -757,8 +757,8 @@ div.alert-message {
 
 .albums_listing {
   li { 
-    float:left; width:180px; margin-right:25px; text-align:center;
-    .album { display:block; width:164px; background:#fff; border-radius:4px; padding:8px; margin-bottom:8px; box-shadow:0 1px 2px 1px #999 }
+    float:left; width:180px; margin:15px 12px; text-align:center;
+    .album { display:block; width:164px; height:164px; background:#fff; border-radius:4px; padding:8px; margin-bottom:8px; box-shadow:0 1px 2px 1px #999 }
     .action { margin:0 3px }
   }
 }

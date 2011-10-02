@@ -1122,11 +1122,12 @@ div.alert-message {
 .albums_listing li {
   float: left;
   width: 180px;
-  margin-right: 25px;
+  margin: 15px 12px;
   text-align: center; }
   .albums_listing li .album {
     display: block;
     width: 164px;
+    height: 164px;
     background: #fff;
     border-radius: 4px;
     padding: 8px;
