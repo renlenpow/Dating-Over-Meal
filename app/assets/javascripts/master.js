@@ -54,6 +54,15 @@ $(document).ready(function(){
     
   })
   
+  $(".fancybox").fancybox({
+		cyclic: true,
+		titleShow: true,
+		overlayShow: true,
+		overlayColor: '#000',
+		overlayOpacity: 0.5,
+		centerOnScroll: true
+  })
+  
   window.overlay.click(function(){
     $(".pop_dialog").fadeOut(function(){
       window.overlay.slideUp()

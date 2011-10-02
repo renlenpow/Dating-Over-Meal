@@ -17,7 +17,7 @@
             %ul.photos_listing.clearfix
               - @images.each do |image|
                 %li
-                  %a= image_tag image.picture.url(:thumb)
+                  %a{:href => image.picture.url, :class => :fancybox}= image_tag image.picture.url(:thumb)
           - else
   
   .clearfloat
