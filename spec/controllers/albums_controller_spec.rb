@@ -110,6 +110,22 @@ describe AlbumsController do
   end
   
   describe "GET /albums/:id" do
+    it "should render the albums with pictures if applicable" do
+      user = Factory(:user)
+      album = Factory(:album)
+      image = Factory(:image)
+      album.images << image
+      album.save
+      empty_album = Factory(:album)
+      
+      get :show, :id => album.id
+      
+      response.should be_success
+      assigns(:album).should == album
+    end
+  end
+  
+  describe "POST /albums/:id" do
     #TBI
   end
   

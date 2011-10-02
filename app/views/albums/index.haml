@@ -18,20 +18,18 @@
       .content
         %ul.albums_listing.clearfix
           - @albums.each do |album|
-            %li{:class => :tooltip, :title => album.title}
-              - if album.images.size == 0
-                = image_tag "album_sil.jpg", :class => :album
-              - else
-                = image_tag album.images.first.picture.url, :class => :album
-              
-              = link_to edit_album_path(album), :class => :tooltip, :title => "Edit" do
-                = image_tag "edit_24.png", :class => :action
-                
-              = link_to album_path(album), :method => :delete, :confirm => "Are you sure? All your photos will be gone", :class => :tooltip, :title => "Delete this album" do
-                = image_tag "delete_24.png", :class => :action
-                
-              = link_to album_path(album), :class => :tooltip, :title => "View this album" do
-                = image_tag "view_24.png", :class => :action
+            %li
+              = link_to album_path(album) do
+                - if album.images.size == 0
+                  = image_tag "album_sil.jpg", :class => :album
+                - else
+                  = image_tag album.images.first.picture.url(:thumb), :class => :album
+                  
+              .name 
+                = album.title
+              - num_photos = album.images.length
+              .photos_count 
+                (#{pluralize(num_photos, "photo")})
   
     = link_to "Create new album", new_album_path, :class => :action_button
   

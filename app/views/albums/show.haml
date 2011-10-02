@@ -9,5 +9,15 @@
 #stage
   #left
   #right
+    .box
+      %h2.header Photos
+      .content
+        .embossed_box
+          - if @images.length > 0
+            %ul.photos_listing.clearfix
+              - @images.each do |image|
+                %li
+                  %a= image_tag image.picture.url(:thumb)
+          - else
   
   .clearfloat

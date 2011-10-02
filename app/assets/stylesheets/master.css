@@ -438,7 +438,6 @@ textarea {
 
 .embossed_box {
   background: #fff;
-  margin: 20px;
   border-radius: 6px;
   box-shadow: 0 2px 4px 0 #ccc;
   padding: 20px; }
@@ -1122,7 +1121,7 @@ div.alert-message {
 .albums_listing li {
   float: left;
   width: 180px;
-  margin: 15px 12px;
+  margin: 8px;
   text-align: center; }
   .albums_listing li .album {
     display: block;
@@ -1132,6 +1131,22 @@ div.alert-message {
     border-radius: 4px;
     padding: 8px;
     margin-bottom: 8px;
-    box-shadow: 0 1px 2px 1px #999; }
+    box-shadow: 0 1px 2px 1px #aaa; }
   .albums_listing li .action {
     margin: 0 3px; }
+  .albums_listing li .name {
+    margin: 3px 0;
+    font-weight: bold; }
+  .albums_listing li .photos_count {
+    font-size: 11px; }
+
+.photos_listing li {
+  float: left;
+  margin: 8px; }
+  .photos_listing li a {
+    display: block;
+    background: #fff;
+    padding: 5px 5px 2px;
+    border: 1px solid #bbb; }
+    .photos_listing li a img {
+      width: 117px; }

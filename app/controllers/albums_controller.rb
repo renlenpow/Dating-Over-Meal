@@ -31,7 +31,7 @@ class AlbumsController < ApplicationController
   end
   
   def show
-    
+    @images = @album.images
   end
   
   def destroy
