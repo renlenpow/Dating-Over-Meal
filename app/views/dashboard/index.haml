@@ -31,7 +31,7 @@
         .embossed_box
           = form_for @thought, :remote => true do |f|
             = f.text_area :description, :class => :textbox, :id => :thoughts_box
-            = f.submit :value => "Share", :class => "button blue", :id => "share_thought"
+            = f.submit :value => "Share", :class => :action_button, :id => "share_thought"
           
     .box
       %h2.header Places you might like
@@ -61,7 +61,7 @@
                   %span= place.count_visits
                   %span.caption visits
           
-        = link_to "View all places", places_path, :class => "button rosy"
+        = link_to "View all places", places_path, :class => :action_button
                   
     .box#inbox_messages
       %h2.header Messages (#{@messages.count})
@@ -71,7 +71,7 @@
         - else
           = render :partial => "shared/messages_list", :locals => {:show_profile_link => false}
               
-          = link_to "View All Messages", messages_path, :class => "button rosy"
+          = link_to "View All Messages", messages_path, :class => :action_button
         
     .box#followed
       %h2.header Following
@@ -96,7 +96,7 @@
           = render :partial => "shared/places_list", :locals => {:places => @visited_places}
         - else
           %p You haven't been to any places yet
-        = link_to "Check out other places", places_path, :class => "button rosy"
+        = link_to "Check out other places", places_path, :class => :action_button
         
     .box#places_you_like
       %h2.header Places you like
@@ -105,7 +105,7 @@
           = render :partial => "shared/places_list", :locals => {:places => @liked_places}
         - else
           %p You don't have any favorite places yet
-        = link_to "Check out other places", places_path, :class => "button rosy"
+        = link_to "Check out other places", places_path, :class => :action_button
       
   .clearfloat
   

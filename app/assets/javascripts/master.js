@@ -40,18 +40,24 @@ $(document).ready(function(){
   }
   
   $(".pop_dialog .cancel_pop_dialog").click(function(){
-    $(".pop_dialog").fadeOut(function(){
-      window.overlay.hide();
+    $(".pop_dialog").effect("explode", 500, function(){
+      window.overlay.slideUp()
     });
   })
   
   $(".datepicker").datepicker({
     dateFormat: 'yy-mm-dd',
-  minDate: new Date()
+    minDate: new Date()
   });
   
   $(".tooltip").qtip({
     
+  })
+  
+  window.overlay.click(function(){
+    $(".pop_dialog").fadeOut(function(){
+      window.overlay.slideUp()
+    })
   })
   
 })

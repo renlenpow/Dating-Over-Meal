@@ -13,7 +13,7 @@
         - profile = user.profile
         %li.white.clearfix
           - unless current_user == user
-            %span.orange.button.make_a_date{:invitee_id => user.id, :invitee_name => "#{profile.firstname} #{profile.lastname}"} Suggest a date
+            %span.action_button.make_a_date{:invitee_id => user.id, :invitee_name => "#{profile.firstname} #{profile.lastname}"} Suggest a date
           = link_to profile_path(user.username) do
             = image_tag user.avatar.url(:thumb), :class => :profile_photo, :alt => user.username
           %h3
@@ -52,8 +52,8 @@
         = f.text_area :note, :class => :textbox
         
       .button_container
-        = f.submit :value => "Send", :class => "button green"
-        %input{:type => :button, :class => "button red cancel_pop_dialog", :value => "Cancel"}
+        = f.submit :value => "Send", :class => :action_button
+        %input{:type => :button, :class => "remorse_button cancel_pop_dialog", :value => "Cancel"}
 
 :javascript
   $(function(){

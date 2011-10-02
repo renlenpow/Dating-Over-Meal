@@ -6,7 +6,7 @@
 
 %h1.page_header= @title_for_layout
 
-= form_for(@album) do |f|
+= form_for @album, :html => {:class => :zigzag_form} do |f|
 
   = render :partial => "shared/form_errors", :locals => {:f => f, :target => @album}
 
@@ -14,19 +14,22 @@
     #left
   
     #right
-    
-      .form_row
-        = f.label :title
-        = f.text_field :title, :class => :textbox
+      .box
+        %h2.header New album
+        .content
+          .form_row
+            = f.label :title
+            = f.text_field :title, :class => :textbox
         
-      .form_row
-        = f.label :location
-        = f.text_field :location, :class => :textbox
+          .form_row
+            = f.label :location
+            = f.text_field :location, :class => :textbox
         
-      .form_row
-        = f.label :description
-        = f.text_area :description, :class => :textbox
-        
-      = f.submit :value => "Create", :class => "button green"
+          .form_row
+            = f.label :description
+            = f.text_area :description, :class => :textbox
+          
+      .button_container
+        = f.submit :value => "I'm set. Let's rock and roll", :class => :action_button
         
     .clearfloat

@@ -16,7 +16,7 @@
     = link_to "View Profile", profile_path(current_user.username), :class => "button white social_option"
       
   #right
-    = form_for @profile, :remote => true, :html => {:id => :profile_information_form} do |f|
+    = form_for @profile, :remote => true, :html => {:class => :zigzag_form} do |f|
       .box#profile_information
         %h2.header Basic personal information
         .content
@@ -196,7 +196,7 @@
             = f.label :partner_expectation, "What are you looking for in a partner"
             = f.text_area :partner_expectation, :class => :textbox
       
-      %div{:style => "text-align:center"}    
-        = f.submit :value => "Update", :class => "button green", :id => :update_profile
+      .button_container
+        = f.submit :value => "Update", :class => :action_button, :id => :update_profile
   
   .clearfloat

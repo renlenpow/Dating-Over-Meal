@@ -259,6 +259,6 @@
         = f.hidden_field :sender_id, :value => current_user.id
         .button_container
       
-          = f.submit :value => "Send", :class => "button green"
+          = f.submit :value => "Send", :class => :action_button
         
-          %input{:type => :button, :class => "button red cancel_pop_dialog", :value => "Cancel", :id => "cancel_message"}
+          %input{:type => :button, :class => "remorse_button cancel_pop_dialog", :value => "Cancel", :id => "cancel_message"}
