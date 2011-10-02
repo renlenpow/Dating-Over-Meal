@@ -55,6 +55,56 @@ describe AlbumsController do
     end
     
     it "should not create an album with invalid params" do
+      
+      post :create
+      
+      response.should render_template(:new)
+      
+    end
+    
+  end
+  
+  describe "GET /albums/:id/edit" do
+    
+    context "when user is not logged in" do
+      
+      it "should redirect to login page" do
+        get :edit, :id => 1
+        response.should redirect_to new_user_session_path
+      end
+      
+    end
+    
+    context "when user is logged in" do
+      
+      it "should render the page properly" do
+        user = Factory(:user)
+        sign_in(user)
+        
+        album = Factory(:album, :user_id => user.id)
+        
+        get :edit, :id => album.id
+        
+        response.should be_success
+        response.should_not redirect_to new_user_session_path
+        
+      end
+      
+      specify "user should only have access to their own albums" do
+        
+        user_1 = Factory(:user, :username => "user1", :email => "user1@email.com")
+        user_2 = Factory(:user, :username => "user2", :email => "user2@email.com")
+        
+        album_1 = Factory(:album, :user_id => user_1.id)
+        album_2 = Factory(:album, :user_id => user_2.id)
+        
+        sign_in(user_2)
+        
+        get :edit, :id => album_1.id
+        response.should redirect_to albums_path
+        
+      end
+      
     end
     
   end

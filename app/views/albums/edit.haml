@@ -1,4 +1,16 @@
-%input{:type => :file, :id => :file_upload}
+- @title_for_layout = "#{@album.title}"
+- @body_id = "my_albums"
+- @body_class = "albums"
+
+= render :partial => "shared/header"
+
+%h1.page_header= @title_for_layout
+
+#stage
+  #left
+  
+  #right
+    %input{:type => :file, :id => :file_upload}
 
 - session_key = Rails.application.config.session_options[:key]
   

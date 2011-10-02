@@ -1,6 +1,8 @@
 class AlbumsController < ApplicationController
   
-  before_filter :authenticate_user!, :only => [:new]
+  before_filter :authenticate_user!, :only => [:new, :edit]
+  before_filter :find_album, :only => [:edit]
+  before_filter :manipulatable?, :only => [:edit]
   
   def index
     @albums = current_user.albums
@@ -22,6 +24,9 @@ class AlbumsController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
   def upload_photos
     image = Image.new(coerce(params))
     
@@ -39,6 +44,16 @@ class AlbumsController < ApplicationController
     h[:picture] = params[:Filedata]
     h[:picture].content_type = MIME::Types.type_for(h[:picture].original_filename).to_s.gsub("[", "").gsub("]", "")
     h
+  end
+  
+  def find_album
+    @album = Album.find(params[:id])
+  end
+  
+  def manipulatable?
+    unless @album.user_id == current_user.id
+      redirect_to :action => :index
+    end
   end
   
 end

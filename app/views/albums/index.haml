@@ -6,12 +6,21 @@
 
 %h1.page_header= @title_for_layout
 
+= render :partial => "shared/flash_notice"
+
 #stage
   #left
   
   #right
   
     %h3 You are having #{@albums.count} albums
+    
+    %br
+    
+    %ul
+      - @albums.each do |album|
+        %li
+          = link_to album.title, edit_album_path(album)
     
     %br
   
