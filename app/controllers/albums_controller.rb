@@ -1,8 +1,8 @@
 class AlbumsController < ApplicationController
   
-  before_filter :authenticate_user!, :only => [:new, :edit]
-  before_filter :find_album, :only => [:edit, :upload_photos, :show]
-  before_filter :manipulatable?, :only => [:edit]
+  before_filter :authenticate_user!, :only => [:new, :edit, :destroy]
+  before_filter :find_album, :only => [:edit, :upload_photos, :show, :destroy]
+  before_filter :manipulatable?, :only => [:edit, :destroy]
   
   def index
     @albums = current_user.albums.includes(:images)
@@ -35,6 +35,9 @@ class AlbumsController < ApplicationController
   end
   
   def destroy
+    @album.destroy
+    flash[:notice] = "Your album has been deleted"
+    redirect_to :action => :index
   end
   
   def upload_photos

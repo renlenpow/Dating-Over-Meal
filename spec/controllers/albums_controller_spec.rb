@@ -130,7 +130,23 @@ describe AlbumsController do
   end
   
   describe "DELETE /albums/:id" do
-    #TBI
+    it "should delete the albums and its corresponding images" do
+      user = Factory(:user)
+      album = Factory(:album)
+      image = Factory(:image)
+      album.images << image
+      album.save
+      
+      expect {
+        delete :destroy, :id => album.id
+      }.to change{
+        Album.count
+      }.by(-1)
+      
+      response.should redirect_to albums_path
+      Image.where(:id => image.id).should be_nil
+      
+    end
   end
 
 end
