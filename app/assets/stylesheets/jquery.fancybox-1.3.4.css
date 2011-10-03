@@ -260,11 +260,15 @@
 }
 
 .fancybox-title-inside {
-	padding-bottom: 10px;
-	text-align: center;
+	padding:0 10px;
 	color: #333;
 	background: #fff;
 	position: relative;
+	text-align:center;
+}
+
+.fancybox-title-inside .action_button, .fancybox-title-inside .remorse_button {
+  padding:5px 10px; font-size:12px; margin-left:6px;
 }
 
 .fancybox-title-outside {

@@ -944,7 +944,7 @@ div.alert-message {
   left: 0;
   width: 100%;
   border-bottom: 2px solid #E0BC00;
-  z-index: 1000;
+  z-index: 2000;
   height: 59px;
   line-height: 59px; }
 
@@ -961,7 +961,7 @@ div.alert-message {
   width: 100%;
   border-bottom: 2px solid #b7000d;
   color: #fff;
-  z-index: 1000;
+  z-index: 2000;
   height: 59px;
   line-height: 59px; }
 
@@ -1138,3 +1138,6 @@ div.alert-message {
     border: 1px solid #bbb; }
     .photos_listing li a img {
       width: 117px; }
+
+#edit_image_form {
+  display: none; }

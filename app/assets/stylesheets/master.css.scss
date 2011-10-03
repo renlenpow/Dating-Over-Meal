@@ -631,7 +631,7 @@ div.alert-message {
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFD000), to(#FFE600));
 	background: -moz-linear-gradient(top,  #FFD000,  #FFE600);
 	box-shadow:0 -6px 7px 6px #111; font-weight:bold; text-align:center; font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; 
-	border-bottom:2px solid #E0BC00; z-index:1000;
+	border-bottom:2px solid #E0BC00; z-index:2000;
 	height:59px; line-height:59px;
 }
 
@@ -639,7 +639,7 @@ div.alert-message {
   background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
 	background: -moz-linear-gradient(top,  #ed1c24,  #aa1317);
   box-shadow:0 -6px 7px 6px #111; font-weight:bold; text-align:center; font-size:14px;  position:fixed;  top:0;  left:0;  width:100%; 
-  border-bottom:2px solid #b7000d; color:#fff; z-index:1000;
+  border-bottom:2px solid #b7000d; color:#fff; z-index:2000;
   height:59px; line-height:59px;
 }
 
@@ -769,3 +769,5 @@ div.alert-message {
     }
   }
 }
+
+#edit_image_form {display:none}

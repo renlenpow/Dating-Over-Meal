@@ -55,12 +55,42 @@ $(document).ready(function(){
   })
   
   $(".fancybox").fancybox({
-		cyclic: true,
 		titleShow: true,
 		overlayShow: true,
 		overlayColor: '#000',
 		overlayOpacity: 0.5,
-		centerOnScroll: true
+		titlePosition: 'inside',
+		cyclic: true,
+		showNavArrows: true,
+		onComplete: function() {
+		  $("#fancybox-title").html('<div class="fancybox-title-inside"><span id="edit_image_form"><input id="image_description" placeholder="Description" class="textbox" /><br><span id="update_image_desc" class="action_button">Update</span><span class="remorse_button" id="cancel_edit_image">Cancel</span></span><span id="edit_image_btn" class="action_button">Edit</span></div>').show()
+		  $("#edit_image_btn").click(function(){
+		    $(this).hide();
+		    $("#edit_image_form").show();
+		  })
+		  $("#cancel_edit_image").click(function(){
+		    $(this).parent().hide();
+		    $("#edit_image_btn").show()
+		  })
+		  $("#update_image_desc").click(function(){
+		    $.ajax({
+		      url: "/images/" + window.image_id,
+		      type: "PUT",
+		      data: {image: {description: $("#image_description").val()}},
+		      success: function(response) {
+		        window.flash_alert("Your image has been updated")
+		        $("#edit_image_form").hide();
+		        $("#edit_image_btn").show();
+		      }
+		    })
+		  })
+		}
+  })
+  
+  window.image_id = 0
+  
+  $(".fancybox").bind('click', function(){
+    window.image_id = $(this).attr("image_id")
   })
   
   window.overlay.click(function(){

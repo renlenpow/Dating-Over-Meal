@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928040657) do
+ActiveRecord::Schema.define(:version => 20111003000901) do
 
   create_table "abuse_reports", :force => true do |t|
     t.integer  "appointment_id"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(:version => 20110928040657) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "is_primary",           :default => false
+    t.text     "description"
+    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

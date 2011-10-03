@@ -2,6 +2,19 @@ class ImagesController < ApplicationController
   
   before_filter :load_image
   
+  def update
+    begin
+      @image = Image.find(params[:id])
+      if @image.update_attributes(params[:image])
+        render :json => {:success => 1}
+      else
+        render :json => {:success => -1}
+      end
+    rescue
+      render :json => {:success => -2}
+    end
+  end
+  
   def destroy
     render :nothing => true
   end
