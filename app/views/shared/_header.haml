@@ -8,19 +8,20 @@
       #nav
         %ul
           %li
-            = link_to profile_path(current_user.username), :class => :tooltip, :title => "User: #{current_user.username}" do
+            = link_to profile_path(current_user.username) do
               = image_tag current_user.avatar(:thumb), :id => :nav_profile_photo, :alt => current_user.username
               %span= current_user.username.truncate(8)
+              
+            %span.leaf_menu
+              = link_to "Profile", profile_path(current_user.username)
+              = link_to "Edit Profile", edit_profile_path(current_user.profile)
+              = link_to "Logout", destroy_user_session_path, :method => :delete
+              %a{:style => "border-bottom:0"} Account Settings
           
           %li{:class => @body_class == "dashboard" ? "current" : ""}
             = link_to dashboard_path do
               = image_tag "dash_24.png"
               %span Dashboard
-          
-          %li{:class => @body_class == "profile" ? "current" : ""}
-            = link_to profile_path(current_user.username) do
-              = image_tag "profile_24.png"
-              %span Profile
           
           %li{:class => @body_class == "places" ? "current" : ""}
             = link_to places_path do
@@ -41,8 +42,8 @@
             = link_to albums_path do
               = image_tag "album_24.png"
               %span Albums
-          
-          %li
-            = link_to destroy_user_session_path, :method => :delete do
-              = image_tag "signout_24.png"
-              %span Sign out
+              
+          %li{:class => @body_class == "videos" ? "current" : ""}
+            = link_to videos_path do
+              = image_tag "video_24.png"
+              %span Videos
