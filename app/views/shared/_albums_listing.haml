@@ -1,0 +1,14 @@
+%ul.albums_listing.clearfix
+  - albums.each do |album|
+    %li
+      = link_to album_path(album) do
+        - if album.images.size == 0
+          = image_tag "album_sil.jpg", :class => :album
+        - else
+          = image_tag album.images.first.picture.url(:thumb), :class => :album
+          
+      .name 
+        = album.title
+      - num_photos = album.images.length
+      .photos_count 
+        (#{pluralize(num_photos, "photo")})

@@ -978,6 +978,12 @@ div.alert-message {
 #profile_social_networks {
   padding: 11px 20px 8px; }
 
+#profile_albums .albums_listing li {
+  width: 96px; }
+  #profile_albums .albums_listing li .album {
+    width: 80px;
+    height: 80px; }
+
 #follows_count_wrapper {
   padding: 11px 20px 8px; }
 

@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
       @recent_thoughts = @user.recent_thoughts
       @visited_places = @user.visited_places
       @liked_places = @user.liked_places
+      @albums = @user.albums.includes(:images)
     rescue
       flash[:error] = "The profile you're looking for does not exist"
       redirect_to error_path

@@ -12,10 +12,11 @@
     .box
       %h2.header Photos
       .content
-        %div{:style => "margin-bottom:15px; text-align:right"}
-          = link_to "Edit this album", edit_album_path(@album), :class => :action_button, :id => :edit_album
-          &nbsp;&nbsp;
-          = link_to "Delete this album", album_path(@album), :class => :remorse_button, :method => :delete, :confirm => "Are you sure? All your photos will be deleted."
+        - if user_signed_in? and current_user.id = @album.user_id
+          %div{:style => "margin-bottom:15px; text-align:right"}
+            = link_to "Edit this album", edit_album_path(@album), :class => :action_button, :id => :edit_album
+            &nbsp;&nbsp;
+            = link_to "Delete this album", album_path(@album), :class => :remorse_button, :method => :delete, :confirm => "Are you sure? All your photos will be deleted."
           
         .embossed_box
           - if @images.length > 0

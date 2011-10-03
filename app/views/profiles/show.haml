@@ -230,6 +230,11 @@
         %ul
           - @recent_activities.each do |activity|
             %li #{activity.activity_description} - #{activity.created_at.strftime("%b %d, %Y")}
+            
+    .box#profile_albums
+      %h2.header Photos
+      .content
+        = render :partial => "shared/albums_listing", :locals => {:albums => @albums}
           
     .box
       %h2.header Places I've visited
