@@ -14,8 +14,6 @@
       #frame
         = image_tag current_user.avatar.url(:thumb), :alt => current_user.username
       = link_to "Edit profile", edit_profile_path(current_user), :class => "button white"
-      
-    = link_to "View profile", profile_path(current_user.username), :class => "button white social_option"
   
   #right
   

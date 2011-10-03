@@ -234,7 +234,10 @@
     .box#profile_albums
       %h2.header Photos
       .content
-        = render :partial => "shared/albums_listing", :locals => {:albums => @albums}
+        - if @albums.length > 0
+          = render :partial => "shared/albums_listing", :locals => {:albums => @albums}
+        - else
+          #{@profile.firstname} doesn't have any album
           
     .box
       %h2.header Places I've visited
