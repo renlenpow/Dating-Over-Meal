@@ -209,6 +209,8 @@ div.alert-message {
     padding:80px 0 0;
     #signup, #take_a_tour { width:188px; display:block; margin: 20px auto 40px}
   }
+  
+  #auth_header { display:none }
 }
 
 #random_places { 
@@ -275,14 +277,21 @@ div.alert-message {
             span {margin-top:4px; display:block}
             img {height:24px; max-width:24px}
           }
-          .leaf_menu {
-            
-            display:none; position:absolute; width:120px; top:56px; left:-31px; text-align:left; border-radius:5px; background: #333; box-shadow:0px 5px 5px -1px #777; z-index:200; 
-            border:2px solid #fff;
-            a { padding:8px 12px; display:block;border-bottom:1px solid #565656; color:#808080; border-top:1px solid #222; border-bottom:1px solid #444 }
+          .leaf_menu_wrapper {
+            display:none; position:absolute; width:120px; top:52px; left:-32px; background:url(/assets/arrow_tip.png) no-repeat 49px 0; padding-top:5px;
+            .leaf_menu {            
+              text-align:left; border-radius:5px; background:#fff; box-shadow:0px 5px 5px -1px #777; z-index:200; border:3px solid #333;
+              a { 
+                padding:8px 12px; display:block;color:#777; border-bottom:1px dotted #ccc;
+                &:hover {
+                  background:#eee
+                }
+              }
+            }
           }
+          
           &:hover {
-            .leaf_menu { display:block }
+            .leaf_menu_wrapper { display:block }
           }
         }
         li.current {
@@ -300,6 +309,8 @@ div.alert-message {
     float:left; height:47px; margin-top:8px;
   }
 }
+
+.arrow_tip { height:4px; text-align:center; overflow:hidden }
 
 #stage {
   width:998px;border-radius:7px; background: #ededed; border:1px solid #ccc; margin:40px auto; overflow:hidden; box-shadow:0 1px 4px #ccc;

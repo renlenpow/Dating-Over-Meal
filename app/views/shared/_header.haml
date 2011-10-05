@@ -11,12 +11,13 @@
             = link_to profile_path(current_user.username) do
               = image_tag current_user.avatar(:thumb), :id => :nav_profile_photo, :alt => current_user.username
               %span= current_user.username.truncate(8)
-              
-            %span.leaf_menu
-              = link_to "Profile", profile_path(current_user.username)
-              = link_to "Edit Profile", edit_profile_path(current_user.profile)
-              = link_to "Logout", destroy_user_session_path, :method => :delete
-              %a{:style => "border-bottom:0"} Account Settings
+            
+            .leaf_menu_wrapper  
+              .leaf_menu
+                = link_to "Profile", profile_path(current_user.username)
+                = link_to "Edit Profile", edit_profile_path(current_user.profile)
+                = link_to "Logout", destroy_user_session_path, :method => :delete
+                %a{:style => "border-bottom:0"} Account Settings
           
           %li{:class => @body_class == "dashboard" ? "current" : ""}
             = link_to dashboard_path do

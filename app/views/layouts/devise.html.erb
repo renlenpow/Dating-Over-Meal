@@ -3,7 +3,7 @@
 <head>
   <title><%= @title_for_layout %> - Dating over Meal</title>
   <%= stylesheet_link_tag    "master" %>
-  <%= stylesheet_link_tag    "ajaxful_rating.css", "fullcalendar.css", "jquery-ui-1.8.16.custom.css", "jquery.qtip.min.css", "jquery.fancybox-1.3.4.css" %>
+  <%= stylesheet_link_tag    "ajaxful_rating.css", "fullcalendar.css", "jquery-ui-1.8.16.custom.css", "jquery.qtip.min.css", "jquery.fancybox-1.3.4.css", "jquery.uniform.css" %>
   <%= yield :head %>
   <%= javascript_include_tag "application" %>
   
@@ -12,11 +12,8 @@
 <body id="<%= @body_id %>">
 
 <div id="content">
-  <%= render :partial => "shared/header" %>
   <%= yield %>
 </div>
-
-<%= render :partial => "shared/overlay_and_alert" %>
 
 <%= render :partial => "shared/footer" %>
 

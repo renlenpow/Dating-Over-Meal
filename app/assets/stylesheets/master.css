@@ -358,6 +358,8 @@ div.alert-message {
     width: 188px;
     display: block;
     margin: 20px auto 40px; }
+#home #auth_header {
+  display: none; }
 
 #random_places {
   width: 1000px;
@@ -435,26 +437,29 @@ div.alert-message {
           #auth_header #middle_section #nav ul li > a img {
             height: 24px;
             max-width: 24px; }
-        #auth_header #middle_section #nav ul li .leaf_menu {
+        #auth_header #middle_section #nav ul li .leaf_menu_wrapper {
           display: none;
           position: absolute;
           width: 120px;
-          top: 56px;
-          left: -31px;
-          text-align: left;
-          border-radius: 5px;
-          background: #333;
-          box-shadow: 0px 5px 5px -1px #777777;
-          z-index: 200;
-          border: 2px solid #fff; }
-          #auth_header #middle_section #nav ul li .leaf_menu a {
-            padding: 8px 12px;
-            display: block;
-            border-bottom: 1px solid #565656;
-            color: #808080;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #444; }
-        #auth_header #middle_section #nav ul li:hover .leaf_menu {
+          top: 52px;
+          left: -32px;
+          background: url(/assets/arrow_tip.png) no-repeat 49px 0;
+          padding-top: 5px; }
+          #auth_header #middle_section #nav ul li .leaf_menu_wrapper .leaf_menu {
+            text-align: left;
+            border-radius: 5px;
+            background: #fff;
+            box-shadow: 0px 5px 5px -1px #777777;
+            z-index: 200;
+            border: 3px solid #333; }
+            #auth_header #middle_section #nav ul li .leaf_menu_wrapper .leaf_menu a {
+              padding: 8px 12px;
+              display: block;
+              color: #777;
+              border-bottom: 1px dotted #ccc; }
+              #auth_header #middle_section #nav ul li .leaf_menu_wrapper .leaf_menu a:hover {
+                background: #eee; }
+        #auth_header #middle_section #nav ul li:hover .leaf_menu_wrapper {
           display: block; }
       #auth_header #middle_section #nav ul li.current {
         background: #ffe57f url(/assets/shine.png) no-repeat bottom center;
@@ -473,6 +478,11 @@ div.alert-message {
     float: left;
     height: 47px;
     margin-top: 8px; }
+
+.arrow_tip {
+  height: 4px;
+  text-align: center;
+  overflow: hidden; }
 
 #stage {
   width: 998px;
