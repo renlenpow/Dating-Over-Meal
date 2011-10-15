@@ -1,24 +1,43 @@
-#map_container {
-  padding: 6px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #ccc #ccc #999 #ccc;
-  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-  width: 800px;
-}
+/*
+Syntax error: Inconsistent indentation: 3 spaces were used for indentation, but the rest of the document was indented using 2 spaces.
+        on line 18 of gmaps4rails.css
 
-#gmaps4rails_map {
-  width: 800px;
-  height: 400px;
-}
+13:   width: 800px;
+14:   height: 400px;
+15: }
+16: 
+17: .bing_map {
+18:    position: absolute;
+19:    top: 20;
+20:    left: 10;
+21:    width: 400px;
+22:    height: 400px;
+23:    border:#555555 2px solid;
 
-.bing_map {
-   position: absolute;
-   top: 20;
-   left: 10;
-   width: 400px;
-   height: 400px;
-   border:#555555 2px solid;
-}
+Backtrace:
+gmaps4rails.css:18
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/engine.rb:402:in `block in tabulate'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/engine.rb:360:in `each'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/engine.rb:360:in `each_with_index'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/engine.rb:360:in `tabulate'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/engine.rb:323:in `_to_tree'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/engine.rb:293:in `_render'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/engine.rb:240:in `render'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/plugin/compiler.rb:319:in `update_stylesheet'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/plugin/compiler.rb:169:in `block in update_stylesheets'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/plugin/compiler.rb:167:in `each'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/plugin/compiler.rb:167:in `update_stylesheets'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/plugin/compiler.rb:214:in `watch'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/plugin.rb:111:in `method_missing'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/exec.rb:408:in `watch_or_update'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/exec.rb:294:in `process_result'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/exec.rb:41:in `parse'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/lib/sass/exec.rb:21:in `parse!'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/gems/sass-3.1.7/bin/sass:8:in `<top (required)>'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/bin/sass:19:in `load'
+/Users/trivuong/.rvm/gems/ruby-1.9.2-p290/bin/sass:19:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Inconsistent indentation: 3 spaces were used for indentation, but the rest of the document was indented using 2 spaces.\A         on line 18 of gmaps4rails.css\A \A 13:   width: 800px;\A 14:   height: 400px;\A 15: }\A 16: \A 17: .bing_map {\A 18:    position: absolute;\A 19:    top: 20;\A 20:    left: 10;\A 21:    width: 400px;\A 22:    height: 400px;\A 23:    border:#555555 2px solid;"; }

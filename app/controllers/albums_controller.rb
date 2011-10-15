@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
   
   before_filter :authenticate_user!, :only => [:new, :edit, :destroy]
-  before_filter :find_album, :only => [:edit, :upload_photos, :show, :destroy]
+  before_filter :find_album, :only => [:edit, :update, :upload_photos, :show, :destroy]
   before_filter :manipulatable?, :only => [:edit, :destroy]
   
   def index
@@ -28,6 +28,11 @@ class AlbumsController < ApplicationController
   end
   
   def update
+    if @album.update_attributes(params[:album])
+      render :json => {:success => -1, :message => "Album has been updated"}
+    else
+      render :json => {:success => 1, :message => "An error occured. Album was not updated"}
+    end
   end
   
   def show

@@ -27,7 +27,8 @@
             = f.label :description
             = f.text_area :description, :class => :textbox
           
-      .button_container
-        = f.submit :value => "I'm set. Let's rock and roll", :class => :action_button
+          .form_row
+            %label
+            = f.submit :value => "I'm set. Let's rock and roll", :class => :action_button
         
     .clearfloat

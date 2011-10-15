@@ -1,0 +1,37 @@
+- @title_for_layout = "Add video"
+- @body_class = "videos"
+- @body_id = "videos"
+
+%h1.page_header= @title_for_layout
+
+= form_for @video, :html => {:class => :zigzag_form} do |f|
+
+  = render :partial => "shared/form_errors", :locals => {:target => @video, :f => f}
+
+  #stage
+  
+    #left
+  
+    #right
+    
+      .box
+        %h2.header Video
+        .content
+          
+          .form_row
+            = f.label :title
+            = f.text_field :title, :class => :textbox
+              
+          .form_row
+            = f.label :description
+            = f.text_field :description, :class => :textbox
+            
+          .form_row
+            = f.label :location
+            = f.text_field :location, :class => :textbox
+            
+          .form_row
+            %label
+            = f.submit :value => "Create", :class => :action_button
+  
+    .clearfloat
