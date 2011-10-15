@@ -443,6 +443,7 @@ div.alert-message {
           width: 120px;
           top: 52px;
           left: -32px;
+          z-index: 300;
           background: url(/assets/arrow_tip.png) no-repeat 49px 0;
           padding-top: 5px; }
           #auth_header #middle_section #nav ul li .leaf_menu_wrapper .leaf_menu {
